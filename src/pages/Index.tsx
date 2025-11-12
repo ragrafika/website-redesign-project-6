@@ -1,12 +1,338 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const Index = () => {
+  const services = [
+    {
+      icon: "Store",
+      title: "Вывески и световые короба",
+      description: "Объёмные буквы, светодиодные вывески, брендирование фасадов"
+    },
+    {
+      icon: "Home",
+      title: "Интерьерная реклама",
+      description: "Оформление офисов, навигация, информационные стенды"
+    },
+    {
+      icon: "Truck",
+      title: "Брендирование транспорта",
+      description: "Полная или частичная оклейка авто виниловой плёнкой"
+    },
+    {
+      icon: "Flag",
+      title: "Баннеры и штендеры",
+      description: "Широкоформатная печать, мобильные рекламные конструкции"
+    },
+    {
+      icon: "Image",
+      title: "Печать и дизайн",
+      description: "Листовки, визитки, наклейки, разработка фирменного стиля"
+    },
+    {
+      icon: "Globe",
+      title: "Промо-продукция",
+      description: "Сувенирная продукция с логотипом, рекламные материалы"
+    }
+  ];
+
+  const advantages = [
+    { number: "15+", text: "лет на рынке" },
+    { number: "2000+", text: "реализованных проектов" },
+    { number: "24/7", text: "поддержка клиентов" },
+    { number: "100%", text: "гарантия качества" }
+  ];
+
+  const portfolio = [
+    {
+      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/585498f1-0e0e-42aa-bad0-d53f39b49795.jpg",
+      title: "Наружная реклама"
+    },
+    {
+      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/581fbe6f-8749-4925-b672-73253bfe421b.jpg",
+      title: "Интерьерное оформление"
+    },
+    {
+      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/b64b13f1-c8fe-4b6b-a8f8-34194b120fdf.jpg",
+      title: "Брендирование авто"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Анна Петрова",
+      company: "ООО «Рестораны»",
+      text: "Заказывали вывеску для нового ресторана. Работа выполнена качественно и в срок. Довольны результатом!",
+      rating: 5
+    },
+    {
+      name: "Игорь Смирнов",
+      company: "Автосервис «Мастер»",
+      text: "Отличная команда! Сделали брендирование всех наших машин. Выглядит профессионально.",
+      rating: 5
+    },
+    {
+      name: "Мария Волкова",
+      company: "Салон красоты «Шарм»",
+      text: "Обратились за комплексным оформлением салона. Превзошли ожидания! Рекомендую.",
+      rating: 5
+    }
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen">
+      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Icon name="Zap" size={28} className="text-primary" />
+            <span className="text-2xl font-bold text-secondary">Графика</span>
+          </div>
+          <nav className="hidden md:flex gap-8">
+            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Услуги</a>
+            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Портфолио</a>
+            <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors">Преимущества</a>
+            <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">Отзывы</a>
+            <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
+          </nav>
+          <Button size="lg">
+            <Icon name="Phone" size={18} className="mr-2" />
+            Позвонить
+          </Button>
+        </div>
+      </header>
+
+      <section className="pt-32 pb-20 bg-gradient-to-br from-secondary via-secondary/95 to-primary/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Реклама, которая работает на вас
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-white/90">
+              Изготовление и монтаж наружной и интерьерной рекламы в Благовещенске
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-secondary hover:bg-white/90 text-lg px-8 py-6">
+                Рассчитать стоимость
+              </Button>
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-lg px-8 py-6">
+                <Icon name="Play" size={20} className="mr-2" />
+                Смотреть портфолио
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Полный спектр рекламных услуг для вашего бизнеса
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary"
+              >
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Icon name={service.icon} size={32} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Портфолио</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Примеры наших работ
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {portfolio.map((item, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
+              >
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-white text-xl font-bold">{item.title}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="advantages" className="py-20 bg-secondary text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {advantages.map((adv, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl md:text-6xl font-bold text-primary mb-3">{adv.number}</div>
+                <div className="text-lg text-white/90">{adv.text}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="Award" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Профессионализм</h3>
+                <p className="text-white/80">Опытные специалисты с портфолио более 2000 проектов</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="Clock" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Точные сроки</h3>
+                <p className="text-white/80">Выполняем заказы в оговоренные сроки без задержек</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="Shield" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Гарантия</h3>
+                <p className="text-white/80">Предоставляем официальную гарантию на все работы</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Что говорят о нас наши клиенты
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-8">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
+                  <div>
+                    <div className="font-bold">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
+              <p className="text-lg text-muted-foreground">
+                Оставьте заявку и мы свяжемся с вами в ближайшее время
+              </p>
+            </div>
+            <Card>
+              <CardContent className="p-8">
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                      <Input placeholder="Иван Иванов" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Телефон</label>
+                      <Input placeholder="+7 (999) 123-45-67" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <Input type="email" placeholder="example@mail.ru" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Сообщение</label>
+                    <Textarea placeholder="Расскажите о вашем проекте..." rows={5} />
+                  </div>
+                  <Button size="lg" className="w-full">
+                    Отправить заявку
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+            <div className="grid md:grid-cols-3 gap-8 mt-12">
+              <div className="text-center">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Phone" size={24} className="text-primary" />
+                </div>
+                <h3 className="font-bold mb-2">Телефон</h3>
+                <p className="text-muted-foreground">+7 (4162) 123-456</p>
+              </div>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Mail" size={24} className="text-primary" />
+                </div>
+                <h3 className="font-bold mb-2">Email</h3>
+                <p className="text-muted-foreground">info@ragrafika.ru</p>
+              </div>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Icon name="MapPin" size={24} className="text-primary" />
+                </div>
+                <h3 className="font-bold mb-2">Адрес</h3>
+                <p className="text-muted-foreground">г. Благовещенск</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-secondary text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <Icon name="Zap" size={24} className="text-primary" />
+              <span className="text-xl font-bold">Графика</span>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-white/80">© 2024 Рекламное агентство «Графика»</p>
+              <p className="text-white/60 text-sm mt-1">Все права защищены</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
