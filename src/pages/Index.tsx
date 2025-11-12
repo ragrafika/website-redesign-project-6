@@ -27,36 +27,48 @@ const Index = () => {
       description: "Широкоформатная печать, мобильные рекламные конструкции"
     },
     {
-      icon: "Image",
-      title: "Печать и дизайн",
-      description: "Листовки, визитки, наклейки, разработка фирменного стиля"
+      icon: "PenTool",
+      title: "Разработка дизайна",
+      description: "Создание макетов, фирменный стиль, 3D-визуализация"
     },
     {
-      icon: "Globe",
-      title: "Промо-продукция",
-      description: "Сувенирная продукция с логотипом, рекламные материалы"
+      icon: "Wrench",
+      title: "Монтаж и установка",
+      description: "Профессиональный монтаж конструкций любой сложности"
     }
   ];
 
   const advantages = [
     { number: "15+", text: "лет на рынке" },
     { number: "2000+", text: "реализованных проектов" },
-    { number: "24/7", text: "поддержка клиентов" },
-    { number: "100%", text: "гарантия качества" }
+    { number: "До 3 лет", text: "гарантия на продукцию" },
+    { number: "100%", text: "качество работ" }
   ];
 
   const portfolio = [
     {
-      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/585498f1-0e0e-42aa-bad0-d53f39b49795.jpg",
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/1.jpg",
+      title: "Вывески и световые короба"
+    },
+    {
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/IMG_8845.jpg",
       title: "Наружная реклама"
     },
     {
-      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/581fbe6f-8749-4925-b672-73253bfe421b.jpg",
-      title: "Интерьерное оформление"
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/P1080261.jpg",
+      title: "Брендирование транспорта"
     },
     {
-      image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/b64b13f1-c8fe-4b6b-a8f8-34194b120fdf.jpg",
-      title: "Брендирование авто"
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/P1080291.jpg",
+      title: "Объёмные буквы"
+    },
+    {
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/DSC_0017.jpg",
+      title: "Интерьерная реклама"
+    },
+    {
+      image: "http://www.ragrafika.ru/wp-content/uploads/2018/12/IMG_9049.jpg",
+      title: "Баннеры и вывески"
     }
   ];
 
@@ -85,8 +97,10 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Icon name="Zap" size={28} className="text-primary" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">Г</span>
+            </div>
             <span className="text-2xl font-bold text-secondary">Графика</span>
           </div>
           <nav className="hidden md:flex gap-8">
@@ -160,7 +174,7 @@ const Index = () => {
               Примеры наших работ
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
             {portfolio.map((item, index) => (
               <div 
                 key={index} 
@@ -323,7 +337,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <Icon name="Zap" size={24} className="text-primary" />
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">Г</span>
+              </div>
               <span className="text-xl font-bold">Графика</span>
             </div>
             <div className="text-center md:text-right">
