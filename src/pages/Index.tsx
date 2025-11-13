@@ -100,11 +100,12 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">Г</span>
-            </div>
-            <span className="text-2xl font-bold text-secondary">Графика</span>
+          <div className="flex items-center">
+            <img 
+              src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
+              alt="Графика" 
+              className="h-12 w-auto"
+            />
           </div>
           <nav className="hidden md:flex gap-8">
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Услуги</a>
@@ -391,11 +392,12 @@ const Index = () => {
       <footer className="bg-secondary text-white py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">Г</span>
-              </div>
-              <span className="text-xl font-bold">Графика</span>
+            <div className="flex items-center mb-4 md:mb-0">
+              <img 
+                src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
+                alt="Графика" 
+                className="h-10 w-auto"
+              />
             </div>
             <div className="text-center md:text-right">
               <p className="text-white/80">© 2024 Рекламное агентство «Графика»</p>
