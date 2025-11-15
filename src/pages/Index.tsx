@@ -18,6 +18,13 @@ const Index = () => {
   const [calcLighting, setCalcLighting] = useState<boolean>(true);
   const [calcInstallation, setCalcInstallation] = useState<boolean>(true);
   
+  const [standWidth, setStandWidth] = useState<string>("");
+  const [standHeight, setStandHeight] = useState<string>("");
+  const [standThickness, setStandThickness] = useState<string>("3");
+  const [standPockets, setStandPockets] = useState<string>("1");
+  const [standPrinting, setStandPrinting] = useState<boolean>(true);
+  const [standMounting, setStandMounting] = useState<boolean>(false);
+  
   const pricePerSqm = 15000;
   const materialCoefficients: Record<string, number> = {
     "акрил": 1.0,
@@ -46,6 +53,34 @@ const Index = () => {
     
     if (calcLighting) price += area * 2000;
     if (calcInstallation) price += area * 1500;
+    
+    return Math.round(price);
+  };
+  
+  const calculateStandPrice = () => {
+    const width = parseFloat(standWidth);
+    const height = parseFloat(standHeight);
+    const thickness = parseFloat(standThickness);
+    const pockets = parseInt(standPockets);
+    
+    if (!width || !height || width <= 0 || height <= 0) return 0;
+    
+    const area = width * height;
+    const basePricePerSqm = 3500;
+    
+    const thicknessCoefficients: Record<number, number> = {
+      3: 1.0,
+      5: 1.3,
+      10: 1.6
+    };
+    
+    let price = area * basePricePerSqm;
+    price *= thicknessCoefficients[thickness] || 1.0;
+    
+    if (standPrinting) price += area * 800;
+    if (standMounting) price += 1000;
+    
+    price += pockets * 500;
     
     return Math.round(price);
   };
@@ -338,7 +373,140 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькулятор информационных стендов</h2>
+              <p className="text-lg text-muted-foreground">
+                Рассчитайте стоимость стенда из ПВХ
+              </p>
+            </div>
+            <Card className="shadow-xl">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Ширина (метры)</label>
+                      <Input 
+                        type="number" 
+                        placeholder="1.2" 
+                        value={standWidth}
+                        onChange={(e) => setStandWidth(e.target.value)}
+                        min="0"
+                        step="0.1"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Высота (метры)</label>
+                      <Input 
+                        type="number" 
+                        placeholder="0.8" 
+                        value={standHeight}
+                        onChange={(e) => setStandHeight(e.target.value)}
+                        min="0"
+                        step="0.1"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Толщина ПВХ (мм)</label>
+                      <Select value={standThickness} onValueChange={setStandThickness}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="3">3 мм</SelectItem>
+                          <SelectItem value="5">5 мм</SelectItem>
+                          <SelectItem value="10">10 мм</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Количество карманов А4</label>
+                      <Select value={standPockets} onValueChange={setStandPockets}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">1 карман</SelectItem>
+                          <SelectItem value="2">2 кармана</SelectItem>
+                          <SelectItem value="3">3 кармана</SelectItem>
+                          <SelectItem value="4">4 кармана</SelectItem>
+                          <SelectItem value="6">6 карманов</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="printing" 
+                          checked={standPrinting}
+                          onCheckedChange={(checked) => setStandPrinting(checked as boolean)}
+                        />
+                        <label htmlFor="printing" className="text-sm font-medium cursor-pointer">
+                          Печать изображения
+                        </label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="mounting" 
+                          checked={standMounting}
+                          onCheckedChange={(checked) => setStandMounting(checked as boolean)}
+                        />
+                        <label htmlFor="mounting" className="text-sm font-medium cursor-pointer">
+                          Настенное крепление
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8">
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Примерная стоимость</p>
+                      <p className="text-5xl font-bold text-primary mb-4">
+                        {calculateStandPrice().toLocaleString('ru-RU')} ₽
+                      </p>
+                      <p className="text-xs text-muted-foreground mb-6">
+                        Площадь: {standWidth && standHeight ? (parseFloat(standWidth) * parseFloat(standHeight)).toFixed(2) : '0'} м²
+                      </p>
+                      <div className="space-y-2 text-sm text-left bg-white/50 rounded-lg p-4">
+                        <p className="flex justify-between">
+                          <span>Базовая цена ПВХ:</span>
+                          <span className="font-medium">3 500 ₽/м²</span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Толщина {standThickness} мм:</span>
+                          <span className="font-medium">×{(parseFloat(standThickness) === 3 ? 1.0 : parseFloat(standThickness) === 5 ? 1.3 : 1.6)}</span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Карманы ({standPockets} шт):</span>
+                          <span className="font-medium">+{parseInt(standPockets) * 500} ₽</span>
+                        </p>
+                        {standPrinting && (
+                          <p className="flex justify-between">
+                            <span>Печать:</span>
+                            <span className="font-medium">+800 ₽/м²</span>
+                          </p>
+                        )}
+                        {standMounting && (
+                          <p className="flex justify-between">
+                            <span>Крепление:</span>
+                            <span className="font-medium">+1 000 ₽</span>
+                          </p>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-4">
+                        * Точная стоимость рассчитывается индивидуально
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
