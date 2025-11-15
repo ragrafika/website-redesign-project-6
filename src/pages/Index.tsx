@@ -5,9 +5,50 @@ import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const [calcWidth, setCalcWidth] = useState<string>("");
+  const [calcHeight, setCalcHeight] = useState<string>("");
+  const [calcType, setCalcType] = useState<string>("световой-короб");
+  const [calcMaterial, setCalcMaterial] = useState<string>("акрил");
+  const [calcLighting, setCalcLighting] = useState<boolean>(true);
+  const [calcInstallation, setCalcInstallation] = useState<boolean>(true);
+  
+  const pricePerSqm = 15000;
+  const materialCoefficients: Record<string, number> = {
+    "акрил": 1.0,
+    "композит": 1.2,
+    "пвх": 0.8,
+    "металл": 1.5
+  };
+  const typeCoefficients: Record<string, number> = {
+    "световой-короб": 1.0,
+    "объемные-буквы": 1.3,
+    "плоская-вывеска": 0.7,
+    "неоновая": 1.8
+  };
+  
+  const calculatePrice = () => {
+    const width = parseFloat(calcWidth);
+    const height = parseFloat(calcHeight);
+    
+    if (!width || !height || width <= 0 || height <= 0) return 0;
+    
+    const area = width * height;
+    let price = area * pricePerSqm;
+    
+    price *= materialCoefficients[calcMaterial] || 1.0;
+    price *= typeCoefficients[calcType] || 1.0;
+    
+    if (calcLighting) price += area * 2000;
+    if (calcInstallation) price += area * 1500;
+    
+    return Math.round(price);
+  };
   const services = [
     {
       icon: "Store",
@@ -322,6 +363,139 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькулятор стоимости вывески</h2>
+              <p className="text-lg text-muted-foreground">
+                Рассчитайте примерную стоимость вашей вывески онлайн
+              </p>
+            </div>
+            <Card className="shadow-xl">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Ширина (метры)</label>
+                      <Input 
+                        type="number" 
+                        placeholder="2.5" 
+                        value={calcWidth}
+                        onChange={(e) => setCalcWidth(e.target.value)}
+                        min="0"
+                        step="0.1"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Высота (метры)</label>
+                      <Input 
+                        type="number" 
+                        placeholder="1.5" 
+                        value={calcHeight}
+                        onChange={(e) => setCalcHeight(e.target.value)}
+                        min="0"
+                        step="0.1"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Тип вывески</label>
+                      <Select value={calcType} onValueChange={setCalcType}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="световой-короб">Световой короб</SelectItem>
+                          <SelectItem value="объемные-буквы">Объёмные буквы</SelectItem>
+                          <SelectItem value="плоская-вывеска">Плоская вывеска</SelectItem>
+                          <SelectItem value="неоновая">Неоновая вывеска</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Материал</label>
+                      <Select value={calcMaterial} onValueChange={setCalcMaterial}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="акрил">Акрил</SelectItem>
+                          <SelectItem value="композит">Композит</SelectItem>
+                          <SelectItem value="пвх">ПВХ</SelectItem>
+                          <SelectItem value="металл">Металл</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="lighting" 
+                          checked={calcLighting}
+                          onCheckedChange={(checked) => setCalcLighting(checked as boolean)}
+                        />
+                        <label htmlFor="lighting" className="text-sm font-medium cursor-pointer">
+                          Светодиодная подсветка
+                        </label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="installation" 
+                          checked={calcInstallation}
+                          onCheckedChange={(checked) => setCalcInstallation(checked as boolean)}
+                        />
+                        <label htmlFor="installation" className="text-sm font-medium cursor-pointer">
+                          Монтаж и установка
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8">
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Примерная стоимость</p>
+                      <p className="text-5xl font-bold text-primary mb-4">
+                        {calculatePrice().toLocaleString('ru-RU')} ₽
+                      </p>
+                      <p className="text-xs text-muted-foreground mb-6">
+                        Площадь: {calcWidth && calcHeight ? (parseFloat(calcWidth) * parseFloat(calcHeight)).toFixed(2) : '0'} м²
+                      </p>
+                      <div className="space-y-2 text-sm text-left bg-white/50 rounded-lg p-4">
+                        <p className="flex justify-between">
+                          <span>Базовая цена:</span>
+                          <span className="font-medium">15 000 ₽/м²</span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Коэффициент материала:</span>
+                          <span className="font-medium">×{materialCoefficients[calcMaterial]}</span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Коэффициент типа:</span>
+                          <span className="font-medium">×{typeCoefficients[calcType]}</span>
+                        </p>
+                        {calcLighting && (
+                          <p className="flex justify-between">
+                            <span>Подсветка:</span>
+                            <span className="font-medium">+2 000 ₽/м²</span>
+                          </p>
+                        )}
+                        {calcInstallation && (
+                          <p className="flex justify-between">
+                            <span>Монтаж:</span>
+                            <span className="font-medium">+1 500 ₽/м²</span>
+                          </p>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-4">
+                        * Точная стоимость рассчитывается индивидуально
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
