@@ -25,6 +25,12 @@ const Index = () => {
   const [standPrinting, setStandPrinting] = useState<boolean>(true);
   const [standMounting, setStandMounting] = useState<boolean>(false);
   
+  const [vehicleType, setVehicleType] = useState<string>("легковой");
+  const [brandingType, setBrandingType] = useState<string>("полная-оклейка");
+  const [filmType, setFilmType] = useState<string>("каландрированная");
+  const [vehicleDesign, setVehicleDesign] = useState<boolean>(true);
+  const [vehicleLamination, setVehicleLamination] = useState<boolean>(true);
+  
   const pricePerSqm = 15000;
   const materialCoefficients: Record<string, number> = {
     "акрил": 1.0,
@@ -81,6 +87,42 @@ const Index = () => {
     if (standMounting) price += 1000;
     
     price += pockets * 500;
+    
+    return Math.round(price);
+  };
+  
+  const calculateVehiclePrice = () => {
+    const vehicleBaseAreas: Record<string, number> = {
+      "легковой": 15,
+      "кроссовер": 20,
+      "минивэн": 25,
+      "грузовой": 40,
+      "автобус": 60
+    };
+    
+    const brandingCoefficients: Record<string, number> = {
+      "полная-оклейка": 1.0,
+      "частичная-оклейка": 0.5,
+      "только-логотип": 0.2,
+      "рекламный-борт": 0.4
+    };
+    
+    const filmPrices: Record<string, number> = {
+      "каландрированная": 1200,
+      "литая": 1800,
+      "премиум": 2500
+    };
+    
+    const area = vehicleBaseAreas[vehicleType] || 15;
+    const coverage = brandingCoefficients[brandingType] || 1.0;
+    const effectiveArea = area * coverage;
+    
+    let price = effectiveArea * filmPrices[filmType];
+    
+    price += effectiveArea * 800;
+    
+    if (vehicleDesign) price += 5000;
+    if (vehicleLamination) price += effectiveArea * 400;
     
     return Math.round(price);
   };
@@ -506,7 +548,148 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькулятор брендирования транспорта</h2>
+              <p className="text-lg text-muted-foreground">
+                Рассчитайте стоимость оклейки автомобиля виниловой плёнкой
+              </p>
+            </div>
+            <Card className="shadow-xl">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Тип транспорта</label>
+                      <Select value={vehicleType} onValueChange={setVehicleType}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="легковой">Легковой автомобиль</SelectItem>
+                          <SelectItem value="кроссовер">Кроссовер / Внедорожник</SelectItem>
+                          <SelectItem value="минивэн">Минивэн</SelectItem>
+                          <SelectItem value="грузовой">Грузовой автомобиль</SelectItem>
+                          <SelectItem value="автобус">Автобус</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Тип брендирования</label>
+                      <Select value={brandingType} onValueChange={setBrandingType}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="полная-оклейка">Полная оклейка</SelectItem>
+                          <SelectItem value="частичная-оклейка">Частичная оклейка</SelectItem>
+                          <SelectItem value="только-логотип">Только логотип</SelectItem>
+                          <SelectItem value="рекламный-борт">Рекламный борт</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Тип плёнки</label>
+                      <Select value={filmType} onValueChange={setFilmType}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="каландрированная">Каландрированная (3-5 лет)</SelectItem>
+                          <SelectItem value="литая">Литая (5-7 лет)</SelectItem>
+                          <SelectItem value="премиум">Премиум (7-10 лет)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="vehicle-design" 
+                          checked={vehicleDesign}
+                          onCheckedChange={(checked) => setVehicleDesign(checked as boolean)}
+                        />
+                        <label htmlFor="vehicle-design" className="text-sm font-medium cursor-pointer">
+                          Разработка дизайна макета
+                        </label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Checkbox 
+                          id="vehicle-lamination" 
+                          checked={vehicleLamination}
+                          onCheckedChange={(checked) => setVehicleLamination(checked as boolean)}
+                        />
+                        <label htmlFor="vehicle-lamination" className="text-sm font-medium cursor-pointer">
+                          Ламинация (защитный слой)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8">
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Примерная стоимость</p>
+                      <p className="text-5xl font-bold text-primary mb-4">
+                        {calculateVehiclePrice().toLocaleString('ru-RU')} ₽
+                      </p>
+                      <div className="space-y-2 text-sm text-left bg-white/50 rounded-lg p-4 mb-6">
+                        <p className="flex justify-between">
+                          <span>Тип транспорта:</span>
+                          <span className="font-medium">
+                            {vehicleType === 'легковой' && '15 м²'}
+                            {vehicleType === 'кроссовер' && '20 м²'}
+                            {vehicleType === 'минивэн' && '25 м²'}
+                            {vehicleType === 'грузовой' && '40 м²'}
+                            {vehicleType === 'автобус' && '60 м²'}
+                          </span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Тип оклейки:</span>
+                          <span className="font-medium">
+                            {brandingType === 'полная-оклейка' && '100%'}
+                            {brandingType === 'частичная-оклейка' && '50%'}
+                            {brandingType === 'только-логотип' && '20%'}
+                            {brandingType === 'рекламный-борт' && '40%'}
+                          </span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Плёнка:</span>
+                          <span className="font-medium">
+                            {filmType === 'каландрированная' && '1 200 ₽/м²'}
+                            {filmType === 'литая' && '1 800 ₽/м²'}
+                            {filmType === 'премиум' && '2 500 ₽/м²'}
+                          </span>
+                        </p>
+                        <p className="flex justify-between">
+                          <span>Работа:</span>
+                          <span className="font-medium">+800 ₽/м²</span>
+                        </p>
+                        {vehicleDesign && (
+                          <p className="flex justify-between">
+                            <span>Дизайн:</span>
+                            <span className="font-medium">+5 000 ₽</span>
+                          </p>
+                        )}
+                        {vehicleLamination && (
+                          <p className="flex justify-between">
+                            <span>Ламинация:</span>
+                            <span className="font-medium">+400 ₽/м²</span>
+                          </p>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        * Точная стоимость рассчитывается индивидуально
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
