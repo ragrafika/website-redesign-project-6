@@ -464,41 +464,15 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center items-center bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8">
-                    <div className="text-center">
+                    <div className="text-center w-full">
                       <p className="text-sm text-muted-foreground mb-2">Примерная стоимость</p>
-                      <p className="text-5xl font-bold text-primary mb-4">
+                      <p className="text-6xl font-bold text-primary mb-8">
                         {calculateStandPrice().toLocaleString('ru-RU')} ₽
                       </p>
-                      <p className="text-xs text-muted-foreground mb-6">
+                      <p className="text-sm text-muted-foreground mb-4">
                         Площадь: {standWidth && standHeight ? (parseFloat(standWidth) * parseFloat(standHeight)).toFixed(2) : '0'} м²
                       </p>
-                      <div className="space-y-2 text-sm text-left bg-white/50 rounded-lg p-4">
-                        <p className="flex justify-between">
-                          <span>Базовая цена ПВХ:</span>
-                          <span className="font-medium">3 500 ₽/м²</span>
-                        </p>
-                        <p className="flex justify-between">
-                          <span>Толщина {standThickness} мм:</span>
-                          <span className="font-medium">×{(parseFloat(standThickness) === 3 ? 1.0 : parseFloat(standThickness) === 5 ? 1.3 : 1.6)}</span>
-                        </p>
-                        <p className="flex justify-between">
-                          <span>Карманы ({standPockets} шт):</span>
-                          <span className="font-medium">+{parseInt(standPockets) * 500} ₽</span>
-                        </p>
-                        {standPrinting && (
-                          <p className="flex justify-between">
-                            <span>Печать:</span>
-                            <span className="font-medium">+800 ₽/м²</span>
-                          </p>
-                        )}
-                        {standMounting && (
-                          <p className="flex justify-between">
-                            <span>Крепление:</span>
-                            <span className="font-medium">+1 000 ₽</span>
-                          </p>
-                        )}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-4">
+                      <p className="text-xs text-muted-foreground">
                         * Точная стоимость рассчитывается индивидуально
                       </p>
                     </div>
