@@ -60,6 +60,61 @@ const BannerCalculator = () => {
     return align;
   };
 
+  const downloadMockup = () => {
+    if (!canvasRef.current) return;
+
+    const canvas = document.createElement('canvas');
+    const w = parseFloat(width) || 800;
+    const h = parseFloat(height) || 600;
+    const scale = 3;
+    
+    canvas.width = w * scale;
+    canvas.height = h * scale;
+    
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = textColor;
+    ctx.font = `${parseInt(fontSize) * scale}px ${fontFamily}`;
+    ctx.textBaseline = verticalAlign === 'top' ? 'top' : verticalAlign === 'bottom' ? 'bottom' : 'middle';
+    
+    let textX = 0;
+    if (textAlign === 'center') {
+      ctx.textAlign = 'center';
+      textX = canvas.width / 2;
+    } else if (textAlign === 'right') {
+      ctx.textAlign = 'right';
+      textX = canvas.width - 60 * scale;
+    } else {
+      ctx.textAlign = 'left';
+      textX = 60 * scale;
+    }
+
+    let textY = 0;
+    if (verticalAlign === 'top') {
+      textY = 60 * scale;
+    } else if (verticalAlign === 'bottom') {
+      textY = canvas.height - 60 * scale;
+    } else {
+      textY = canvas.height / 2;
+    }
+
+    ctx.fillText(text, textX, textY);
+
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.download = `banner-mockup-${w}x${h}.png`;
+      link.href = url;
+      link.click();
+      URL.revokeObjectURL(url);
+    }, 'image/png');
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -339,6 +394,15 @@ const BannerCalculator = () => {
                         {text}
                       </p>
                     </div>
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="w-full mt-4"
+                      onClick={downloadMockup}
+                    >
+                      <Icon name="Download" size={18} className="mr-2" />
+                      Скачать макет (PNG)
+                    </Button>
                   </div>
                 </div>
               </CardContent>
