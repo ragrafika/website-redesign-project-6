@@ -257,6 +257,11 @@ const BannerCalculator = () => {
                     <Input 
                       value={text}
                       onChange={(e) => setText(e.target.value)}
+                      onFocus={(e) => {
+                        if (e.target.value === "Введите текст") {
+                          setText("");
+                        }
+                      }}
                       placeholder="Введите текст"
                     />
                   </div>
