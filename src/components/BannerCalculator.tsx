@@ -86,43 +86,50 @@ const BannerCalculator = () => {
 
     if (withGrommets) {
       const margin = 20 * scale;
-      const grommetsSpacing = 300;
+      const maxSpacing = 300 * scale;
       const grommetsRadius = 5 * scale;
       
-      ctx.fillStyle = '#666';
-      ctx.strokeStyle = '#999';
-      ctx.lineWidth = 2 * scale;
+      const drawGrommet = (x: number, y: number) => {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(x, y, grommetsRadius, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 1.5 * scale;
+        const crossSize = grommetsRadius * 1.2;
+        ctx.beginPath();
+        ctx.moveTo(x - crossSize, y);
+        ctx.lineTo(x + crossSize, y);
+        ctx.moveTo(x, y - crossSize);
+        ctx.lineTo(x, y + crossSize);
+        ctx.stroke();
+      };
       
-      const topBottomCount = Math.ceil(canvas.width / grommetsSpacing);
-      for (let i = 0; i < topBottomCount; i++) {
-        const x = margin + (i * grommetsSpacing);
-        if (x <= canvas.width - margin) {
-          ctx.beginPath();
-          ctx.arc(x, margin, grommetsRadius, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.stroke();
-          
-          ctx.beginPath();
-          ctx.arc(x, canvas.height - margin, grommetsRadius, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.stroke();
+      const distributeGrommets = (length: number) => {
+        const positions = [margin];
+        const availableLength = length - 2 * margin;
+        const minCount = Math.ceil(availableLength / maxSpacing) + 1;
+        const actualSpacing = availableLength / (minCount - 1);
+        
+        for (let i = 1; i < minCount - 1; i++) {
+          positions.push(margin + i * actualSpacing);
         }
-      }
+        positions.push(length - margin);
+        return positions;
+      };
       
-      const leftRightCount = Math.ceil(canvas.height / grommetsSpacing);
-      for (let i = 1; i < leftRightCount - 1; i++) {
-        const y = margin + (i * grommetsSpacing);
-        if (y <= canvas.height - margin) {
-          ctx.beginPath();
-          ctx.arc(margin, y, grommetsRadius, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.stroke();
-          
-          ctx.beginPath();
-          ctx.arc(canvas.width - margin, y, grommetsRadius, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.stroke();
-        }
+      const topBottomPositions = distributeGrommets(canvas.width);
+      const leftRightPositions = distributeGrommets(canvas.height);
+      
+      topBottomPositions.forEach(x => {
+        drawGrommet(x, margin);
+        drawGrommet(x, canvas.height - margin);
+      });
+      
+      for (let i = 1; i < leftRightPositions.length - 1; i++) {
+        drawGrommet(margin, leftRightPositions[i]);
+        drawGrommet(canvas.width - margin, leftRightPositions[i]);
       }
     }
 
@@ -393,32 +400,56 @@ const BannerCalculator = () => {
                         ...getAlignStyle()
                       }}
                     >
-                      {withGrommets && (
-                        <svg 
-                          className="absolute inset-0 w-full h-full pointer-events-none"
-                          style={{ padding: '20px' }}
-                        >
-                          {(() => {
-                            const svgWidth = canvasRef.current?.clientWidth || 800;
-                            const svgHeight = canvasRef.current?.clientHeight || 600;
-                            const margin = 20;
-                            const spacing = 100;
-                            const grommets = [];
-                            
-                            for (let x = margin; x <= svgWidth - margin - 40; x += spacing) {
-                              grommets.push(<circle key={`top-${x}`} cx={x} cy={margin} r="5" fill="#666" stroke="#999" strokeWidth="2" />);
-                              grommets.push(<circle key={`bottom-${x}`} cx={x} cy={svgHeight - margin - 40} r="5" fill="#666" stroke="#999" strokeWidth="2" />);
-                            }
-                            
-                            for (let y = margin + spacing; y <= svgHeight - margin - spacing - 40; y += spacing) {
-                              grommets.push(<circle key={`left-${y}`} cx={margin} cy={y} r="5" fill="#666" stroke="#999" strokeWidth="2" />);
-                              grommets.push(<circle key={`right-${y}`} cx={svgWidth - margin - 40} cy={y} r="5" fill="#666" stroke="#999" strokeWidth="2" />);
-                            }
-                            
-                            return grommets;
-                          })()}
-                        </svg>
-                      )}
+                      {withGrommets && (() => {
+                        const svgWidth = canvasRef.current?.clientWidth || 800;
+                        const svgHeight = canvasRef.current?.clientHeight || 600;
+                        const margin = 20;
+                        const maxSpacing = 100;
+                        const grommets = [];
+                        
+                        const distributeGrommets = (length: number) => {
+                          const positions = [margin];
+                          const availableLength = length - 2 * margin - 40;
+                          const minCount = Math.ceil(availableLength / maxSpacing) + 1;
+                          const actualSpacing = availableLength / (minCount - 1);
+                          
+                          for (let i = 1; i < minCount - 1; i++) {
+                            positions.push(margin + i * actualSpacing);
+                          }
+                          positions.push(length - margin - 40);
+                          return positions;
+                        };
+                        
+                        const drawGrommet = (x: number, y: number, key: string) => (
+                          <g key={key}>
+                            <circle cx={x} cy={y} r="5" fill="#FFFFFF" />
+                            <line x1={x - 6} y1={y} x2={x + 6} y2={y} stroke="#000000" strokeWidth="1.5" />
+                            <line x1={x} y1={y - 6} x2={x} y2={y + 6} stroke="#000000" strokeWidth="1.5" />
+                          </g>
+                        );
+                        
+                        const topBottomPositions = distributeGrommets(svgWidth);
+                        const leftRightPositions = distributeGrommets(svgHeight);
+                        
+                        topBottomPositions.forEach((x, i) => {
+                          grommets.push(drawGrommet(x, margin, `top-${i}`));
+                          grommets.push(drawGrommet(x, svgHeight - margin - 40, `bottom-${i}`));
+                        });
+                        
+                        for (let i = 1; i < leftRightPositions.length - 1; i++) {
+                          grommets.push(drawGrommet(margin, leftRightPositions[i], `left-${i}`));
+                          grommets.push(drawGrommet(svgWidth - margin - 40, leftRightPositions[i], `right-${i}`));
+                        }
+                        
+                        return (
+                          <svg 
+                            className="absolute inset-0 w-full h-full pointer-events-none"
+                            style={{ padding: '20px' }}
+                          >
+                            {grommets}
+                          </svg>
+                        );
+                      })()}
                       <p 
                         style={{
                           color: textColor,
