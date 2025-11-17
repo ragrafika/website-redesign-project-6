@@ -9,7 +9,7 @@ import Icon from "@/components/ui/icon";
 const BannerCalculator = () => {
   const [width, setWidth] = useState<string>("");
   const [height, setHeight] = useState<string>("");
-  const [bannerType, setBannerType] = useState<string>("standard");
+
   const [withGrommets, setWithGrommets] = useState<boolean>(true);
   
   const [text, setText] = useState<string>("Введите текст");
@@ -29,27 +29,7 @@ const BannerCalculator = () => {
     return (w * h) / 10000;
   };
 
-  const calculateGrommets = () => {
-    const w = parseFloat(width);
-    const h = parseFloat(height);
-    if (!w || !h || w <= 0 || h <= 0) return 0;
-    const perimeter = 2 * (w + h);
-    return Math.ceil(perimeter / 30);
-  };
 
-  const calculatePrice = () => {
-    const area = calculateArea();
-    if (area < 2) return 0;
-    
-    const pricePerSqm = bannerType === "standard" ? 350 : 550;
-    let total = area * pricePerSqm;
-    
-    if (withGrommets) {
-      total += calculateGrommets() * 35;
-    }
-    
-    return Math.round(total);
-  };
 
   const getAlignStyle = () => {
     const align: any = {
@@ -154,44 +134,37 @@ const BannerCalculator = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Тип баннера</label>
-                    <Select value={bannerType} onValueChange={setBannerType}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="standard">Стандарт (350 ₽/м²)</SelectItem>
-                        <SelectItem value="thick">Толстый (550 ₽/м²)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="grommets" 
-                      checked={withGrommets}
-                      onCheckedChange={(checked) => setWithGrommets(checked as boolean)}
-                    />
-                    <label htmlFor="grommets" className="text-sm font-medium cursor-pointer">
-                      Люверсы по периметру (35 ₽/шт, шаг 30 см)
-                    </label>
+                    <label className="block text-sm font-medium mb-3">Люверсы по периметру</label>
+                    <div className="bg-muted/30 rounded-xl p-4">
+                      <div className="flex items-start gap-4">
+                        <img 
+                          src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/58bc4c75-c28a-4749-8852-f6a438d451f8.jpg"
+                          alt="Пример люверса 10 мм"
+                          className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200"
+                        />
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <Checkbox 
+                              id="grommets" 
+                              checked={withGrommets}
+                              onCheckedChange={(checked) => setWithGrommets(checked as boolean)}
+                            />
+                            <label htmlFor="grommets" className="text-sm font-medium cursor-pointer">
+                              Установить люверсы 10 мм
+                            </label>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            Металлические кольца по периметру для удобного крепления баннера
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="bg-primary/5 rounded-xl p-6 space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Площадь:</span>
                       <span className="font-bold">{calculateArea().toFixed(2)} м²</span>
-                    </div>
-                    {withGrommets && (
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Люверсы:</span>
-                        <span className="font-bold">{calculateGrommets()} шт</span>
-                      </div>
-                    )}
-                    <div className="border-t pt-3 flex justify-between items-center">
-                      <span className="text-xl font-bold">Итого:</span>
-                      <span className="text-3xl font-bold text-primary">
-                        {calculatePrice().toLocaleString('ru-RU')} ₽
-                      </span>
                     </div>
                     {calculateArea() < 2 && calculateArea() > 0 && (
                       <p className="text-sm text-amber-600">
@@ -210,7 +183,7 @@ const BannerCalculator = () => {
                       const messageInput = document.querySelector('textarea[placeholder="Расскажите о вашем проекте"]') as HTMLTextAreaElement;
                       
                       if (messageInput) {
-                        const details = `Печать на баннере:\n- Размер: ${width}×${height} см (${calculateArea().toFixed(2)} м²)\n- Тип: ${bannerType === 'standard' ? 'Стандарт' : 'Толстый'}\n${withGrommets ? `- Люверсы: ${calculateGrommets()} шт\n` : ''}Текст макета: "${text}"\nЦвет фона: ${bgColor}\nЦвет текста: ${textColor}\n\nИтого: ${calculatePrice().toLocaleString('ru-RU')} ₽`;
+                        const details = `Печать на баннере:\n- Размер: ${width}×${height} см (${calculateArea().toFixed(2)} м²)\n${withGrommets ? '- Люверсы 10 мм: Да\n' : ''}Текст макета: "${text}"\nЦвет фона: ${bgColor}\nЦвет текста: ${textColor}`;
                         messageInput.value = details;
                       }
                       
