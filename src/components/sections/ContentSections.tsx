@@ -35,10 +35,10 @@ const services = [
 ];
 
 const advantages = [
-  { number: "15+", text: "лет на рынке" },
+  { number: "11+", text: "лет на рынке" },
+  { number: "До 36", text: "месяцев гарантия на продукцию" },
   { number: "2000+", text: "реализованных проектов" },
-  { number: "До 3 лет", text: "гарантия на продукцию" },
-  { number: "100%", text: "качество работ" }
+  { number: "Комплексное", text: "решение в реализации идей" }
 ];
 
 const portfolio = [
@@ -165,29 +165,29 @@ const ContentSections = () => {
           <div className="mt-16 grid md:grid-cols-3 gap-8">
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="Award" size={24} className="text-primary" />
+                <Icon name="CheckCircle2" size={24} className="text-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-2">Профессионализм</h3>
-                <p className="text-white/80">Опытные специалисты с портфолио более 2000 проектов</p>
+                <h3 className="font-bold text-lg mb-2">Согласуем вывеску</h3>
+                <p className="text-white/80">Поможем с согласованием и оформлением документов</p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="Clock" size={24} className="text-primary" />
+                <Icon name="Gift" size={24} className="text-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-2">Точные сроки</h3>
-                <p className="text-white/80">Выполняем заказы в оговоренные сроки без задержек</p>
+                <h3 className="font-bold text-lg mb-2">К вывеске подарим режим работы</h3>
+                <p className="text-white/80">Бесплатная табличка с режимом работы к каждой вывеске</p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="Shield" size={24} className="text-primary" />
+                <Icon name="Workflow" size={24} className="text-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-2">Гарантия</h3>
-                <p className="text-white/80">Предоставляем официальную гарантию на все работы</p>
+                <h3 className="font-bold text-lg mb-2">Разработаем → изготовим → смонтируем</h3>
+                <p className="text-white/80">Полный цикл работ от идеи до установки</p>
               </div>
             </div>
           </div>
