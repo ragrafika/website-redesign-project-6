@@ -36,7 +36,7 @@ const services = [
 
 const advantages = [
   { number: "11+", text: "лет на рынке" },
-  { number: "до 3-х лет", text: "гарантия на продукцию" },
+  { number: "3 года", text: "гарантия на продукцию" },
   { number: "2000+", text: "реализованных проектов" }
 ];
 
