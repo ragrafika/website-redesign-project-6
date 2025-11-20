@@ -93,26 +93,46 @@ const CalculatorSection = () => {
       "monospace": "Courier New, monospace"
     };
     
-    const pocketSizes: Record<string, { width: number; height: number }> = {
-      "A5": { width: (148 + 16) / 10, height: (210 + 8) / 10 },
-      "A4": { width: (210 + 16) / 10, height: (297 + 8) / 10 },
-      "A3": { width: (297 + 16) / 10, height: (420 + 8) / 10 },
-      "A2": { width: (420 + 16) / 10, height: (594 + 8) / 10 }
+    const pocketSizes: Record<string, { widthMm: number; heightMm: number }> = {
+      "A5": { widthMm: 148 + 16, heightMm: 210 + 8 },
+      "A4": { widthMm: 210 + 16, heightMm: 297 + 8 },
+      "A3": { widthMm: 297 + 16, heightMm: 420 + 8 },
+      "A2": { widthMm: 420 + 16, heightMm: 594 + 8 }
     };
     
     const pockets = [];
     
     for (let i = 0; i < parseInt(pocketsA5); i++) {
-      pockets.push({ format: "A5", ...pocketSizes["A5"] });
+      const pocket = pocketSizes["A5"];
+      pockets.push({ 
+        format: "A5", 
+        width: (pocket.widthMm / 10) * scale,
+        height: (pocket.heightMm / 10) * scale
+      });
     }
     for (let i = 0; i < parseInt(pocketsA4); i++) {
-      pockets.push({ format: "A4", ...pocketSizes["A4"] });
+      const pocket = pocketSizes["A4"];
+      pockets.push({ 
+        format: "A4", 
+        width: (pocket.widthMm / 10) * scale,
+        height: (pocket.heightMm / 10) * scale
+      });
     }
     for (let i = 0; i < parseInt(pocketsA3); i++) {
-      pockets.push({ format: "A3", ...pocketSizes["A3"] });
+      const pocket = pocketSizes["A3"];
+      pockets.push({ 
+        format: "A3", 
+        width: (pocket.widthMm / 10) * scale,
+        height: (pocket.heightMm / 10) * scale
+      });
     }
     for (let i = 0; i < parseInt(pocketsA2); i++) {
-      pockets.push({ format: "A2", ...pocketSizes["A2"] });
+      const pocket = pocketSizes["A2"];
+      pockets.push({ 
+        format: "A2", 
+        width: (pocket.widthMm / 10) * scale,
+        height: (pocket.heightMm / 10) * scale
+      });
     }
     
     return (
