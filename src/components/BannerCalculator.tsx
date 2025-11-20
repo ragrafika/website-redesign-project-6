@@ -29,8 +29,6 @@ const BannerCalculator = () => {
     return (w * h) / 10000;
   };
 
-
-
   const getAlignStyle = () => {
     const align: any = {
       display: 'flex',
@@ -38,110 +36,6 @@ const BannerCalculator = () => {
       alignItems: verticalAlign === 'top' ? 'flex-start' : verticalAlign === 'bottom' ? 'flex-end' : 'center',
     };
     return align;
-  };
-
-  const downloadMockup = () => {
-    if (!canvasRef.current) return;
-
-    const canvas = document.createElement('canvas');
-    const w = parseFloat(width) || 800;
-    const h = parseFloat(height) || 600;
-    const scale = 3;
-    
-    canvas.width = w * scale;
-    canvas.height = h * scale;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = textColor;
-    ctx.font = `${parseInt(fontSize) * scale}px ${fontFamily}`;
-    ctx.textBaseline = verticalAlign === 'top' ? 'top' : verticalAlign === 'bottom' ? 'bottom' : 'middle';
-    
-    let textX = 0;
-    if (textAlign === 'center') {
-      ctx.textAlign = 'center';
-      textX = canvas.width / 2;
-    } else if (textAlign === 'right') {
-      ctx.textAlign = 'right';
-      textX = canvas.width - 60 * scale;
-    } else {
-      ctx.textAlign = 'left';
-      textX = 60 * scale;
-    }
-
-    let textY = 0;
-    if (verticalAlign === 'top') {
-      textY = 60 * scale;
-    } else if (verticalAlign === 'bottom') {
-      textY = canvas.height - 60 * scale;
-    } else {
-      textY = canvas.height / 2;
-    }
-
-    ctx.fillText(text, textX, textY);
-
-    if (withGrommets) {
-      const margin = 20 * scale;
-      const maxSpacing = 300 * scale;
-      const grommetsRadius = 5 * scale;
-      
-      const drawGrommet = (x: number, y: number) => {
-        ctx.fillStyle = '#FFFFFF';
-        ctx.beginPath();
-        ctx.arc(x, y, grommetsRadius, 0, Math.PI * 2);
-        ctx.fill();
-        
-        ctx.strokeStyle = '#000000';
-        ctx.lineWidth = 1.5 * scale;
-        const crossSize = grommetsRadius * 1.2;
-        ctx.beginPath();
-        ctx.moveTo(x - crossSize, y);
-        ctx.lineTo(x + crossSize, y);
-        ctx.moveTo(x, y - crossSize);
-        ctx.lineTo(x, y + crossSize);
-        ctx.stroke();
-      };
-      
-      const distributeGrommets = (length: number) => {
-        const positions = [margin];
-        const availableLength = length - 2 * margin;
-        const minCount = Math.ceil(availableLength / maxSpacing) + 1;
-        const actualSpacing = availableLength / (minCount - 1);
-        
-        for (let i = 1; i < minCount - 1; i++) {
-          positions.push(margin + i * actualSpacing);
-        }
-        positions.push(length - margin);
-        return positions;
-      };
-      
-      const topBottomPositions = distributeGrommets(canvas.width);
-      const leftRightPositions = distributeGrommets(canvas.height);
-      
-      topBottomPositions.forEach(x => {
-        drawGrommet(x, margin);
-        drawGrommet(x, canvas.height - margin);
-      });
-      
-      for (let i = 1; i < leftRightPositions.length - 1; i++) {
-        drawGrommet(margin, leftRightPositions[i]);
-        drawGrommet(canvas.width - margin, leftRightPositions[i]);
-      }
-    }
-
-    canvas.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.download = `banner-mockup-${w}x${h}.png`;
-      link.href = url;
-      link.click();
-      URL.revokeObjectURL(url);
-    }, 'image/png');
   };
 
   return (
