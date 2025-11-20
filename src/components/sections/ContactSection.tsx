@@ -11,35 +11,35 @@ const ContactSection = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Готовы начать?</h2>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="text-xl mb-8 text-white">
               Свяжитесь с нами для бесплатной консультации и расчёта стоимости
             </p>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
                   <Icon name="Phone" size={32} className="mx-auto mb-4 text-primary" />
-                  <h3 className="font-bold mb-2">Телефон</h3>
-                  <p className="text-white/80">+7 (XXX) XXX-XX-XX</p>
+                  <h3 className="font-bold mb-2 text-white">Телефон</h3>
+                  <p className="text-white">+7 (XXX) XXX-XX-XX</p>
                 </CardContent>
               </Card>
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
                   <Icon name="Mail" size={32} className="mx-auto mb-4 text-primary" />
-                  <h3 className="font-bold mb-2">Email</h3>
-                  <p className="text-white/80">info@grafika.ru</p>
+                  <h3 className="font-bold mb-2 text-white">Email</h3>
+                  <p className="text-white">info@grafika.ru</p>
                 </CardContent>
               </Card>
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
                   <Icon name="MapPin" size={32} className="mx-auto mb-4 text-primary" />
-                  <h3 className="font-bold mb-2">Адрес</h3>
-                  <p className="text-white/80">г. Благовещенск</p>
+                  <h3 className="font-bold mb-2 text-white">Адрес</h3>
+                  <p className="text-white">г. Благовещенск</p>
                 </CardContent>
               </Card>
             </div>
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Оставьте заявку</h3>
+                <h3 className="text-2xl font-bold mb-6 text-white">Оставьте заявку</h3>
                 <form className="space-y-4">
                   <Input 
                     placeholder="Ваше имя" 
