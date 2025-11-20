@@ -47,7 +47,7 @@ const ContactSection = () => {
 
   return (
     <>
-      <section id="contacts" className="py-20 bg-secondary text-white">
+      <section id="contacts" className="py-20 bg-secondary text-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Готовы начать?</h2>

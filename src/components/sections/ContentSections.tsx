@@ -105,7 +105,7 @@ const AdvantageCounter = ({ number, suffix, text }: { number: number; suffix: st
 const ContentSections = () => {
   return (
     <>
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="services" className="py-20 bg-muted/30 scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -132,7 +132,7 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 scroll-mt-20">
+      <section id="portfolio" className="py-20 scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Портфолио</h2>
@@ -162,7 +162,7 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <section id="advantages" className="py-20 bg-secondary text-white">
+      <section id="advantages" className="py-20 bg-secondary text-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
@@ -209,7 +209,7 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-white">
+      <section id="testimonials" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
