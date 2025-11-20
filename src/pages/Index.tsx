@@ -29,7 +29,7 @@ const Index = () => {
             <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Контакты</a>
           </nav>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Button size="lg" className="hidden md:flex hover:bg-primary hover:text-white hover:scale-105 active:scale-95 transition-all duration-200" asChild>
+            <Button size="lg" className="hidden md:flex hover:bg-primary hover:text-white transition-colors" asChild>
               <a href="tel:+74162227678">
                 <Icon name="Phone" size={18} className="mr-2" />
                 +7 (4162) 22-76-78
