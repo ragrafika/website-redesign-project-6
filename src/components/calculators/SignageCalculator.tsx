@@ -38,10 +38,10 @@ const SignageCalculator = ({
 }: SignageCalculatorProps) => {
   return (
     <Card className="shadow-xl">
-      <CardContent className="p-8">
-        <h3 className="text-2xl font-bold mb-6">Наружная реклама</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
+      <CardContent className="p-4 md:p-6 lg:p-8">
+        <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Наружная реклама</h3>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <Label className="block mb-2">Ширина (метры)</Label>
               <Input 
@@ -115,36 +115,19 @@ const SignageCalculator = ({
               </div>
             </div>
           </div>
-          <div className="bg-muted/30 rounded-lg p-8 flex flex-col justify-between">
-            <div>
-              <h4 className="font-semibold mb-4">Расчёт стоимости:</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Площадь:</span>
-                  <span>{(parseFloat(signageWidth || "0") * parseFloat(signageHeight || "0")).toFixed(2)} м²</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Материал:</span>
-                  <span>{signageMaterial}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Тип:</span>
-                  <span>{signageType}</span>
-                </div>
+          <div className="bg-muted/30 rounded-lg p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+            <div className="text-center mb-4 md:mb-6">
+              <div className="text-lg md:text-2xl font-bold text-secondary mb-2">Итого:</div>
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-1">
+                {calculateSignagePrice().toLocaleString('ru-RU')} ₽
               </div>
             </div>
-            <div className="mt-8 pt-6 border-t">
-              <div className="flex justify-between items-center text-3xl font-bold mb-4">
-                <span className="text-secondary">Итого:</span>
-                <span className="text-primary">{calculateSignagePrice().toLocaleString('ru-RU')} ₽</span>
-              </div>
-              <p className="text-xs text-muted-foreground mb-4">
-                Стоимость указана ориентировочно. Точная цена уточняется после осмотра объекта.
-              </p>
-              <Button className="w-full">
-                Заказать расчёт
-              </Button>
-            </div>
+            <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
+              Стоимость указана ориентировочно. Точная цена уточняется после осмотра объекта.
+            </p>
+            <Button className="w-full" size="lg">
+              Заказать расчёт
+            </Button>
           </div>
         </div>
       </CardContent>

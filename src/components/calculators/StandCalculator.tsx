@@ -57,10 +57,10 @@ const StandCalculator = ({
 }: StandCalculatorProps) => {
   return (
     <Card className="shadow-xl">
-      <CardContent className="p-8">
-        <h3 className="text-2xl font-bold mb-6">Информационные стенды</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
+      <CardContent className="p-4 md:p-6 lg:p-8">
+        <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Информационные стенды</h3>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <Label className="block mb-2">Ширина стенда (см)</Label>
               <Input 
@@ -201,14 +201,14 @@ const StandCalculator = ({
               </div>
             </div>
           </div>
-          <div className="bg-muted/30 rounded-lg p-8 flex flex-col justify-center">
-            <div className="text-center mb-6">
-              <div className="text-2xl font-bold text-secondary mb-2">Итого:</div>
-              <div className="text-5xl font-bold text-primary mb-1">
+          <div className="bg-muted/30 rounded-lg p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+            <div className="text-center mb-4 md:mb-6">
+              <div className="text-lg md:text-2xl font-bold text-secondary mb-2">Итого:</div>
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-1">
                 {calculateStandPrice().toLocaleString('ru-RU')} ₽
               </div>
             </div>
-            <p className="text-xs text-muted-foreground text-center mb-6">
+            <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
               Цена включает изготовление, но не включает доставку и монтаж
             </p>
             <Button className="w-full" size="lg">

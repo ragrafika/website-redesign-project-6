@@ -103,21 +103,21 @@ const CalculatorSection = () => {
 
   return (
     <>
-      <section id="calculator" className="py-20 bg-muted/30">
+      <section id="calculator" className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькуляторы</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Калькуляторы</h2>
+              <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
                 Выберите тип калькулятора для расчёта стоимости
               </p>
               
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 mb-6 md:mb-8">
                 <Button 
                   size="lg"
                   variant={selectedCalculator === "banner" ? "default" : "outline"}
                   onClick={() => setSelectedCalculator("banner")}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   <Icon name="Image" size={20} />
                   Баннеры
@@ -126,7 +126,7 @@ const CalculatorSection = () => {
                   size="lg"
                   variant={selectedCalculator === "stand" ? "default" : "outline"}
                   onClick={() => setSelectedCalculator("stand")}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   <Icon name="Clipboard" size={20} />
                   Инфостенды
@@ -135,7 +135,7 @@ const CalculatorSection = () => {
                   size="lg"
                   variant={selectedCalculator === "signage" ? "default" : "outline"}
                   onClick={() => setSelectedCalculator("signage")}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   <Icon name="Store" size={20} />
                   Вывески
@@ -144,7 +144,7 @@ const CalculatorSection = () => {
             </div>
             
             {selectedCalculator === "stand" && (
-              <div className="grid lg:grid-cols-2 gap-8 mb-8">
+              <div className="grid lg:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
                 <StandCalculator
                   standWidth={standWidth}
                   setStandWidth={setStandWidth}

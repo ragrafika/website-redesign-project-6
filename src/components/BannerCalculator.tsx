@@ -39,21 +39,21 @@ const BannerCalculator = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькулятор печати на баннере</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Калькулятор печати на баннере</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
               Рассчитайте стоимость и создайте макет баннера
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
             <Card className="shadow-xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Параметры баннера</h3>
-                <div className="space-y-6">
+              <CardContent className="p-4 md:p-6 lg:p-8">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Параметры баннера</h3>
+                <div className="space-y-4 md:space-y-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Ширина (см)</label>
                     <Input 
