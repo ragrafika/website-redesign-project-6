@@ -9,8 +9,8 @@ import Icon from "@/components/ui/icon";
 const CalculatorSection = () => {
   const [selectedCalculator, setSelectedCalculator] = useState<string>("stand");
 
-  const [standWidth, setStandWidth] = useState<string>("100");
-  const [standHeight, setStandHeight] = useState<string>("100");
+  const [standWidth, setStandWidth] = useState<string>("");
+  const [standHeight, setStandHeight] = useState<string>("");
   const [standThickness, setStandThickness] = useState<string>("3");
   const [standPrinting, setStandPrinting] = useState<string>("interior");
   const [standHeaderText, setStandHeaderText] = useState<string>("ИНФОРМАЦИЯ");
