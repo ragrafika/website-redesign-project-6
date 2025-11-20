@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const services = [
   {
@@ -103,6 +105,8 @@ const AdvantageCounter = ({ number, suffix, text }: { number: number; suffix: st
 };
 
 const ContentSections = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <>
       <section id="services" className="py-20 bg-muted/30">
@@ -145,6 +149,7 @@ const ContentSections = () => {
               <div 
                 key={index} 
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
+                onClick={() => setSelectedImage(item.image)}
               >
                 <img 
                   src={item.image} 
@@ -161,6 +166,26 @@ const ContentSections = () => {
           </div>
         </div>
       </section>
+
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 overflow-hidden bg-black/95">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            >
+              <Icon name="X" size={24} className="text-white" />
+            </button>
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Portfolio item"
+                className="max-w-full max-h-full object-contain"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <section id="advantages" className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
