@@ -68,6 +68,7 @@ const StandCalculator = ({
                 placeholder="100" 
                 value={standWidth}
                 onChange={(e) => setStandWidth(e.target.value)}
+                onFocus={(e) => e.target.select()}
                 min="1"
                 step="1"
               />
@@ -79,6 +80,7 @@ const StandCalculator = ({
                 placeholder="100" 
                 value={standHeight}
                 onChange={(e) => setStandHeight(e.target.value)}
+                onFocus={(e) => e.target.select()}
                 min="1"
                 step="1"
               />
@@ -155,6 +157,7 @@ const StandCalculator = ({
                     placeholder="0" 
                     value={pocketsA5}
                     onChange={(e) => setPocketsA5(e.target.value)}
+                    onFocus={(e) => e.target.select()}
                     min="0"
                     step="1"
                   />
@@ -163,9 +166,10 @@ const StandCalculator = ({
                   <Label className="block mb-1 text-sm">A4 (210×297 мм)</Label>
                   <Input 
                     type="number" 
-                    placeholder="4" 
+                    placeholder="0" 
                     value={pocketsA4}
                     onChange={(e) => setPocketsA4(e.target.value)}
+                    onFocus={(e) => e.target.select()}
                     min="0"
                     step="1"
                   />
@@ -177,6 +181,7 @@ const StandCalculator = ({
                     placeholder="0" 
                     value={pocketsA3}
                     onChange={(e) => setPocketsA3(e.target.value)}
+                    onFocus={(e) => e.target.select()}
                     min="0"
                     step="1"
                   />
@@ -188,6 +193,7 @@ const StandCalculator = ({
                     placeholder="0" 
                     value={pocketsA2}
                     onChange={(e) => setPocketsA2(e.target.value)}
+                    onFocus={(e) => e.target.select()}
                     min="0"
                     step="1"
                   />
@@ -195,42 +201,19 @@ const StandCalculator = ({
               </div>
             </div>
           </div>
-          <div className="bg-muted/30 rounded-lg p-8 flex flex-col justify-between">
-            <div>
-              <h4 className="font-semibold mb-4">Расчёт стоимости:</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Площадь:</span>
-                  <span>{(parseFloat(standWidth || "0") * parseFloat(standHeight || "0") / 10000).toFixed(2)} м²</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Толщина ПВХ:</span>
-                  <span>{standThickness} мм</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Тип печати:</span>
-                  <span>{standPrinting === "interior" ? "Интерьерная" : standPrinting === "exterior" ? "Экстерьерная" : "С ламинацией"}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Карманов:</span>
-                  <span>
-                    A5({pocketsA5}) A4({pocketsA4}) A3({pocketsA3}) A2({pocketsA2})
-                  </span>
-                </div>
+          <div className="bg-muted/30 rounded-lg p-8 flex flex-col justify-center">
+            <div className="text-center mb-6">
+              <div className="text-2xl font-bold text-secondary mb-2">Итого:</div>
+              <div className="text-5xl font-bold text-primary mb-1">
+                {calculateStandPrice().toLocaleString('ru-RU')} ₽
               </div>
             </div>
-            <div className="mt-8 pt-6 border-t">
-              <div className="flex justify-between items-center text-3xl font-bold mb-4">
-                <span className="text-secondary">Итого:</span>
-                <span className="text-primary">{calculateStandPrice().toLocaleString('ru-RU')} ₽</span>
-              </div>
-              <p className="text-xs text-muted-foreground mb-4">
-                Цена включает изготовление, но не включает доставку и монтаж
-              </p>
-              <Button className="w-full">
-                Заказать расчёт
-              </Button>
-            </div>
+            <p className="text-xs text-muted-foreground text-center mb-6">
+              Цена включает изготовление, но не включает доставку и монтаж
+            </p>
+            <Button className="w-full" size="lg">
+              Заказать расчёт
+            </Button>
           </div>
         </div>
       </CardContent>

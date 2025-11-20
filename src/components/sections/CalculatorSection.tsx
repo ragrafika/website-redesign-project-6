@@ -17,7 +17,7 @@ const CalculatorSection = () => {
   const [standFontFamily, setStandFontFamily] = useState<string>("sans-serif");
   const [standBgColor, setStandBgColor] = useState<string>("white");
   const [pocketsA5, setPocketsA5] = useState<string>("0");
-  const [pocketsA4, setPocketsA4] = useState<string>("4");
+  const [pocketsA4, setPocketsA4] = useState<string>("0");
   const [pocketsA3, setPocketsA3] = useState<string>("0");
   const [pocketsA2, setPocketsA2] = useState<string>("0");
 
