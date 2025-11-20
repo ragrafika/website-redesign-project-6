@@ -93,20 +93,26 @@ const CalculatorSection = () => {
       "monospace": "Courier New, monospace"
     };
     
-    const totalPockets = parseInt(pocketsA5) + parseInt(pocketsA4) + parseInt(pocketsA3) + parseInt(pocketsA2);
+    const pocketSizes: Record<string, { width: number; height: number }> = {
+      "A5": { width: (148 + 16) / 10, height: (210 + 8) / 10 },
+      "A4": { width: (210 + 16) / 10, height: (297 + 8) / 10 },
+      "A3": { width: (297 + 16) / 10, height: (420 + 8) / 10 },
+      "A2": { width: (420 + 16) / 10, height: (594 + 8) / 10 }
+    };
+    
     const pockets = [];
     
     for (let i = 0; i < parseInt(pocketsA5); i++) {
-      pockets.push({ format: "A5", width: 35, height: 50 });
+      pockets.push({ format: "A5", ...pocketSizes["A5"] });
     }
     for (let i = 0; i < parseInt(pocketsA4); i++) {
-      pockets.push({ format: "A4", width: 50, height: 70 });
+      pockets.push({ format: "A4", ...pocketSizes["A4"] });
     }
     for (let i = 0; i < parseInt(pocketsA3); i++) {
-      pockets.push({ format: "A3", width: 70, height: 100 });
+      pockets.push({ format: "A3", ...pocketSizes["A3"] });
     }
     for (let i = 0; i < parseInt(pocketsA2); i++) {
-      pockets.push({ format: "A2", width: 100, height: 140 });
+      pockets.push({ format: "A2", ...pocketSizes["A2"] });
     }
     
     return (
