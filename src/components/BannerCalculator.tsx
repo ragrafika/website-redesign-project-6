@@ -471,15 +471,6 @@ const BannerCalculator = () => {
                         {text}
                       </p>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className="w-full mt-4"
-                      onClick={downloadMockup}
-                    >
-                      <Icon name="Download" size={18} className="mr-2" />
-                      Скачать макет (PNG)
-                    </Button>
                   </div>
                 </div>
               </CardContent>
