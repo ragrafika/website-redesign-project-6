@@ -20,7 +20,7 @@ const Index = () => {
               className="h-10 md:h-12 w-auto"
             />
           </div>
-          <nav className="hidden lg:flex gap-6 xl:gap-8 flex-1 justify-center">
+          <nav className="hidden md:flex gap-6 xl:gap-8 flex-1 justify-center">
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Услуги</a>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Портфолио</a>
             <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Преимущества</a>
@@ -29,15 +29,15 @@ const Index = () => {
             <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Контакты</a>
           </nav>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Button size="lg" className="hidden lg:flex" asChild>
-              <a href="tel:+73412345678">
+            <Button size="lg" className="hidden md:flex" asChild>
+              <a href="tel:+74162227678">
                 <Icon name="Phone" size={18} className="mr-2" />
-                +7 (341) 234-56-78
+                +7 (4162) 22-76-78
               </a>
             </Button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button size="lg" variant="ghost" className="lg:hidden">
+                <Button size="lg" variant="ghost" className="md:hidden">
                   <Icon name="Menu" size={24} />
                 </Button>
               </SheetTrigger>
@@ -86,9 +86,9 @@ const Index = () => {
                     Контакты
                   </a>
                   <Button size="lg" className="mt-4" asChild>
-                    <a href="tel:+73412345678">
+                    <a href="tel:+74162227678">
                       <Icon name="Phone" size={18} className="mr-2" />
-                      +7 (341) 234-56-78
+                      +7 (4162) 22-76-78
                     </a>
                   </Button>
                 </nav>
