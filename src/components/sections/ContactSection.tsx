@@ -57,7 +57,9 @@ const ContactSection = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
-                  <Icon name="Phone" size={32} className="mx-auto mb-4 text-primary" />
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Phone" size={32} className="text-primary" />
+                  </div>
                   <h3 className="font-bold mb-2 text-white">Телефон</h3>
                   <a href="tel:+74162227678" className="text-white hover:text-primary transition-colors">
                     +7 (4162) 22-76-78
@@ -66,7 +68,9 @@ const ContactSection = () => {
               </Card>
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
-                  <Icon name="Mail" size={32} className="mx-auto mb-4 text-primary" />
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Mail" size={32} className="text-primary" />
+                  </div>
                   <h3 className="font-bold mb-2 text-white">Email</h3>
                   <a href="mailto:ragrafika.info@mail.ru" className="text-white hover:text-primary transition-colors">
                     ragrafika.info@mail.ru
@@ -75,7 +79,9 @@ const ContactSection = () => {
               </Card>
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
-                  <Icon name="MapPin" size={32} className="mx-auto mb-4 text-primary" />
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="MapPin" size={32} className="text-primary" />
+                  </div>
                   <h3 className="font-bold mb-2 text-white">Адрес</h3>
                   <p className="text-white">г. Благовещенск</p>
                 </CardContent>

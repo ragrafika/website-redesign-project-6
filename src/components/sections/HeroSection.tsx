@@ -16,7 +16,7 @@ const HeroSection = () => {
             <Button size="lg" className="bg-white text-secondary hover:bg-white/90 text-lg px-8 py-6">
               Рассчитать стоимость
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-secondary text-lg px-8 py-6">
               <Icon name="Play" size={20} className="mr-2" />
               Смотреть портфолио
             </Button>
