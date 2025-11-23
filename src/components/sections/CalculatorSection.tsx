@@ -31,6 +31,7 @@ const CalculatorSection = () => {
   const [volumeSignText, setVolumeSignText] = useState<string>("");
   const [volumeNeedsBracket, setVolumeNeedsBracket] = useState<boolean>(false);
   const [volumeNeedsInstallation, setVolumeNeedsInstallation] = useState<boolean>(false);
+  const [volumeNeedsLighting, setVolumeNeedsLighting] = useState<boolean>(false);
 
   const calculateStandPrice = () => {
     const width = parseFloat(standWidth) / 100;
@@ -112,6 +113,7 @@ const CalculatorSection = () => {
     let price = letterCount * 2000;
     
     if (volumeNeedsBracket) price += 15000;
+    if (volumeNeedsLighting) price += 20000;
     if (volumeNeedsInstallation) price += 10000;
     
     return Math.round(price);
@@ -226,6 +228,8 @@ const CalculatorSection = () => {
                 setNeedsBracket={setVolumeNeedsBracket}
                 needsInstallation={volumeNeedsInstallation}
                 setNeedsInstallation={setVolumeNeedsInstallation}
+                needsLighting={volumeNeedsLighting}
+                setNeedsLighting={setVolumeNeedsLighting}
                 calculatePrice={calculateVolumeLettersPrice}
               />
             )}
