@@ -157,10 +157,10 @@ const CalculatorSection = () => {
                   size="lg"
                   variant={selectedCalculator === "volume-letters" ? "default" : "outline"}
                   onClick={() => setSelectedCalculator("volume-letters")}
-                  className="gap-2 w-full sm:w-auto"
+                  className="gap-2 w-full sm:w-auto text-sm"
                 >
                   <Icon name="Type" size={20} />
-                  Объёмные буквы НТО
+                  Объёмные буквы для павильонов НТО
                 </Button>
               </div>
             </div>
