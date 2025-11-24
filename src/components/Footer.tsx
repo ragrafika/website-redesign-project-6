@@ -42,9 +42,21 @@ const Footer = () => {
                 <Icon name="Phone" size={16} className="mt-0.5 flex-shrink-0" />
                 <span>+7 (4162) 22-76-78</span>
               </a>
+              <a href="tel:+79656713170" className="flex items-start gap-2 hover:text-primary transition-colors">
+                <Icon name="Phone" size={16} className="mt-0.5 flex-shrink-0" />
+                <span>+7 (965) 671-31-70</span>
+              </a>
               <a href="mailto:ragrafika.info@mail.ru" className="flex items-start gap-2 hover:text-primary transition-colors">
                 <Icon name="Mail" size={16} className="mt-0.5 flex-shrink-0" />
                 <span>ragrafika.info@mail.ru</span>
+              </a>
+              <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-primary transition-colors">
+                <Icon name="MessageCircle" size={16} className="mt-0.5 flex-shrink-0" />
+                <span>WhatsApp</span>
+              </a>
+              <a href="https://t.me/+79656713170" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-primary transition-colors">
+                <Icon name="Send" size={16} className="mt-0.5 flex-shrink-0" />
+                <span>Telegram</span>
               </a>
               <div className="flex items-start gap-2">
                 <Icon name="MapPin" size={16} className="mt-0.5 flex-shrink-0" />
