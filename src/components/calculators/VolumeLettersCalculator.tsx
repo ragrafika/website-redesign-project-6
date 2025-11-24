@@ -222,14 +222,15 @@ const VolumeLettersCalculator = ({
                 className="text-white tracking-wider whitespace-nowrap"
                 style={{
                   fontFamily: "'Geometria', sans-serif",
-                  fontWeight: 700,
+                  fontWeight: 900,
                   fontSize: `min(${Math.max(2, 20 / Math.max(displayText.length / 10, 1))}vw, 4rem)`,
                   textTransform: 'uppercase',
                   textShadow: viewMode === 'night' && needsLighting 
                     ? '0 0 30px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.7), 0 0 70px rgba(255,255,255,0.5)'
                     : '3px 3px 6px rgba(0,0,0,0.4)',
                   filter: viewMode === 'night' && needsLighting ? 'brightness(1.4)' : 'none',
-                  letterSpacing: '0.15em'
+                  letterSpacing: '0.15em',
+                  WebkitTextStroke: '1px rgba(255,255,255,0.1)'
                 }}
               >
                 {displayText}
