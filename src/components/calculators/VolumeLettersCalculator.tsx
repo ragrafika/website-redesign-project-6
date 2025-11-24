@@ -184,13 +184,13 @@ const VolumeLettersCalculator = ({
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_70%)]" />
             )}
 
-            <div className="relative w-full flex items-center justify-center">
+            <div className="relative w-full flex items-center justify-center px-2">
               <span 
-                className="text-white tracking-wider whitespace-nowrap"
+                className="text-white tracking-wider text-center"
                 style={{
                   fontFamily: "'Geometria', sans-serif",
                   fontWeight: 700,
-                  fontSize: `min(${Math.max(4, 20 / Math.max(displayText.length / 8, 1))}vw, 3.5rem)`,
+                  fontSize: `clamp(1.2rem, ${Math.max(3, 16 / Math.max(displayText.length / 6, 1))}vw, 3.5rem)`,
                   textTransform: 'uppercase',
                   textShadow: viewMode === 'night' && needsLighting 
                     ? '0 0 20px rgba(255,255,255,0.9), 0 0 35px rgba(255,255,255,0.7), 0 0 50px rgba(255,255,255,0.5)'
@@ -200,7 +200,10 @@ const VolumeLettersCalculator = ({
                     : viewMode === 'night' 
                       ? 'brightness(0.2)' 
                       : 'none',
-                  letterSpacing: '0.1em'
+                  letterSpacing: '0.05em',
+                  wordBreak: 'break-word',
+                  lineHeight: '1.2',
+                  maxWidth: '100%'
                 }}
               >
                 {displayText}
