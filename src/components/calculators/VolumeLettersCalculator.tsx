@@ -107,10 +107,10 @@ const VolumeLettersCalculator = ({
               </div>
             </div>
 
-            <div className="bg-primary/5 rounded-xl p-6 space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-medium">Предварительная стоимость:</span>
-                <span className="text-2xl font-bold text-primary">
+            <div className="bg-primary/5 rounded-xl p-4 md:p-6 space-y-2 md:space-y-3">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                <span className="text-base md:text-lg font-medium">Предварительная стоимость:</span>
+                <span className="text-xl md:text-2xl font-bold text-primary">
                   {calculatePrice().toLocaleString('ru-RU')} ₽
                 </span>
               </div>
@@ -150,32 +150,32 @@ const VolumeLettersCalculator = ({
 
       <Card className="shadow-xl">
         <CardContent className="p-6 md:p-8">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold">Предпросмотр вывески</h3>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h3 className="text-xl md:text-2xl font-bold">Предпросмотр вывески</h3>
             <div className="flex gap-2">
               <Button
                 size="sm"
                 variant={viewMode === 'day' ? 'default' : 'outline'}
                 onClick={() => setViewMode('day')}
-                className="gap-2"
+                className="gap-1 flex-1 sm:flex-none"
               >
                 <Icon name="Sun" size={16} />
-                День
+                <span className="text-xs sm:text-sm">День</span>
               </Button>
               <Button
                 size="sm"
                 variant={viewMode === 'night' ? 'default' : 'outline'}
                 onClick={() => setViewMode('night')}
-                className="gap-2"
+                className="gap-1 flex-1 sm:flex-none"
               >
                 <Icon name="Moon" size={16} />
-                Ночь
+                <span className="text-xs sm:text-sm">Ночь</span>
               </Button>
             </div>
           </div>
           
           <div 
-            className="rounded-xl min-h-[300px] flex items-center justify-center relative overflow-hidden transition-all duration-500 p-8"
+            className="rounded-xl min-h-[200px] sm:min-h-[250px] md:min-h-[300px] flex items-center justify-center relative overflow-hidden transition-all duration-500 p-4 sm:p-6 md:p-8"
             style={{ 
               backgroundColor: viewMode === 'day' ? '#4d5a60' : '#1a1f2e'
             }}
@@ -186,21 +186,24 @@ const VolumeLettersCalculator = ({
 
             <div className="relative w-full flex items-center justify-center">
               <span 
-                className="text-white tracking-wider whitespace-nowrap"
+                className="text-white tracking-wider"
                 style={{
                   fontFamily: "'Geometria', sans-serif",
                   fontWeight: 700,
-                  fontSize: `min(${Math.max(2, 20 / Math.max(displayText.length / 10, 1))}vw, 4rem)`,
+                  fontSize: `min(${Math.max(6, 20 / Math.max(displayText.length / 8, 1))}vw, 3.5rem)`,
                   textTransform: 'uppercase',
                   textShadow: viewMode === 'night' && needsLighting 
-                    ? '0 0 30px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.7), 0 0 70px rgba(255,255,255,0.5)'
-                    : '3px 3px 6px rgba(0,0,0,0.4)',
+                    ? '0 0 20px rgba(255,255,255,0.9), 0 0 35px rgba(255,255,255,0.7), 0 0 50px rgba(255,255,255,0.5)'
+                    : '2px 2px 4px rgba(0,0,0,0.4)',
                   filter: viewMode === 'night' && needsLighting 
                     ? 'brightness(1.4)' 
                     : viewMode === 'night' 
                       ? 'brightness(0.2)' 
                       : 'none',
-                  letterSpacing: '0.15em'
+                  letterSpacing: '0.1em',
+                  wordBreak: 'break-word',
+                  textAlign: 'center',
+                  lineHeight: '1.2'
                 }}
               >
                 {displayText}
@@ -212,29 +215,29 @@ const VolumeLettersCalculator = ({
             )}
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-sm">
             <div className="bg-muted/30 rounded-lg p-3">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Icon name="Ruler" size={16} />
-                <span>Высота букв: 23 см</span>
+                <Icon name="Ruler" size={16} className="flex-shrink-0" />
+                <span className="text-xs sm:text-sm">Высота букв: 23 см</span>
               </div>
             </div>
             <div className="bg-muted/30 rounded-lg p-3">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Icon name="Box" size={16} />
-                <span>Глубина: 50-80 мм</span>
+                <Icon name="Box" size={16} className="flex-shrink-0" />
+                <span className="text-xs sm:text-sm">Глубина: 50-80 мм</span>
               </div>
             </div>
             <div className="bg-muted/30 rounded-lg p-3">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Icon name="Layers" size={16} />
-                <span>Материал: акрил/ПВХ</span>
+                <Icon name="Layers" size={16} className="flex-shrink-0" />
+                <span className="text-xs sm:text-sm">Материал: акрил/ПВХ</span>
               </div>
             </div>
             <div className="bg-muted/30 rounded-lg p-3">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Icon name="Zap" size={16} />
-                <span>{needsLighting ? 'LED-подсветка' : 'Без подсветки'}</span>
+                <Icon name="Zap" size={16} className="flex-shrink-0" />
+                <span className="text-xs sm:text-sm">{needsLighting ? 'LED-подсветка' : 'Без подсветки'}</span>
               </div>
             </div>
           </div>
