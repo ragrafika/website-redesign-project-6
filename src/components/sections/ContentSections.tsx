@@ -253,7 +253,7 @@ const ContentSections = () => {
           </div>
           <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 max-w-3xl mx-auto">
             <a 
-              href="https://yandex.ru/maps/org/grafika/1326700931/reviews/" 
+              href="https://yandex.ru/maps/org/grafika/174016296824/reviews/?ll=127.518262%2C50.277776&z=16" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group flex-1"
@@ -264,7 +264,7 @@ const ContentSections = () => {
               <span className="font-medium group-hover:text-primary transition-colors">Отзывы на Яндекс.Картах</span>
             </a>
             <a 
-              href="https://2gis.ru/blagoveshchensk/firm/70000001018265902/tab/reviews" 
+              href="https://2gis.ru/blagoveshchensk/firm/70000001007430376/tab/reviews" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group flex-1"
