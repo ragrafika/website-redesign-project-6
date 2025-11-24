@@ -6,20 +6,19 @@ export const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    console.log('Cookie consent status:', consent);
+    const consent = localStorage.getItem('cookieConsent_v2');
     if (!consent) {
       setIsVisible(true);
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    localStorage.setItem('cookieConsent_v2', 'accepted');
     setIsVisible(false);
   };
 
   const declineCookies = () => {
-    localStorage.setItem('cookieConsent', 'declined');
+    localStorage.setItem('cookieConsent_v2', 'declined');
     setIsVisible(false);
   };
 
