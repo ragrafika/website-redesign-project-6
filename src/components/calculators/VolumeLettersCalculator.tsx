@@ -239,12 +239,12 @@ const VolumeLettersCalculator = ({
             </div>
           </div>
 
-          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div className="flex gap-3">
-              <Icon name="Info" size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-              <div className="text-sm text-blue-900">
+              <Icon name="Info" size={20} className="text-gray-600 flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-gray-900">
                 <p className="font-medium mb-1">Технические особенности:</p>
-                <ul className="space-y-1 text-blue-800">
+                <ul className="space-y-1 text-gray-700">
                   <li>• Шрифт: Geometria Bold</li>
                   <li>• Высота букв: 230 мм</li>
                   <li>• Крепление: на панель-кронштейн или напрямую к фасаду</li>
