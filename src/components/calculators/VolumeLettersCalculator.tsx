@@ -199,68 +199,122 @@ const VolumeLettersCalculator = ({
           </div>
           
           <div 
-            className="rounded-xl p-8 md:p-12 min-h-[400px] flex items-center justify-center relative overflow-hidden transition-all duration-500"
+            className="rounded-xl min-h-[400px] flex items-center justify-center relative overflow-hidden transition-all duration-500"
             style={{ 
               backgroundColor: viewMode === 'day' ? '#4d5a60' : '#1a1f2e'
             }}
           >
             {viewMode === 'day' && (
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_70%)]" />
             )}
             
-            <div className="relative z-10 flex flex-col items-center gap-8">
-              {needsBracket && (
-                <div className="relative flex items-center justify-center" style={{ width: '200px', height: '200px' }}>
-                  <div 
-                    className="absolute inset-0 bg-white rounded-full transition-shadow duration-500"
-                    style={{
-                      boxShadow: viewMode === 'night' && needsLighting 
-                        ? '0 0 40px rgba(255,255,255,0.6), 0 0 80px rgba(255,255,255,0.3)' 
-                        : '0 4px 20px rgba(0,0,0,0.2)'
-                    }}
-                  ></div>
-                  <span className="relative text-gray-800 font-bold text-2xl">ЛОГО</span>
-                </div>
-              )}
-              
-              <div className="text-center">
+            {viewMode === 'night' && (
+              <>
+                <div className="absolute top-10 right-10 w-16 h-16 bg-yellow-100 rounded-full blur-sm opacity-60" />
+                <div className="absolute top-32 left-16 w-2 h-2 bg-white rounded-full opacity-80" />
+                <div className="absolute top-20 right-32 w-1.5 h-1.5 bg-white rounded-full opacity-60" />
+                <div className="absolute bottom-24 left-24 w-1 h-1 bg-white rounded-full opacity-70" />
+              </>
+            )}
+
+            <div className="relative w-full px-8 py-12 flex items-center justify-center">
+              <div className="relative w-full max-w-4xl">
                 <div 
-                  className="text-white font-bold tracking-wide transition-all duration-500"
-                  style={{ 
-                    fontFamily: 'Montserrat, sans-serif',
-                    fontSize: '92px',
-                    lineHeight: '1.2',
-                    letterSpacing: '0.05em',
-                    textShadow: viewMode === 'night' && needsLighting
-                      ? '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.3)'
-                      : viewMode === 'day'
-                      ? '0 2px 8px rgba(0,0,0,0.3)'
-                      : '0 2px 8px rgba(0,0,0,0.5)',
-                    filter: viewMode === 'night' && needsLighting ? 'brightness(1.3)' : 'brightness(1)',
-                    opacity: viewMode === 'night' && !needsLighting ? 0.6 : 1
+                  className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-t-lg py-4 mb-3 shadow-lg"
+                  style={{
+                    borderBottom: '3px solid #3a4a52'
                   }}
                 >
-                  {displayText}
+                  <div className="text-center">
+                    <span 
+                      className="text-white tracking-[0.3em] inline-block px-8"
+                      style={{
+                        fontFamily: "'Geometria', sans-serif",
+                        fontWeight: 700,
+                        fontSize: 'clamp(1.5rem, 4vw, 3rem)',
+                        textTransform: 'uppercase',
+                        textShadow: viewMode === 'night' && needsLighting 
+                          ? '0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.4)'
+                          : '2px 2px 4px rgba(0,0,0,0.3)',
+                        filter: viewMode === 'night' && needsLighting ? 'brightness(1.3)' : 'none',
+                        letterSpacing: '0.1em'
+                      }}
+                    >
+                      {displayText}
+                    </span>
+                  </div>
                 </div>
-                <p 
-                  className="text-sm mt-4 transition-colors duration-500"
-                  style={{ 
-                    color: viewMode === 'day' ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.5)' 
+
+                <img 
+                  src="https://cdn.poehali.dev/files/def77a71-bbcd-4e4c-833e-8632dae4b1e1.png"
+                  alt="Павильон НТО"
+                  className="w-full h-auto rounded-b-lg shadow-xl"
+                  style={{
+                    filter: viewMode === 'night' ? 'brightness(0.7) contrast(1.1)' : 'none'
                   }}
-                >
-                  Высота букв: 23 см | Шрифт: Geometria Bold | Фон: RAL 7024
-                </p>
+                />
+
+                {needsBracket && (
+                  <div 
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent"
+                    style={{
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.3)'
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+
+            {needsLighting && viewMode === 'night' && (
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" />
+            )}
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
+            <div className="bg-muted/30 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Ruler" size={16} />
+                <span>Размер букв: 200-300 мм</span>
+              </div>
+            </div>
+            <div className="bg-muted/30 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Box" size={16} />
+                <span>Глубина: 50-80 мм</span>
+              </div>
+            </div>
+            <div className="bg-muted/30 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Layers" size={16} />
+                <span>Материал: акрил/ПВХ</span>
+              </div>
+            </div>
+            <div className="bg-muted/30 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Zap" size={16} />
+                <span>{needsLighting ? 'LED-подсветка' : 'Без подсветки'}</span>
               </div>
             </div>
           </div>
-          
-          <p className="text-xs text-muted-foreground text-center mt-4">
-            Предпросмотр вывески на павильоне НТО. Итоговый вид может отличаться.
-          </p>
+
+          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="flex gap-3">
+              <Icon name="Info" size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-blue-900">
+                <p className="font-medium mb-1">Технические особенности:</p>
+                <ul className="space-y-1 text-blue-800">
+                  <li>• Шрифт: Geometria Bold</li>
+                  <li>• Крепление: на панель-кронштейн или напрямую к фасаду</li>
+                  <li>• Срок изготовления: 5-7 рабочих дней</li>
+                  <li>• Гарантия: 12 месяцев</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
-      </div>
     </div>
+  </div>
   );
 };
 
