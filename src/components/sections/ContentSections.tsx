@@ -221,22 +221,28 @@ const ContentSections = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
-                  <div>
-                    <div className="font-bold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.company}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {testimonials.map((testimonial, index) => {
+              const shortText = testimonial.text.slice(0, 100) + (testimonial.text.length > 100 ? '...' : '');
+              return (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-8">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                    <p className="text-muted-foreground mb-6 italic">
+                      <span className="group-hover:hidden">"{shortText}"</span>
+                      <span className="hidden group-hover:inline">"{testimonial.text}"</span>
+                    </p>
+                    <div>
+                      <div className="font-bold">{testimonial.name}</div>
+                      <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
