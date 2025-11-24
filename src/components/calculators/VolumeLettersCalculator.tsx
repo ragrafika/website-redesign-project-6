@@ -30,7 +30,7 @@ const VolumeLettersCalculator = ({
 }: VolumeLettersCalculatorProps) => {
   const [viewMode, setViewMode] = useState<'day' | 'night'>('day');
   
-  const displayText = (signText || 'ВВЕДИТЕ ТЕКСТ').toUpperCase();
+  const displayText = (signText || 'ПРОДУКТЫ').toUpperCase();
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -116,7 +116,7 @@ const VolumeLettersCalculator = ({
               </div>
               <div className="border-t pt-3 space-y-1 text-sm text-muted-foreground">
                 <div className="flex justify-between">
-                  <span>Объёмные буквы:</span>
+                  <span>Объёмные буквы (23 см):</span>
                   <span>от 2000 ₽/буква</span>
                 </div>
                 {needsBracket && (
@@ -139,7 +139,7 @@ const VolumeLettersCalculator = ({
                 )}
               </div>
               <p className="text-xs text-muted-foreground border-t pt-3">
-                * Итоговая стоимость зависит от размера букв, типа подсветки и сложности монтажа
+                * Итоговая стоимость зависит от типа подсветки и сложности монтажа
               </p>
             </div>
 
@@ -153,7 +153,7 @@ const VolumeLettersCalculator = ({
                 const messageInput = document.querySelector('textarea[placeholder="Ваше сообщение"]') as HTMLTextAreaElement;
                 
                 if (messageInput) {
-                  const details = `Объёмные буквы на павильон НТО:\n- Текст: "${displayText}"\n${needsBracket ? '- Панель-кронштейн: Да\n' : ''}${needsLighting ? '- Вывеска световая: Да\n' : ''}${needsInstallation ? '- Монтаж: Да\n' : ''}\nПредварительная стоимость: ${calculatePrice().toLocaleString('ru-RU')} ₽`;
+                  const details = `Объёмные буквы на павильон НТО:\n- Текст: "${displayText}"\n- Размер букв: 23 см\n${needsBracket ? '- Панель-кронштейн: Да\n' : ''}${needsLighting ? '- Вывеска световая: Да\n' : ''}${needsInstallation ? '- Монтаж: Да\n' : ''}\nПредварительная стоимость: ${calculatePrice().toLocaleString('ru-RU')} ₽`;
                   messageInput.value = details;
                 }
                 
@@ -199,7 +199,7 @@ const VolumeLettersCalculator = ({
           </div>
           
           <div 
-            className="rounded-xl min-h-[400px] flex items-center justify-center relative overflow-hidden transition-all duration-500"
+            className="rounded-xl min-h-[300px] flex items-center justify-center relative overflow-hidden transition-all duration-500 p-8"
             style={{ 
               backgroundColor: viewMode === 'day' ? '#4d5a60' : '#1a1f2e'
             }}
@@ -217,52 +217,23 @@ const VolumeLettersCalculator = ({
               </>
             )}
 
-            <div className="relative w-full px-8 py-12 flex items-center justify-center">
-              <div className="relative w-full max-w-4xl">
-                <div 
-                  className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-t-lg py-4 mb-3 shadow-lg"
-                  style={{
-                    borderBottom: '3px solid #3a4a52'
-                  }}
-                >
-                  <div className="text-center">
-                    <span 
-                      className="text-white tracking-[0.3em] inline-block px-8"
-                      style={{
-                        fontFamily: "'Geometria', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 'clamp(1.5rem, 4vw, 3rem)',
-                        textTransform: 'uppercase',
-                        textShadow: viewMode === 'night' && needsLighting 
-                          ? '0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.4)'
-                          : '2px 2px 4px rgba(0,0,0,0.3)',
-                        filter: viewMode === 'night' && needsLighting ? 'brightness(1.3)' : 'none',
-                        letterSpacing: '0.1em'
-                      }}
-                    >
-                      {displayText}
-                    </span>
-                  </div>
-                </div>
-
-                <img 
-                  src="https://cdn.poehali.dev/files/def77a71-bbcd-4e4c-833e-8632dae4b1e1.png"
-                  alt="Павильон НТО"
-                  className="w-full h-auto rounded-b-lg shadow-xl"
-                  style={{
-                    filter: viewMode === 'night' ? 'brightness(0.7) contrast(1.1)' : 'none'
-                  }}
-                />
-
-                {needsBracket && (
-                  <div 
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent"
-                    style={{
-                      boxShadow: '0 2px 4px rgba(0,0,0,0.3)'
-                    }}
-                  />
-                )}
-              </div>
+            <div className="relative w-full flex items-center justify-center">
+              <span 
+                className="text-white tracking-wider whitespace-nowrap"
+                style={{
+                  fontFamily: "'Geometria', sans-serif",
+                  fontWeight: 700,
+                  fontSize: `min(${Math.max(2, 20 / Math.max(displayText.length / 10, 1))}vw, 4rem)`,
+                  textTransform: 'uppercase',
+                  textShadow: viewMode === 'night' && needsLighting 
+                    ? '0 0 30px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.7), 0 0 70px rgba(255,255,255,0.5)'
+                    : '3px 3px 6px rgba(0,0,0,0.4)',
+                  filter: viewMode === 'night' && needsLighting ? 'brightness(1.4)' : 'none',
+                  letterSpacing: '0.15em'
+                }}
+              >
+                {displayText}
+              </span>
             </div>
 
             {needsLighting && viewMode === 'night' && (
@@ -274,7 +245,7 @@ const VolumeLettersCalculator = ({
             <div className="bg-muted/30 rounded-lg p-3">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Icon name="Ruler" size={16} />
-                <span>Размер букв: 200-300 мм</span>
+                <span>Высота букв: 23 см</span>
               </div>
             </div>
             <div className="bg-muted/30 rounded-lg p-3">
@@ -304,6 +275,7 @@ const VolumeLettersCalculator = ({
                 <p className="font-medium mb-1">Технические особенности:</p>
                 <ul className="space-y-1 text-blue-800">
                   <li>• Шрифт: Geometria Bold</li>
+                  <li>• Высота букв: 230 мм</li>
                   <li>• Крепление: на панель-кронштейн или напрямую к фасаду</li>
                   <li>• Срок изготовления: 5-7 рабочих дней</li>
                   <li>• Гарантия: 12 месяцев</li>
