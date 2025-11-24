@@ -37,7 +37,7 @@ const CalculatorsBlockSection = () => {
           {calculators.map((calculator, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 border-2 hover:border-primary flex flex-col h-full"
+              className="group hover:shadow-2xl transition-all duration-500 ease-out border-2 hover:border-primary flex flex-col h-full"
             >
               <CardContent className="p-8 flex flex-col flex-1">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500 ease-out">

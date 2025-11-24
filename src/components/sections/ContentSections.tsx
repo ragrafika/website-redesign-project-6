@@ -118,7 +118,7 @@ const ContentSections = () => {
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary"
+                className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary"
               >
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
