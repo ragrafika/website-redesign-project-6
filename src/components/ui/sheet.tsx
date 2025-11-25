@@ -57,21 +57,33 @@ const SheetContent = React.forwardRef<
 >(({ side = "right", className, children, ...props }, ref) => {
   const contentRef = React.useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = React.useState(0);
-  const [touchEnd, setTouchEnd] = React.useState(0);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [dragOffset, setDragOffset] = React.useState(0);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    if (!isDragging) return;
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = currentTouch - touchStart;
+    
+    if (diff > 0) {
+      setDragOffset(diff);
+    }
   };
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd < -150) {
+    setIsDragging(false);
+    
+    if (dragOffset > 150) {
       const closeButton = contentRef.current?.querySelector('[data-close-button]') as HTMLButtonElement;
       closeButton?.click();
     }
+    
+    setDragOffset(0);
   };
 
   return (
@@ -80,6 +92,10 @@ const SheetContent = React.forwardRef<
       <SheetPrimitive.Content
         ref={contentRef}
         className={cn(sheetVariants({ side }), className)}
+        style={{
+          transform: isDragging ? `translateX(${dragOffset}px)` : undefined,
+          transition: isDragging ? 'none' : undefined
+        }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
