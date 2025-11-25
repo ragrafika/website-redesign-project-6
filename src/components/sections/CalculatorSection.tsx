@@ -22,6 +22,13 @@ const CalculatorSection = () => {
       if (hash === 'signage') setSelectedCalculator('signage');
       if (hash === 'stand') setSelectedCalculator('stand');
       if (hash === 'volume') setSelectedCalculator('volume-letters');
+      
+      setTimeout(() => {
+        const calculatorSection = document.getElementById('calculator');
+        if (calculatorSection) {
+          calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     };
 
     window.addEventListener('hashchange', handleHashChange);
