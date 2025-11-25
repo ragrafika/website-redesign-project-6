@@ -31,7 +31,7 @@ const Index = () => {
               <Icon name="MessageCircle" size={20} />
             </a>
             <a 
-              href="https://t.me/grafika28" 
+              href="https://t.me/ragrafika" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-10 h-10 bg-[#0088cc] hover:bg-[#006699] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
