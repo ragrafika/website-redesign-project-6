@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 const Signage = () => {
   return (
@@ -11,6 +12,11 @@ const Signage = () => {
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <Breadcrumbs items={[
+              { label: "Главная", path: "/" },
+              { label: "Вывески и световые короба" }
+            ]} />
+            
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
               Вывески и световые короба
             </h1>
