@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
+import ServiceCards from "@/components/services/ServiceCards";
 
 const Banners = () => {
   return (
@@ -95,7 +96,7 @@ const Banners = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" asChild className="flex-1">
                 <a href="tel:+74162227678">
                   <Icon name="Phone" size={20} className="mr-2" />
@@ -109,6 +110,8 @@ const Banners = () => {
                 </a>
               </Button>
             </div>
+
+            <ServiceCards />
           </div>
         </div>
       </main>
