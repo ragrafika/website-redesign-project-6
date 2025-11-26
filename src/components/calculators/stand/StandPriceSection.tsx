@@ -65,7 +65,7 @@ const StandPriceSection = ({
         </div>
       </div>
       <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
-        Цена включает изготовление, но не включает доставку и монтаж
+        Цена включает изготовление, панель-кронштейн и монтаж (но не включает доставку)
       </p>
       <OrderDialog
         calculatorType="Информационные стенды"

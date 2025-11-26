@@ -97,6 +97,12 @@ const CalculatorSection = () => {
     price += (parseInt(pocketsA3) || 0) * pocketPrices["A3"];
     price += (parseInt(pocketsA2) || 0) * pocketPrices["A2"];
     
+    const bracketCost = 20000;
+    price += bracketCost;
+    
+    const installationCost = Math.max((price) * 0.2, 4100);
+    price += installationCost;
+    
     return Math.max(1500, Math.round(price));
   };
 
