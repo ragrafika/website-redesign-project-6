@@ -46,6 +46,8 @@ const CalculatorSection = () => {
   const [pocketsA4, setPocketsA4] = useState<string>("");
   const [pocketsA3, setPocketsA3] = useState<string>("");
   const [pocketsA2, setPocketsA2] = useState<string>("");
+  const [standImage, setStandImage] = useState<string>("");
+  const [imagePosition, setImagePosition] = useState<string>("center");
 
   const [signageWidth, setSignageWidth] = useState<string>("");
   const [signageHeight, setSignageHeight] = useState<string>("");
@@ -215,6 +217,10 @@ const CalculatorSection = () => {
                 setPocketsA3={setPocketsA3}
                 pocketsA2={pocketsA2}
                 setPocketsA2={setPocketsA2}
+                standImage={standImage}
+                setStandImage={setStandImage}
+                imagePosition={imagePosition}
+                setImagePosition={setImagePosition}
                 calculateStandPrice={calculateStandPrice}
               />
             )}

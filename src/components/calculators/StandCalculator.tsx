@@ -4,6 +4,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import OrderDialog from "./OrderDialog";
+import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 interface StandCalculatorProps {
   standWidth: string;
@@ -28,6 +30,10 @@ interface StandCalculatorProps {
   setPocketsA3: (value: string) => void;
   pocketsA2: string;
   setPocketsA2: (value: string) => void;
+  standImage: string;
+  setStandImage: (value: string) => void;
+  imagePosition: string;
+  setImagePosition: (value: string) => void;
   calculateStandPrice: () => number;
 }
 
@@ -54,8 +60,35 @@ const StandCalculator = ({
   setPocketsA3,
   pocketsA2,
   setPocketsA2,
+  standImage,
+  setStandImage,
+  imagePosition,
+  setImagePosition,
   calculateStandPrice
 }: StandCalculatorProps) => {
+  const [isUploading, setIsUploading] = useState(false);
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Файл слишком большой. Максимальный размер 5 МБ');
+      return;
+    }
+
+    setIsUploading(true);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setStandImage(reader.result as string);
+      setIsUploading(false);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const removeImage = () => {
+    setStandImage('');
+  };
   const pocketSizes: Record<string, { width: number; height: number }> = {
     a5: { width: 14.8, height: 21 },
     a4: { width: 21, height: 29.7 },
@@ -131,6 +164,16 @@ const StandCalculator = ({
 
     const baseFontSize = Math.min(previewWidth / 10, previewHeight / 8);
 
+    const imagePositionStyles: Record<string, React.CSSProperties> = {
+      center: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
+      'top-center': { top: '25%', left: '50%', transform: 'translate(-50%, -50%)' },
+      'bottom-center': { bottom: '15%', left: '50%', transform: 'translateX(-50%)' },
+      'top-left': { top: '25%', left: '15%' },
+      'top-right': { top: '25%', right: '15%' },
+      'bottom-left': { bottom: '15%', left: '15%' },
+      'bottom-right': { bottom: '15%', right: '15%' }
+    };
+
     return (
       <div 
         className="border-4 border-primary/20 shadow-lg relative overflow-hidden"
@@ -155,6 +198,24 @@ const StandCalculator = ({
             {standHeaderText || 'ИНФОРМАЦИЯ'}
           </div>
         </div>
+
+        {standImage && (
+          <div
+            className="absolute"
+            style={{
+              ...imagePositionStyles[imagePosition],
+              maxWidth: '60%',
+              maxHeight: '40%',
+              zIndex: 1
+            }}
+          >
+            <img
+              src={standImage}
+              alt="Загруженное изображение"
+              className="max-w-full max-h-full object-contain rounded shadow-md"
+            />
+          </div>
+        )}
 
         <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-wrap justify-center items-end gap-2">
           {allPockets.map((pocket, index) => {
@@ -196,6 +257,16 @@ const StandCalculator = ({
     .filter(([_, count]) => count > 0)
     .map(([size, count]) => `${size.toUpperCase()}: ${count} шт`)
     .join(', ');
+
+  const positionNames: Record<string, string> = {
+    center: 'По центру',
+    'top-center': 'Сверху по центру',
+    'bottom-center': 'Снизу по центру',
+    'top-left': 'Сверху слева',
+    'top-right': 'Сверху справа',
+    'bottom-left': 'Снизу слева',
+    'bottom-right': 'Снизу справа'
+  };
 
   return (
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
@@ -304,6 +375,71 @@ const StandCalculator = ({
             </div>
 
             <div>
+              <Label className="block mb-2">Загрузить свое изображение</Label>
+              <div className="space-y-3">
+                {!standImage ? (
+                  <div className="relative">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                      id="image-upload"
+                      disabled={isUploading}
+                    />
+                    <label
+                      htmlFor="image-upload"
+                      className="flex items-center justify-center gap-2 w-full p-4 border-2 border-dashed border-muted-foreground/30 rounded-lg hover:border-primary/50 cursor-pointer transition-colors bg-muted/30"
+                    >
+                      <Icon name={isUploading ? "Loader2" : "Upload"} size={20} className={isUploading ? "animate-spin" : ""} />
+                      <span className="text-sm text-muted-foreground">
+                        {isUploading ? 'Загрузка...' : 'Нажмите для загрузки (макс. 5 МБ)'}
+                      </span>
+                    </label>
+                  </div>
+                ) : (
+                  <div className="relative p-3 border border-muted-foreground/30 rounded-lg bg-muted/20">
+                    <div className="flex items-center gap-3">
+                      <img src={standImage} alt="Preview" className="w-16 h-16 object-cover rounded" />
+                      <div className="flex-1">
+                        <p className="text-sm font-medium">Изображение загружено</p>
+                        <p className="text-xs text-muted-foreground">Выберите положение ниже</p>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={removeImage}
+                        className="text-destructive hover:text-destructive"
+                      >
+                        <Icon name="X" size={16} />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+                
+                {standImage && (
+                  <div>
+                    <Label className="block mb-2 text-sm">Положение изображения</Label>
+                    <Select value={imagePosition} onValueChange={setImagePosition}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="center">По центру</SelectItem>
+                        <SelectItem value="top-center">Сверху по центру</SelectItem>
+                        <SelectItem value="bottom-center">Снизу по центру</SelectItem>
+                        <SelectItem value="top-left">Сверху слева</SelectItem>
+                        <SelectItem value="top-right">Сверху справа</SelectItem>
+                        <SelectItem value="bottom-left">Снизу слева</SelectItem>
+                        <SelectItem value="bottom-right">Снизу справа</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div>
               <Label className="block mb-2">Карманы для материалов</Label>
               <div className="grid grid-cols-2 gap-3">
                 <div>
@@ -383,8 +519,11 @@ const StandCalculator = ({
                 "Толщина ПВХ": `${standThickness} мм`,
                 "Печать": printingNames[standPrinting] || standPrinting,
                 "Заголовок": standHeaderText,
-                ...(pocketsText && { "Карманы": pocketsText })
+                ...(pocketsText && { "Карманы": pocketsText }),
+                ...(standImage && { "Изображение": "Прикреплено", "Положение изображения": positionNames[imagePosition] })
               }}
+              imageData={standImage}
+              onImageCleanup={() => setStandImage('')}
             >
               <Button className="w-full" size="lg">
                 Заказать расчёт

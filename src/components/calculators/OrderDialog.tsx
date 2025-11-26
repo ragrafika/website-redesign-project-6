@@ -17,9 +17,11 @@ interface OrderDialogProps {
   price: number;
   details: Record<string, string>;
   children: React.ReactNode;
+  imageData?: string;
+  onImageCleanup?: () => void;
 }
 
-const OrderDialog = ({ calculatorType, price, details, children }: OrderDialogProps) => {
+const OrderDialog = ({ calculatorType, price, details, children, imageData, onImageCleanup }: OrderDialogProps) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -44,6 +46,7 @@ const OrderDialog = ({ calculatorType, price, details, children }: OrderDialogPr
           email,
           price,
           details,
+          imageData,
         }),
       });
 
@@ -55,6 +58,10 @@ const OrderDialog = ({ calculatorType, price, details, children }: OrderDialogPr
         title: "Заявка отправлена!",
         description: "Мы свяжемся с вами в ближайшее время",
       });
+
+      if (imageData && onImageCleanup) {
+        onImageCleanup();
+      }
 
       setName("");
       setPhone("");
