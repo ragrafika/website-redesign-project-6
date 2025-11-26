@@ -117,7 +117,7 @@ const VolumeLettersCalculator = ({
                 </span>
               </div>
               <p className="text-xs text-muted-foreground">
-                * стоимость предварительная, точную стоимость сообщит менеджер после уточнения деталей
+                * точную стоимость сообщит менеджер после уточнения деталей
               </p>
             </div>
 
