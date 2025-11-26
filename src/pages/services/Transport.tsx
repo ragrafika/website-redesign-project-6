@@ -111,7 +111,7 @@ const Transport = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="transport" />
           </div>
         </div>
       </main>

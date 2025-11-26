@@ -111,7 +111,7 @@ const Design = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="design" />
           </div>
         </div>
       </main>

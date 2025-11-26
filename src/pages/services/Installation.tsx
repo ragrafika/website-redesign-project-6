@@ -111,7 +111,7 @@ const Installation = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="installation" />
           </div>
         </div>
       </main>

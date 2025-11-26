@@ -111,7 +111,7 @@ const Banners = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="banners" />
           </div>
         </div>
       </main>

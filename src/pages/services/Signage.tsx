@@ -107,7 +107,7 @@ const Signage = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="signage" />
           </div>
         </div>
       </main>

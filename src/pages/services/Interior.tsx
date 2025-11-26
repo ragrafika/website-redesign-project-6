@@ -121,7 +121,7 @@ const Interior = () => {
               </Button>
             </div>
 
-            <ServiceCards />
+            <ServiceCards excludeService="interior" />
           </div>
         </div>
       </main>
