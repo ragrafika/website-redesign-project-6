@@ -95,7 +95,7 @@ const CalculatorSection = () => {
     price += (parseInt(pocketsA3) || 0) * pocketPrices["A3"];
     price += (parseInt(pocketsA2) || 0) * pocketPrices["A2"];
     
-    return Math.round(price);
+    return Math.max(1500, Math.round(price));
   };
 
   const calculateSignagePrice = () => {
@@ -192,44 +192,31 @@ const CalculatorSection = () => {
             </div>
             
             {selectedCalculator === "stand" && (
-              <div className="grid lg:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
-                <StandCalculator
-                  standWidth={standWidth}
-                  setStandWidth={setStandWidth}
-                  standHeight={standHeight}
-                  setStandHeight={setStandHeight}
-                  standThickness={standThickness}
-                  setStandThickness={setStandThickness}
-                  standPrinting={standPrinting}
-                  setStandPrinting={setStandPrinting}
-                  standHeaderText={standHeaderText}
-                  setStandHeaderText={setStandHeaderText}
-                  standFontFamily={standFontFamily}
-                  setStandFontFamily={setStandFontFamily}
-                  standBgColor={standBgColor}
-                  setStandBgColor={setStandBgColor}
-                  pocketsA5={pocketsA5}
-                  setPocketsA5={setPocketsA5}
-                  pocketsA4={pocketsA4}
-                  setPocketsA4={setPocketsA4}
-                  pocketsA3={pocketsA3}
-                  setPocketsA3={setPocketsA3}
-                  pocketsA2={pocketsA2}
-                  setPocketsA2={setPocketsA2}
-                  calculateStandPrice={calculateStandPrice}
-                />
-                <StandPreview
-                  standWidth={standWidth}
-                  standHeight={standHeight}
-                  standHeaderText={standHeaderText}
-                  standFontFamily={standFontFamily}
-                  standBgColor={standBgColor}
-                  pocketsA5={pocketsA5}
-                  pocketsA4={pocketsA4}
-                  pocketsA3={pocketsA3}
-                  pocketsA2={pocketsA2}
-                />
-              </div>
+              <StandCalculator
+                standWidth={standWidth}
+                setStandWidth={setStandWidth}
+                standHeight={standHeight}
+                setStandHeight={setStandHeight}
+                standThickness={standThickness}
+                setStandThickness={setStandThickness}
+                standPrinting={standPrinting}
+                setStandPrinting={setStandPrinting}
+                standHeaderText={standHeaderText}
+                setStandHeaderText={setStandHeaderText}
+                standFontFamily={standFontFamily}
+                setStandFontFamily={setStandFontFamily}
+                standBgColor={standBgColor}
+                setStandBgColor={setStandBgColor}
+                pocketsA5={pocketsA5}
+                setPocketsA5={setPocketsA5}
+                pocketsA4={pocketsA4}
+                setPocketsA4={setPocketsA4}
+                pocketsA3={pocketsA3}
+                setPocketsA3={setPocketsA3}
+                pocketsA2={pocketsA2}
+                setPocketsA2={setPocketsA2}
+                calculateStandPrice={calculateStandPrice}
+              />
             )}
             
             {selectedCalculator === "signage" && (
