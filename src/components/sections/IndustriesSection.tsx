@@ -114,7 +114,7 @@ const IndustriesSection = () => {
             Не нашли свою сферу? Мы работаем со всеми направлениями бизнеса
           </p>
           <a 
-            href="#contact"
+            href="#contacts"
             className="inline-flex items-center gap-2 bg-primary text-white py-4 px-8 rounded-xl font-semibold hover:bg-primary/90 transition-colors"
           >
             Получить консультацию
