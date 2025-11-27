@@ -28,46 +28,10 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [phoneError, setPhoneError] = useState("");
   const { toast } = useToast();
-
-  const validatePhone = (phone: string): boolean => {
-    const cleaned = phone.replace(/[\s-]/g, '');
-    
-    const cityPattern = /^\d{2}-?\d{2}-?\d{2}$/;
-    const cityWithCodePattern = /^\+?7\s?\d{4}\s?\d{2}-?\d{2}-?\d{2}$/;
-    const federalPattern = /^\+?7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/;
-    const cleanedFederal = /^\+?7\d{10}$/;
-    
-    return cityPattern.test(phone) || 
-           cityWithCodePattern.test(phone) || 
-           federalPattern.test(phone) ||
-           cleanedFederal.test(cleaned);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setPhoneError("");
-
-    if (!name.trim()) {
-      toast({
-        title: "Ошибка",
-        description: "Укажите ваше имя",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!phone.trim()) {
-      setPhoneError("Укажите номер телефона");
-      return;
-    }
-
-    if (!validatePhone(phone)) {
-      setPhoneError("Неверный формат. Примеры: 31-31-70, +7 4162 31-31-70, +7 965 671 31 70");
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
@@ -137,7 +101,6 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               onChange={(e) => setName(e.target.value)}
               placeholder="Ваше имя"
               required
-              minLength={2}
             />
           </div>
           <div>
@@ -146,16 +109,10 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               id="phone"
               type="tel"
               value={phone}
-              onChange={(e) => {
-                setPhone(e.target.value);
-                setPhoneError("");
-              }}
-              placeholder="31-31-70 или +7 965 671 31 70"
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="+7 (900) 123-45-67"
               required
             />
-            {phoneError && (
-              <p className="text-red-500 text-sm mt-1">{phoneError}</p>
-            )}
           </div>
           <div>
             <Label htmlFor="email">Email</Label>

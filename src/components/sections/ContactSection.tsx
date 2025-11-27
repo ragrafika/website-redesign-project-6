@@ -9,41 +9,11 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [phoneError, setPhoneError] = useState('');
-
-  const validatePhone = (phone: string): boolean => {
-    const cleaned = phone.replace(/[\s-]/g, '');
-    
-    const cityPattern = /^\d{2}-?\d{2}-?\d{2}$/;
-    const cityWithCodePattern = /^\+?7\s?\d{4}\s?\d{2}-?\d{2}-?\d{2}$/;
-    const federalPattern = /^\+?7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/;
-    const cleanedFederal = /^\+?7\d{10}$/;
-    
-    return cityPattern.test(phone) || 
-           cityWithCodePattern.test(phone) || 
-           federalPattern.test(phone) ||
-           cleanedFederal.test(cleaned);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setPhoneError('');
     
-    if (!formData.name.trim()) {
-      setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-      return;
-    }
-
-    if (!formData.phone.trim()) {
-      setPhoneError('Укажите номер телефона');
-      setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-      return;
-    }
-
-    if (!validatePhone(formData.phone)) {
-      setPhoneError('Неверный формат. Примеры: 31-31-70, +7 4162 31-31-70, +7 965 671 31 70');
+    if (!formData.name || !formData.phone) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 3000);
       return;
@@ -121,32 +91,21 @@ const ContactSection = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Оставьте заявку</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input 
-                      placeholder="Ваше имя *" 
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
-                      required
-                      minLength={2}
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      type="tel"
-                      placeholder="Телефон *" 
-                      value={formData.phone}
-                      onChange={(e) => {
-                        setFormData({ ...formData, phone: e.target.value });
-                        setPhoneError('');
-                      }}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
-                      required
-                    />
-                    {phoneError && (
-                      <p className="text-red-300 text-sm mt-1">{phoneError}</p>
-                    )}
-                  </div>
+                  <Input 
+                    placeholder="Ваше имя" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    required
+                  />
+                  <Input 
+                    type="tel"
+                    placeholder="Телефон" 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    required
+                  />
                   <Textarea 
                     placeholder="Напишите ваш вопрос" 
                     value={formData.message}
