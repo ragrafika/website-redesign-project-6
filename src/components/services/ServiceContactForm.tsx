@@ -11,8 +11,8 @@ interface ServiceContactFormProps {
 }
 
 const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-  const [consent, setConsent] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '+7 ', message: '' });
+  const [consent, setConsent] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -44,8 +44,8 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '', message: `Интересует услуга: ${serviceName}.\n\n` });
-        setConsent(false);
+        setFormData({ name: '', phone: '+7 ', message: `Интересует услуга: ${serviceName}.\n\n` });
+        setConsent(true);
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
@@ -75,7 +75,16 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
             type="tel"
             placeholder="Телефон" 
             value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
+                setFormData({ ...formData, phone: value || '+7 ' });
+              } else if (!value.startsWith('+7')) {
+                setFormData({ ...formData, phone: '+7 ' + value });
+              } else {
+                setFormData({ ...formData, phone: value });
+              }
+            }}
             className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
             required
           />

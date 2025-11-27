@@ -24,9 +24,9 @@ interface OrderDialogProps {
 const OrderDialog = ({ calculatorType, price, details, children, imageData, onImageCleanup }: OrderDialogProps) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+7 ");
   const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -65,9 +65,9 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
       }
 
       setName("");
-      setPhone("");
+      setPhone("+7 ");
       setEmail("");
-      setConsent(false);
+      setConsent(true);
       setOpen(false);
     } catch (error) {
       toast({
@@ -109,7 +109,16 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               id="phone"
               type="tel"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
+                  setPhone(value || '+7 ');
+                } else if (!value.startsWith('+7')) {
+                  setPhone('+7 ' + value);
+                } else {
+                  setPhone(value);
+                }
+              }}
               placeholder="+7 (900) 123-45-67"
               required
             />
