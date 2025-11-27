@@ -101,7 +101,7 @@ const Signage = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild className="flex-1">
-                <a href="https://wa.me/74162227678" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
                   <Icon name="MessageCircle" size={20} className="mr-2" />
                   Написать в WhatsApp
                 </a>

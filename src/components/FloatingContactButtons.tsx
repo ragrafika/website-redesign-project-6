@@ -24,7 +24,7 @@ const FloatingContactButtons = () => {
       </a>
       
       <a
-        href="https://max.app/?phone=79656713170"
+        href="https://max.app/dial?phone=79656713170"
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-[#FF4D00] hover:bg-[#E64400] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

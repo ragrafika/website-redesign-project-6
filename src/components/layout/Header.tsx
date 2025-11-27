@@ -30,7 +30,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-3 md:gap-4 flex-1 justify-end">
           <a 
-            href="https://wa.me/74162227678" 
+            href="https://wa.me/79656713170" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-10 h-10 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
