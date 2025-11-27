@@ -3,19 +3,19 @@ import Icon from "@/components/ui/icon";
 
 const industries = [
   {
-    icon: "Heart",
+    icon: "Cross",
     title: "Аптеки",
     description: "Светодиодные кресты и информационные стенды"
   },
   {
-    icon: "Car",
-    title: "Автосалоны",
-    description: "Брендирование фасадов и интерьеров"
+    icon: "Droplets",
+    title: "Автомойки",
+    description: "Вывески и навигация для автомоек"
   },
   {
     icon: "Wrench",
     title: "Автосервисы",
-    description: "Вывески и навигация для СТО и автомоек"
+    description: "Вывески и навигация для СТО"
   },
   {
     icon: "Building2",
@@ -29,18 +29,8 @@ const industries = [
   },
   {
     icon: "Coffee",
-    title: "Кафе",
+    title: "Кафе и рестораны",
     description: "Вывески, меню-борды и интерьерное оформление"
-  },
-  {
-    icon: "Cigarette",
-    title: "Кальянные",
-    description: "Неоновые вывески и атмосферное оформление"
-  },
-  {
-    icon: "Music",
-    title: "Клубы",
-    description: "Световые вывески и неоновый декор"
   },
   {
     icon: "Tag",
@@ -58,14 +48,9 @@ const industries = [
     description: "Вывески, навигация и информационные стенды"
   },
   {
-    icon: "Flame",
+    icon: "Scissors",
     title: "Парикмахерские",
     description: "Световые вывески и интерьерные таблички"
-  },
-  {
-    icon: "Utensils",
-    title: "Рестораны",
-    description: "Вывески, световые короба и меню-панели"
   },
   {
     icon: "Sparkles",
@@ -78,7 +63,7 @@ const industries = [
     description: "Навигация, вывески арендаторов и брендирование"
   },
   {
-    icon: "Compass",
+    icon: "Palmtree",
     title: "Турагентства",
     description: "Яркие вывески и информационные стенды"
   },
@@ -107,14 +92,14 @@ const IndustriesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {industries.map((industry, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary cursor-pointer"
+              className="border-2"
             >
               <CardContent className="p-6 text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Icon name={industry.icon} size={28} className="text-primary" />
                 </div>
                 <h3 className="font-bold mb-2 text-sm">{industry.title}</h3>
