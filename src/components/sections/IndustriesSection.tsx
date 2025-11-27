@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 const industries = [
   {
@@ -91,7 +92,7 @@ const industries = [
 const IndustriesSection = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedIndustry, setSelectedIndustry] = useState('');
-  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '', industry: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '', industry: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [consentChecked, setConsentChecked] = useState(true);
@@ -117,7 +118,7 @@ const IndustriesSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '+7 ', email: '', industry: '' });
+        setFormData({ name: '', phone: '+7 ', email: '', industry: '', message: '' });
         setSelectedIndustry('');
         setConsentChecked(true);
         setTimeout(() => {
@@ -251,6 +252,15 @@ const IndustriesSection = () => {
                 <span className="font-semibold text-primary">{selectedIndustry}</span>
               </div>
             )}
+            <div>
+              <label className="text-sm font-medium mb-1.5 block">Комментарий</label>
+              <Textarea
+                placeholder="Расскажите о ваших пожеланиях..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="border-2 min-h-24 resize-none"
+              />
+            </div>
             <div className="flex items-start gap-3 pt-2">
               <input
                 type="checkbox"
