@@ -111,7 +111,7 @@ const Signage = () => {
             <ServiceCards excludeService="signage" />
             
             <div className="mt-8">
-              <ServiceContactForm />
+              <ServiceContactForm serviceName="Вывески и световые короба" />
             </div>
           </div>
         </div>

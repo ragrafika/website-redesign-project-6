@@ -115,7 +115,7 @@ const Design = () => {
             <ServiceCards excludeService="design" />
             
             <div className="mt-8">
-              <ServiceContactForm />
+              <ServiceContactForm serviceName="Разработка дизайна" />
             </div>
           </div>
         </div>

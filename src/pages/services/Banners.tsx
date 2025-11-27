@@ -115,7 +115,7 @@ const Banners = () => {
             <ServiceCards excludeService="banners" />
             
             <div className="mt-8">
-              <ServiceContactForm />
+              <ServiceContactForm serviceName="Баннеры и штендеры" />
             </div>
           </div>
         </div>

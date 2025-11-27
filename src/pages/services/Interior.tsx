@@ -125,7 +125,7 @@ const Interior = () => {
             <ServiceCards excludeService="interior" />
             
             <div className="mt-8">
-              <ServiceContactForm />
+              <ServiceContactForm serviceName="Интерьерная реклама" />
             </div>
           </div>
         </div>

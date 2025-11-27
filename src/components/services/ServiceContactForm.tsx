@@ -4,12 +4,24 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import { useEffect } from "react";
 
-const ServiceContactForm = () => {
+interface ServiceContactFormProps {
+  serviceName: string;
+}
+
+const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      message: `Интересует услуга: ${serviceName}.\n\n`
+    }));
+  }, [serviceName]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +44,7 @@ const ServiceContactForm = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '', message: '' });
+        setFormData({ name: '', phone: '', message: `Интересует услуга: ${serviceName}.\n\n` });
         setConsent(false);
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {

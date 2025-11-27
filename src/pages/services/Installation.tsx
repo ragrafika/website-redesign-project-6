@@ -115,7 +115,7 @@ const Installation = () => {
             <ServiceCards excludeService="installation" />
             
             <div className="mt-8">
-              <ServiceContactForm />
+              <ServiceContactForm serviceName="Монтаж и установка" />
             </div>
           </div>
         </div>
