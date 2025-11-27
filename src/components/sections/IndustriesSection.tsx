@@ -90,10 +90,10 @@ const industries = [
 
 const IndustriesSection = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [consentChecked, setConsentChecked] = useState(false);
+  const [consentChecked, setConsentChecked] = useState(true);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,8 +116,8 @@ const IndustriesSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '', email: '' });
-        setConsentChecked(false);
+        setFormData({ name: '', phone: '+7 ', email: '' });
+        setConsentChecked(true);
         setTimeout(() => {
           setSubmitStatus('idle');
           setIsDialogOpen(false);
@@ -208,7 +208,16 @@ const IndustriesSection = () => {
                 type="tel"
                 placeholder="+7 (900) 123-45-67"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
+                    setFormData({ ...formData, phone: value || '+7 ' });
+                  } else if (!value.startsWith('+7')) {
+                    setFormData({ ...formData, phone: '+7 ' + value });
+                  } else {
+                    setFormData({ ...formData, phone: value });
+                  }
+                }}
                 required
                 className="border-2"
               />

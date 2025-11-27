@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '+7 ', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -31,7 +31,7 @@ const ContactSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '', message: '' });
+        setFormData({ name: '', phone: '+7 ', message: '' });
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
@@ -102,7 +102,16 @@ const ContactSection = () => {
                     type="tel"
                     placeholder="Телефон" 
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
+                        setFormData({ ...formData, phone: value || '+7 ' });
+                      } else if (!value.startsWith('+7')) {
+                        setFormData({ ...formData, phone: '+7 ' + value });
+                      } else {
+                        setFormData({ ...formData, phone: value });
+                      }
+                    }}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
                     required
                   />
@@ -117,6 +126,7 @@ const ContactSection = () => {
                       <input
                         type="checkbox"
                         id="consent"
+                        defaultChecked
                         required
                         className="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-primary focus:ring-primary"
                       />
