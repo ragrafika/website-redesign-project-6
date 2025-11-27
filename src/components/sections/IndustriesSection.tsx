@@ -3,19 +3,9 @@ import Icon from "@/components/ui/icon";
 
 const industries = [
   {
-    icon: "Music",
-    title: "Клубы",
-    description: "Световые вывески и неоновый декор для ночных клубов"
-  },
-  {
-    icon: "Coffee",
-    title: "Кафе и рестораны",
-    description: "Вывески, меню-борды и интерьерное оформление"
-  },
-  {
-    icon: "Wrench",
-    title: "Автосервисы",
-    description: "Вывески и навигация для СТО и автомоек"
+    icon: "Heart",
+    title: "Аптеки",
+    description: "Светодиодные кресты и информационные стенды"
   },
   {
     icon: "Car",
@@ -23,14 +13,69 @@ const industries = [
     description: "Брендирование фасадов и интерьеров"
   },
   {
-    icon: "Dumbbell",
-    title: "Фитнес-центры",
-    description: "Световые вывески и навигация в спортклубах"
+    icon: "Wrench",
+    title: "Автосервисы",
+    description: "Вывески и навигация для СТО и автомоек"
+  },
+  {
+    icon: "Building2",
+    title: "Банки",
+    description: "Представительские вывески и интерьерное оформление"
+  },
+  {
+    icon: "Landmark",
+    title: "Госучреждения",
+    description: "Представительские таблички и навигация"
+  },
+  {
+    icon: "Coffee",
+    title: "Кафе",
+    description: "Вывески, меню-борды и интерьерное оформление"
+  },
+  {
+    icon: "Cigarette",
+    title: "Кальянные",
+    description: "Неоновые вывески и атмосферное оформление"
+  },
+  {
+    icon: "Music",
+    title: "Клубы",
+    description: "Световые вывески и неоновый декор"
+  },
+  {
+    icon: "Tag",
+    title: "Магазины",
+    description: "Вывески, витринная реклама и ценники"
+  },
+  {
+    icon: "MapPin",
+    title: "Медучреждения",
+    description: "Вывески, навигация и информационные стенды"
+  },
+  {
+    icon: "Hotel",
+    title: "Отели",
+    description: "Вывески, навигация и информационные стенды"
+  },
+  {
+    icon: "Flame",
+    title: "Парикмахерские",
+    description: "Световые вывески и интерьерные таблички"
   },
   {
     icon: "Utensils",
     title: "Рестораны",
     description: "Вывески, световые короба и меню-панели"
+  },
+  {
+    icon: "Sparkles",
+    title: "Салоны красоты",
+    description: "Вывески, неоновый декор и навигация"
+  },
+  {
+    icon: "ShoppingBag",
+    title: "Торговые центры",
+    description: "Навигация, вывески арендаторов и брендирование"
   },
   {
     icon: "Compass",
@@ -40,57 +85,12 @@ const industries = [
   {
     icon: "GraduationCap",
     title: "Учебные заведения",
-    description: "Навигация, стенды и табличи для школ и вузов"
+    description: "Навигация, стенды и таблички для школ и вузов"
   },
   {
-    icon: "MapPin",
-    title: "Медучреждения",
-    description: "Вывески, навигация и информационные стенды"
-  },
-  {
-    icon: "Cigarette",
-    title: "Кальянные",
-    description: "Неоновые вывески и атмосферное оформление"
-  },
-  {
-    icon: "Hotel",
-    title: "Отели",
-    description: "Вывески, навигация и информационные стенды"
-  },
-  {
-    icon: "ShoppingBag",
-    title: "Торговые центры",
-    description: "Навигация, вывески арендаторов и брендирование"
-  },
-  {
-    icon: "Building2",
-    title: "Банки",
-    description: "Представительские вывески и интерьерное оформление"
-  },
-  {
-    icon: "Flame",
-    title: "Парикмахерские",
-    description: "Световые вывески и интерьерные таблички"
-  },
-  {
-    icon: "Sparkles",
-    title: "Салоны красоты",
-    description: "Вывески, неоновый декор и навигация"
-  },
-  {
-    icon: "Tag",
-    title: "Магазины",
-    description: "Вывески, витринная реклама и ценники"
-  },
-  {
-    icon: "Heart",
-    title: "Аптеки",
-    description: "Светодиодные кресты и информационные стенды"
-  },
-  {
-    icon: "Landmark",
-    title: "Госучреждения",
-    description: "Представительские таблички и навигация"
+    icon: "Dumbbell",
+    title: "Фитнес-центры",
+    description: "Световые вывески и навигация в спортклубах"
   }
 ];
 
