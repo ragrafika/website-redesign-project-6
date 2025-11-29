@@ -130,6 +130,7 @@ const StandParametersForm = ({
               <SelectContent>
                 <SelectItem value="3">3 мм</SelectItem>
                 <SelectItem value="5">5 мм</SelectItem>
+                <SelectItem value="8">8 мм</SelectItem>
                 <SelectItem value="10">10 мм</SelectItem>
               </SelectContent>
             </Select>
@@ -143,8 +144,9 @@ const StandParametersForm = ({
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="interior">Печать интерьерная без ламинации</SelectItem>
-                <SelectItem value="exterior">Печать интерьерная с ламинацией</SelectItem>
-                <SelectItem value="laminated">УФ печать на виниловой пленке</SelectItem>
+                <SelectItem value="laminated">Печать интерьерная с ламинацией</SelectItem>
+                <SelectItem value="uv">УФ печать на виниловой пленке</SelectItem>
+                <SelectItem value="oracal">Аппликация Оракал 641 (фон и текст)</SelectItem>
               </SelectContent>
             </Select>
           </div>

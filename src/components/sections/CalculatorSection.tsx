@@ -70,22 +70,24 @@ const CalculatorSection = () => {
     const area = width * height;
     
     const thicknessPrices: Record<string, number> = {
-      "3": 1200,
-      "5": 1800,
-      "10": 2500
+      "3": 1990,
+      "5": 2530,
+      "8": 2850,
+      "10": 3280
     };
     
     const printingPrices: Record<string, number> = {
-      "interior": 800,
-      "exterior": 1200,
-      "laminated": 1500
+      "interior": 559,
+      "laminated": 672,
+      "uv": 910,
+      "oracal": 2720
     };
     
     const pocketPrices: Record<string, number> = {
-      "A5": 150,
+      "A5": 100,
       "A4": 200,
       "A3": 300,
-      "A2": 400
+      "A2": 600
     };
     
     let price = area * thicknessPrices[standThickness];
