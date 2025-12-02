@@ -142,7 +142,7 @@ const Interior = () => {
                     <div className="p-6 md:w-3/5">
                       <div className="flex items-center gap-2 mb-3">
                         <Icon name="SquareStack" size={24} className="text-primary" />
-                        <h3 className="text-xl font-bold">Настенные информационные панели</h3>
+                        <h3 className="text-xl font-bold">Настенные информационные панели (стенды)</h3>
                       </div>
                       <p className="text-gray-700 mb-4">
                         Крепятся на стену, экономят место. Отлично подходят для коридоров, холлов и переговорных. Могут быть с рамками для быстрой смены информации или с карманами для документов. Профессиональный вид для офисов.
