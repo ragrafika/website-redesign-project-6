@@ -5,8 +5,16 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Interior = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="min-h-screen">
       <Header />
@@ -38,12 +46,12 @@ const Interior = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
-                  <p className="text-gray-700 mb-3">
-                    При заказе комплексного оформления офиса — <span className="font-semibold text-primary">замер и дизайн-проект бесплатно</span>. Работаем без остановки бизнес-процессов, устанавливаем вечером или в выходные.
+                  <p className="text-gray-700 mb-4">
+                    При заказе комплексного оформления — <span className="font-semibold text-primary">скидка 10-15%</span>. Работаем без остановки бизнес-процессов, устанавливаем в согласованные сроки.
                   </p>
-                  <p className="text-sm text-gray-600">
-                    Акция действует до конца месяца
-                  </p>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" onClick={() => setIsModalOpen(true)}>
+                    Заказать расчет оформления
+                  </Button>
                 </div>
               </div>
             </div>
@@ -359,6 +367,22 @@ const Interior = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">
+              Заказать расчет оформления
+            </DialogTitle>
+          </DialogHeader>
+          <div className="mt-4">
+            <ServiceContactForm 
+              serviceName="Интерьерная реклама" 
+              onSuccess={() => setIsModalOpen(false)}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
