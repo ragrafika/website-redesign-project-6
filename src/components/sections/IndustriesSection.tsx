@@ -97,7 +97,7 @@ const industries = [
 const IndustriesSection = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedIndustry, setSelectedIndustry] = useState('');
-  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '', industry: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', industry: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [consentChecked, setConsentChecked] = useState(true);
@@ -123,7 +123,7 @@ const IndustriesSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '+7 ', email: '', industry: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', industry: '', message: '' });
         setSelectedIndustry('');
         setConsentChecked(true);
         setTimeout(() => {
@@ -228,18 +228,9 @@ const IndustriesSection = () => {
               </label>
               <Input
                 type="tel"
-                placeholder="+7 (900) 123-45-67"
+                placeholder="Телефон"
                 value={formData.phone}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
-                    setFormData({ ...formData, phone: value || '+7 ' });
-                  } else if (!value.startsWith('+7')) {
-                    setFormData({ ...formData, phone: '+7 ' + value });
-                  } else {
-                    setFormData({ ...formData, phone: value });
-                  }
-                }}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 required
                 className="border-2"
               />

@@ -12,7 +12,7 @@ interface ServiceContactFormProps {
 }
 
 const ServiceContactForm = ({ serviceName, onSuccess }: ServiceContactFormProps) => {
-  const [formData, setFormData] = useState({ name: '', phone: '+7 ', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [consent, setConsent] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -45,7 +45,7 @@ const ServiceContactForm = ({ serviceName, onSuccess }: ServiceContactFormProps)
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '+7 ', message: `Интересует услуга: ${serviceName}.\n\n` });
+        setFormData({ name: '', phone: '', message: `Интересует услуга: ${serviceName}.\n\n` });
         setConsent(true);
         if (onSuccess) {
           setTimeout(() => {
@@ -83,16 +83,7 @@ const ServiceContactForm = ({ serviceName, onSuccess }: ServiceContactFormProps)
             type="tel"
             placeholder="Телефон" 
             value={formData.phone}
-            onChange={(e) => {
-              const value = e.target.value;
-              if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
-                setFormData({ ...formData, phone: value || '+7 ' });
-              } else if (!value.startsWith('+7')) {
-                setFormData({ ...formData, phone: '+7 ' + value });
-              } else {
-                setFormData({ ...formData, phone: value });
-              }
-            }}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
             required
           />

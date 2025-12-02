@@ -24,7 +24,7 @@ interface OrderDialogProps {
 const OrderDialog = ({ calculatorType, price, details, children, imageData, onImageCleanup }: OrderDialogProps) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+7 ");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,7 +65,7 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
       }
 
       setName("");
-      setPhone("+7 ");
+      setPhone("");
       setEmail("");
       setConsent(true);
       setOpen(false);
@@ -109,17 +109,8 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               id="phone"
               type="tel"
               value={phone}
-              onChange={(e) => {
-                const value = e.target.value;
-                if (value.startsWith('+7 ') || value === '+7' || value === '+' || value === '') {
-                  setPhone(value || '+7 ');
-                } else if (!value.startsWith('+7')) {
-                  setPhone('+7 ' + value);
-                } else {
-                  setPhone(value);
-                }
-              }}
-              placeholder="+7 (900) 123-45-67"
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Телефон"
               required
             />
           </div>
