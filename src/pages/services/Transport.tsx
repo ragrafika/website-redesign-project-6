@@ -5,8 +5,17 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Transport = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <div className="min-h-screen">
       <Header />
@@ -38,12 +47,12 @@ const Transport = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
-                  <p className="text-gray-700 mb-3">
-                    При оклейке корпоративного автопарка (5+ авто) — <span className="font-semibold text-primary">скидка 15% и дизайн в подарок</span>. Ваш автопарк станет узнаваемым на дорогах города.
+                  <p className="text-gray-700 mb-4">
+                    При оклейке корпоративного автопарка (5+ авто) — <span className="font-semibold text-primary">скидка 10%</span>. Ваш автопарк станет узнаваемым на дорогах города.
                   </p>
-                  <p className="text-sm text-gray-600">
-                    Акция действует до конца месяца
-                  </p>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" onClick={() => setIsModalOpen(true)}>
+                    Заказать оклейку автомобиля
+                  </Button>
                 </div>
               </div>
             </div>
@@ -364,6 +373,15 @@ const Transport = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Заказать оклейку автомобиля</DialogTitle>
+          </DialogHeader>
+          <ServiceContactForm serviceName="Брендирование транспорта" />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
