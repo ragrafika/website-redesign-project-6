@@ -138,23 +138,23 @@ const Design = () => {
                     <div className="p-6 md:w-3/5">
                       <div className="flex items-center gap-2 mb-3">
                         <Icon name="FileText" size={24} className="text-primary" />
-                        <h3 className="text-xl font-bold">Техническая документация и согласование</h3>
+                        <h3 className="text-xl font-bold">Согласование вывесок</h3>
                       </div>
                       <p className="text-gray-700 mb-4">
-                        Подготовим все необходимые чертежи, схемы крепления и подключения подсветки. Соберём пакет документов для согласования с администрацией и получим все разрешения. Вы получите готовый паспорт вывески и разрешение на размещение.
+                        Подготовим все необходимые эскизы, необходимые для согласования. Соберём пакет документов для согласования с администрацией и получим все разрешения. Вы получите уведомление о согласовании вывески и разрешение на размещение.
                       </p>
                       <ul className="space-y-2 text-gray-600">
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Чертежи для производства</span>
+                          <span>Согласование в г. Благовещенск за 2 недели</span>
                         </li>
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Пакет для согласования</span>
+                          <span>Согласование в г. Свободный</span>
                         </li>
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Получение разрешений</span>
+                          <span>В рамках действующего законодательства</span>
                         </li>
                       </ul>
                     </div>
