@@ -5,8 +5,12 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const Banners = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -41,12 +45,7 @@ const Banners = () => {
                   <p className="text-gray-700 mb-4">
                     При заказе баннера с монтажем от 60 кв.м — скидка на печать баннера 15%. При заказе мобильного стенда "паук" или "роллап" - каждый 10й стенд в подарок.
                   </p>
-                  <Button size="lg" className="shadow-lg" onClick={() => {
-                    const form = document.getElementById('contact-form');
-                    if (form) {
-                      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}>
+                  <Button size="lg" className="shadow-lg" onClick={() => setIsDialogOpen(true)}>
                     Заказать расчет
                   </Button>
                 </div>
@@ -369,6 +368,18 @@ const Banners = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Заказать расчет</DialogTitle>
+          </DialogHeader>
+          <ServiceContactForm 
+            serviceName="Баннеры и штендеры" 
+            onSuccess={() => setIsDialogOpen(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
