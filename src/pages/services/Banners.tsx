@@ -112,7 +112,7 @@ const Banners = () => {
                         </li>
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Можно менять графику</span>
+                          <span>Можно менять полотно</span>
                         </li>
                       </ul>
                     </div>
