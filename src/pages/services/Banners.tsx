@@ -39,10 +39,7 @@ const Banners = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
                   <p className="text-gray-700 mb-3">
-                    При заказе баннера от 50 кв.м — <span className="font-semibold text-primary">бесплатный монтаж и доставка по городу</span>. Для выставок и мероприятий — срочное изготовление за 24 часа.
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Акция действует до конца месяца
+                    При заказе баннера от 60 кв.м — <span className="font-semibold text-primary">скидка на печать баннера 10%</span>. При заказе мобильного стенда "паук" или "роллап" - каждый 10й стенд в подарок.
                   </p>
                 </div>
               </div>
