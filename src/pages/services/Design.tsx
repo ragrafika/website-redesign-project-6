@@ -5,8 +5,12 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const Design = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -38,12 +42,12 @@ const Design = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
-                  <p className="text-gray-700 mb-3">
-                    При заказе полного цикла (дизайн + производство + монтаж) — <span className="font-semibold text-primary">согласование вывески в подарок</span>. Вы получите готовую вывеску со всеми разрешениями.
+                  <p className="text-gray-700 mb-4">
+                    При заказе полного цикла (дизайн + производство + монтаж) — согласование вывески в г. Благовещенск делаем в подарок. Вы получите готовую вывеску со всеми разрешениями.
                   </p>
-                  <p className="text-sm text-gray-600">
-                    Акция действует до конца месяца
-                  </p>
+                  <Button size="lg" className="shadow-lg" onClick={() => setIsDialogOpen(true)}>
+                    Заказать вывеску и согласование
+                  </Button>
                 </div>
               </div>
             </div>
@@ -349,6 +353,18 @@ const Design = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Заказать вывеску и согласование</DialogTitle>
+          </DialogHeader>
+          <ServiceContactForm 
+            serviceName="Дизайн и согласование вывески" 
+            onSuccess={() => setIsDialogOpen(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
