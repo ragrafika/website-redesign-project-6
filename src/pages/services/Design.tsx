@@ -296,15 +296,7 @@ const Design = () => {
                   </div>
                 </details>
 
-                <details className="bg-white rounded-lg shadow-md group">
-                  <summary className="cursor-pointer p-6 font-semibold text-lg flex justify-between items-center">
-                    Что входит в фирменный стиль?
-                    <Icon name="ChevronDown" size={20} className="transition-transform group-open:rotate-180" />
-                  </summary>
-                  <div className="px-6 pb-6 text-gray-700">
-                    Фирменный стиль включает: логотип, цветовую палитру, фирменные шрифты, фирменный блок (контакты), правила использования логотипа, примеры применения на разных носителях. Оформляем в удобный брендбук (PDF). Можно передать дизайнерам и типографиям.
-                  </div>
-                </details>
+
               </div>
             </div>
 
