@@ -127,41 +127,6 @@ const Design = () => {
                 </div>
 
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="md:flex">
-                    <div className="md:w-2/5">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/be952e3c-db6e-4d11-886f-f9f12a5e2a9e.jpg" 
-                        alt="Брендбук и гайдлайны"
-                        className="w-full h-64 md:h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-6 md:w-3/5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Icon name="BookOpen" size={24} className="text-primary" />
-                        <h3 className="text-xl font-bold">Брендбук и гайдлайны</h3>
-                      </div>
-                      <p className="text-gray-700 mb-4">
-                        Создаём полный фирменный стиль: логотип, цветовую палитру, шрифты и правила их использования. Оформляем в удобный документ, который можно передать в типографию, рекламное агентство или новым сотрудникам. Ваш бренд будет выглядеть единообразно везде.
-                      </p>
-                      <ul className="space-y-2 text-gray-600">
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Полный фирменный стиль</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Правила использования</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Готовый документ</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
