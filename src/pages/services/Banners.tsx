@@ -322,7 +322,7 @@ const Banners = () => {
                     <Icon name="ChevronDown" size={20} className="transition-transform group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6 text-gray-700">
-                    Стандартный срок — 2–3 рабочих дня. Стандартный срок печати - на следующий день после сдачи в печать. Мобильные стенды (roll-up, X-баннер) — 1–2 дня.
+                    Стандартный срок - готовность на следующий день после сдачи в печать, не считая выходных. Мобильные стенды (roll-up, X-баннер) — 1–2 дня.
                   </div>
                 </details>
 
