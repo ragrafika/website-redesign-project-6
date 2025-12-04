@@ -62,41 +62,6 @@ const Transport = () => {
               
               <div className="grid gap-8">
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="md:flex">
-                    <div className="md:w-2/5">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/2fb4eb5f-498f-4ead-8bf7-ad6e9bb6f577.jpg" 
-                        alt="Полная оклейка авто"
-                        className="w-full h-64 md:h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-6 md:w-3/5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Icon name="Car" size={24} className="text-primary" />
-                        <h3 className="text-xl font-bold">Полная оклейка транспорта</h3>
-                      </div>
-                      <p className="text-gray-700 mb-4">
-                        Комплексное брендирование всего кузова автомобиля. Рекламная графика покрывает борта, капот, двери, крышу и заднюю часть. Максимальная видимость вашего бренда на дорогах. Автомобиль становится мобильным рекламным щитом.
-                      </p>
-                      <ul className="space-y-2 text-gray-600">
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Максимальное внимание к бренду</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Защита родной краски кузова</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Подходит для фургонов и вэнов</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
