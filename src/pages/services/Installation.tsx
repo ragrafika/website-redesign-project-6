@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 
 const Installation = () => {
@@ -368,10 +369,14 @@ const Installation = () => {
 
       <Footer />
       
-      <ServiceContactForm 
-        isOpen={isDialogOpen} 
-        onClose={() => setIsDialogOpen(false)} 
-      />
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <ServiceContactForm 
+            serviceName="Монтаж и установка" 
+            onSuccess={() => setIsDialogOpen(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
