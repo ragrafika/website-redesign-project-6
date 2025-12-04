@@ -348,11 +348,11 @@ const Installation = () => {
 
                 <details className="bg-white rounded-lg shadow-md group">
                   <summary className="cursor-pointer p-6 font-semibold text-lg flex justify-between items-center">
-                    Нужно ли обесточивать вывеску?
+                    Сколько кВт потребляют вывески?
                     <Icon name="ChevronDown" size={20} className="transition-transform group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6 text-gray-700">
-                    При подключении к электросети здания — не нужно, мы подключимся к вашему щитку. Если требуется отдельное подключение к сетям — поможем оформить заявку в энергокомпанию. Вывески со светодиодной подсветкой потребляют мало электроэнергии — 50–200 Вт.
+                    В вывесках со светодиодной подсветкой устанавливаются энергоэффективные компоненты. Потребление таких вывесок крайне невысокое. Небольшая вывеска из объемные букв размером 300х40 см потребляет 60-100 Вт.
                   </div>
                 </details>
               </div>
