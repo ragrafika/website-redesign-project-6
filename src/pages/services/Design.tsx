@@ -103,15 +103,15 @@ const Design = () => {
                     <div className="p-6 md:w-3/5">
                       <div className="flex items-center gap-2 mb-3">
                         <Icon name="Box" size={24} className="text-primary" />
-                        <h3 className="text-xl font-bold">3D-визуализация</h3>
+                        <h3 className="text-xl font-bold">Визуализация</h3>
                       </div>
                       <p className="text-gray-700 mb-4">
-                        Создаём фотореалистичную визуализацию — вы увидите, как будет выглядеть вывеска на вашем здании ещё до изготовления. Показываем, как работает подсветка днём и ночью. Можно внести правки до начала производства.
+                        Создаём визуализацию — вы увидите, как будет выглядеть вывеска на вашем здании ещё до изготовления. Показываем, как работает подсветка днём и ночью. Можно внести правки до начала производства.
                       </p>
                       <ul className="space-y-2 text-gray-600">
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                          <span>Реалистичная картинка на вашем фасаде</span>
+                          <span>Фотопривязка к вашему фасаду</span>
                         </li>
                         <li className="flex items-center gap-2">
                           <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
