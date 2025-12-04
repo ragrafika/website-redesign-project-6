@@ -127,7 +127,7 @@ const Design = () => {
                 </div>
 
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="md:flex md:flex-row-reverse">
+                  <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
                         src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/4b94c43a-f569-4b9d-b5d5-dba4f7ca49f7.jpg" 
