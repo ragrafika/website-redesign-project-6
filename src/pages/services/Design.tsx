@@ -69,17 +69,14 @@ const Design = () => {
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className="md:flex">
                     <div className="md:w-2/5">
-                      <picture>
-                        <source srcSet="https://cdn.poehali.dev/files/concept.webp" type="image/webp" />
-                        <img 
-                          src="https://cdn.poehali.dev/files/concept.jpg" 
-                          alt="Концепция и эскизы дизайна вывески"
-                          className="w-full h-64 md:h-full object-cover"
-                          loading="lazy"
-                          width="400"
-                          height="300"
-                        />
-                      </picture>
+                      <img 
+                        src="https://cdn.poehali.dev/files/concept.jpg" 
+                        alt="Концепция и эскизы дизайна вывески"
+                        className="w-full h-64 md:h-full object-cover"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                      />
                     </div>
                     <div className="p-6 md:w-3/5">
                       <div className="flex items-center gap-2 mb-3">
@@ -110,17 +107,14 @@ const Design = () => {
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
-                      <picture>
-                        <source srcSet="https://cdn.poehali.dev/files/vizualizacia.webp" type="image/webp" />
-                        <img 
-                          src="https://cdn.poehali.dev/files/vizualizacia.jpg" 
-                          alt="3D визуализация вывески на фасаде здания"
-                          className="w-full h-64 md:h-full object-cover"
-                          loading="lazy"
-                          width="400"
-                          height="300"
-                        />
-                      </picture>
+                      <img 
+                        src="https://cdn.poehali.dev/files/vizualizacia.jpg" 
+                        alt="3D визуализация вывески на фасаде здания"
+                        className="w-full h-64 md:h-full object-cover"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                      />
                     </div>
                     <div className="p-6 md:w-3/5">
                       <div className="flex items-center gap-2 mb-3">
