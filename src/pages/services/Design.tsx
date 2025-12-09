@@ -60,9 +60,10 @@ const Design = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/54130c5e-9b4d-4cb7-afc6-1d8180dea348.jpg" 
+                        src="https://cdn.poehali.dev/files/Концепция и эскизы.jpg" 
                         alt="Концепция и эскизы"
                         className="w-full h-64 md:h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-6 md:w-3/5">
@@ -95,9 +96,10 @@ const Design = () => {
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/6ac03c5f-84b1-4f5a-8edb-ecbf620bc7b8.jpg" 
+                        src="https://cdn.poehali.dev/files/Визуализация.jpg" 
                         alt="3D-визуализация"
                         className="w-full h-64 md:h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-6 md:w-3/5">
@@ -130,9 +132,10 @@ const Design = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/4b94c43a-f569-4b9d-b5d5-dba4f7ca49f7.jpg" 
+                        src="https://cdn.poehali.dev/files/image.png" 
                         alt="Техническая документация"
                         className="w-full h-64 md:h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-6 md:w-3/5">

@@ -16,6 +16,7 @@ import Transport from "./pages/services/Transport";
 import Banners from "./pages/services/Banners";
 import Design from "./pages/services/Design";
 import Installation from "./pages/services/Installation";
+import ImageConverter from "./components/ImageConverter";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/installation" element={<Installation />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/consent" element={<Consent />} />
+          <Route path="/convert-images" element={<ImageConverter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
