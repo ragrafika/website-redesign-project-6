@@ -108,14 +108,13 @@ const Design = () => {
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/files/vizualizacia.jpg" 
-                        alt="Пример 3D визуализации дизайна фасада и вывески магазина Дельта с зеленым брендингом, демонстрация концепции оформления фасада"
+                        src="https://cdn.poehali.dev/files/vizualizacia-2.jpg" 
+                        alt="Пример 3D визуализации дизайна фасада и вывески магазина Дельта с зеленым брендингом днем и ночью, демонстрация концепции оформления фасада"
                         className="w-full h-64 md:h-full object-cover"
                         loading="lazy"
-                        width="1092"
-                        height="1092"
-                        title="3D визуализация дизайна вывески и фасада здания"
-                        key={Date.now()}
+                        width="1080"
+                        height="1080"
+                        title="3D визуализация дизайна вывески и фасада здания днём и ночью"
                       />
                     </div>
                     <div className="p-6 md:w-3/5">
