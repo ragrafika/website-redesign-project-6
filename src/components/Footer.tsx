@@ -21,7 +21,6 @@ const Footer = () => {
               <a href="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</a>
               <a href="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</a>
               <a href="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</a>
-              <a href="/#advantages" className="block text-gray-600 hover:text-primary transition-colors text-sm">Преимущества</a>
               <a href="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</a>
               <a href="/#contacts" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</a>
             </nav>
