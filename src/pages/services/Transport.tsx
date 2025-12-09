@@ -65,7 +65,7 @@ const Transport = () => {
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/5c1b9f82-23b8-4618-ad76-0f7a922f3bd9.jpg" 
+                        src="https://cdn.poehali.dev/files/okleika.jpg" 
                         alt="Частичная оклейка"
                         className="w-full h-64 md:h-full object-cover"
                       />
@@ -100,7 +100,7 @@ const Transport = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/e4cbe6f2-c43a-499e-966c-acd587927078.jpg" 
+                        src="https://cdn.poehali.dev/files/gruzovoi.jpg" 
                         alt="Оклейка грузовых авто"
                         className="w-full h-64 md:h-full object-cover"
                       />
@@ -135,7 +135,7 @@ const Transport = () => {
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/60d4b427-194f-4611-9718-5cc2e9e6f1c4.jpg" 
+                        src="https://cdn.poehali.dev/files/perf-plenka.jpg" 
                         alt="Перфорированная плёнка на стёкла"
                         className="w-full h-64 md:h-full object-cover"
                       />
