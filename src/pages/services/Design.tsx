@@ -147,7 +147,7 @@ const Design = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/files/soglasovanie.jpg" 
+                        src="https://cdn.poehali.dev/files/soglasovanie.jpg?v=3" 
                         alt="Пример согласования дизайна вывески центра бытовых услуг Каролина: 3D визуализация фасада, технические чертежи и макеты для администрации"
                         className="w-full h-64 md:h-full object-cover"
                         loading="lazy"
