@@ -201,7 +201,7 @@ const StandParametersForm = ({
                 <div className="relative">
                   <input
                     type="file"
-                    accept="image/*"
+                    accept="image/webp,image/jpeg,image/jpg,image/png,image/gif,image/*"
                     onChange={handleImageUpload}
                     className="hidden"
                     id="image-upload"
