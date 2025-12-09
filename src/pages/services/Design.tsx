@@ -109,11 +109,12 @@ const Design = () => {
                     <div className="md:w-2/5">
                       <img 
                         src="https://cdn.poehali.dev/files/vizualizacia.jpg" 
-                        alt="3D визуализация вывески на фасаде здания"
+                        alt="Пример 3D визуализации дизайна фасада и вывески магазина Дельта с зеленым брендингом, демонстрация концепции оформления фасада"
                         className="w-full h-64 md:h-full object-cover"
                         loading="lazy"
-                        width="400"
-                        height="300"
+                        width="1092"
+                        height="1092"
+                        title="3D визуализация дизайна вывески и фасада здания"
                       />
                     </div>
                     <div className="p-6 md:w-3/5">
