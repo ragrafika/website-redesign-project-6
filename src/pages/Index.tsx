@@ -39,7 +39,7 @@ const Index = () => {
             },
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+7-924-670-20-30",
+              "telephone": "+7-4162-22-76-78",
               "contactType": "customer service",
               "areaServed": "RU",
               "availableLanguage": ["Russian"]
@@ -65,7 +65,7 @@ const Index = () => {
             "description": "Производство наружной рекламы в Благовещенске",
             "@id": "https://ragrafika.ru",
             "url": "https://ragrafika.ru",
-            "telephone": "+7-924-670-20-30",
+            "telephone": "+7-4162-22-76-78",
             "priceRange": "$$",
             "address": {
               "@type": "PostalAddress",
