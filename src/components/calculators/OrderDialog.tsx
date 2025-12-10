@@ -85,14 +85,14 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Заказать расчёт</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-lg sm:text-xl">Заказать расчёт</DialogTitle>
+          <DialogDescription className="text-sm">
             Оставьте контакты, и мы свяжемся с вами для уточнения деталей
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
           <div>
             <Label htmlFor="name">Имя *</Label>
             <Input
@@ -124,22 +124,22 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               placeholder="mail@example.com"
             />
           </div>
-          <div className="bg-muted/30 rounded-lg p-4">
-            <div className="flex items-start gap-3">
+          <div className="bg-muted/30 rounded-lg p-3 sm:p-4">
+            <div className="flex items-start gap-2 sm:gap-3">
               <input
                 type="checkbox"
                 id="consent-dialog"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
                 required
-                className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                className="mt-1 w-4 h-4 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
               />
-              <label htmlFor="consent-dialog" className="text-sm text-muted-foreground leading-relaxed">
+              <label htmlFor="consent-dialog" className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Нажимая кнопку «Отправить», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в <a href="/consent" className="text-primary hover:underline" target="_blank">Согласии на обработку персональных данных</a> *
               </label>
             </div>
           </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting || !consent}>
+          <Button type="submit" className="w-full h-11 sm:h-10" disabled={isSubmitting || !consent}>
             {isSubmitting ? "Отправка..." : "Отправить заявку"}
           </Button>
         </form>
