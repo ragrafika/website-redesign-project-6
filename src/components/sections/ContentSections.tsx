@@ -60,7 +60,7 @@ const portfolio = [
   {
     image: "https://cdn.poehali.dev/files/nto-len60.jpg",
     title: "Павильон овощи фрукты",
-    description: "Фасадные вывески для торгового комплекса",
+    description: "Фасадные вывески для торгового павильона",
     category: "Вывески и световые короба"
   },
   {
@@ -72,19 +72,19 @@ const portfolio = [
   {
     image: "https://cdn.poehali.dev/files/eapteka.jpg",
     title: "СберЕаптека",
-    description: "Световой короб с подсветкой для аптеки",
+    description: "Объемные буквы с подсветкой на металлокаркасе для аптеки",
     category: "Вывески и световые короба"
   },
   {
     image: "https://cdn.poehali.dev/files/dns-elegant.jpg",
     title: "DNS Элегант",
-    description: "Комплексное оформление торгового центра",
+    description: "Объемные световые буквы на подложке из АКП",
     category: "Наружная реклама"
   },
   {
     image: "https://cdn.poehali.dev/files/koffeina.jpg",
     title: "Кофейня V.I.P.",
-    description: "Объёмные металлические буквы",
+    description: "Комплексное оформление фасада. Ремонт фасада, объёмные световые буквы на металлокаркасе, козырек из монолитного поликарбоната",
     category: "Вывески и световые короба"
   },
   {
@@ -96,19 +96,19 @@ const portfolio = [
   {
     image: "https://cdn.poehali.dev/files/allauto.jpg",
     title: "All auto",
-    description: "Брендирование магазина автозапчастей",
+    description: "Брендирование офиса заказа авто",
     category: "Интерьерная реклама"
   },
   {
     image: "https://cdn.poehali.dev/files/domkulturi.jpg",
     title: "Дом культуры",
-    description: "Фасадная вывеска с LED-подсветкой",
+    description: "Вывеска с LED-подсветкой и прямым монтажем на вентилируемый фасад",
     category: "Наружная реклама"
   },
   {
     image: "https://cdn.poehali.dev/files/mvideo.jpg",
     title: "М.Видео",
-    description: "Интерьерная навигация для торгового центра",
+    description: "Интерьерная навигация из световых вывесок для М.Видео",
     category: "Интерьерная реклама"
   },
   {
