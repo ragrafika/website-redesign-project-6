@@ -28,6 +28,8 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
