@@ -34,11 +34,14 @@ const Installation = () => {
             <InstallationTypes />
             <InstallationProcess />
             <ServiceCards />
+            
+            <div className="mt-8" id="contact-form">
+              <ServiceContactForm serviceName="Монтаж и установка" />
+            </div>
           </div>
         </div>
       </main>
 
-      <ServiceContactForm />
       <Footer />
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
