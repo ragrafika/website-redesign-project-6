@@ -59,7 +59,7 @@ const portfolio = [
   },
   {
     image: "https://cdn.poehali.dev/files/nto-len60.jpg",
-    title: "НТО Ленина 60",
+    title: "Павильон овощи фрукты",
     description: "Фасадные вывески для торгового комплекса",
     category: "Вывески и световые короба"
   },
@@ -77,13 +77,13 @@ const portfolio = [
   },
   {
     image: "https://cdn.poehali.dev/files/dns-elegant.jpg",
-    title: "DNS и Элегант",
+    title: "DNS Элегант",
     description: "Комплексное оформление торгового центра",
     category: "Наружная реклама"
   },
   {
     image: "https://cdn.poehali.dev/files/koffeina.jpg",
-    title: "Кофейня Кофеина",
+    title: "Кофейня V.I.P.",
     description: "Объёмные металлические буквы",
     category: "Вывески и световые короба"
   },
@@ -113,7 +113,7 @@ const portfolio = [
   },
   {
     image: "https://cdn.poehali.dev/files/zeya.jpg",
-    title: "Зея кондитерская",
+    title: "Зея Благовещенская кондитерская фабрика",
     description: "Фасадная вывеска для кондитерской фабрики",
     category: "Наружная реклама"
   }
