@@ -62,20 +62,20 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-2">
                 <Icon name="MapPin" size={16} className="mt-0.5 flex-shrink-0" />
-                <span>675000, Россия, Амурская область,<br/>г. Благовещенск,<br/>ул. Забурхановская, 98, оф. 4</span>
+                <span className="leading-relaxed">675000, Россия, Амурская область, г. Благовещенск, ул. Забурхановская, 98, оф. 4</span>
               </div>
             </div>
           </div>
         </div>
         <div className="border-t border-gray-300 pt-8 space-y-6">
-          <div className="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto text-center">
+          <div className="text-gray-500 text-[11px] sm:text-xs leading-relaxed max-w-4xl mx-auto text-center px-2">
             <p>
               Вся представленная на сайте информация, касающаяся стоимости товаров и услуг, носит информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о стоимости и условиях, пожалуйста, обращайтесь к менеджерам.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-600 text-sm">
-            <p>&copy; 2025 Рекламное агентство Графика. Все права защищены.</p>
-            <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-600 text-xs sm:text-sm">
+            <p className="text-center md:text-left">&copy; 2025 Рекламное агентство Графика. Все права защищены.</p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-center">
               <a href="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
               <a href="/consent" className="hover:text-primary transition-colors">Согласие на обработку данных</a>
             </div>
