@@ -55,6 +55,27 @@ const Transport = () => {
             }
           })}
         </script>
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://ragrafika.ru/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Брендирование транспорта",
+                "item": "https://ragrafika.ru/transport"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Header />
       

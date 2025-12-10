@@ -54,6 +54,27 @@ const Signage = () => {
             }
           })}
         </script>
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://ragrafika.ru/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Вывески и световые короба",
+                "item": "https://ragrafika.ru/signage"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Header />
       
