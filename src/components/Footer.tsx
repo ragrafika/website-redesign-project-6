@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,11 +7,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <img 
-              src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
-              alt="Графика" 
-              className="h-12 w-auto mb-4"
-            />
+            <Link to="/">
+              <img 
+                src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
+                alt="Графика" 
+                className="h-12 w-auto mb-4 hover:opacity-80 transition-opacity cursor-pointer"
+              />
+            </Link>
             <p className="text-gray-600 text-sm">
               Профессиональное изготовление рекламной продукции в Благовещенске и Амурской области
             </p>
@@ -18,19 +21,19 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Навигация</h4>
             <nav className="space-y-2">
-              <a href="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</a>
-              <a href="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</a>
-              <a href="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</a>
-              <a href="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</a>
-              <a href="/#contacts" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</a>
+              <Link to="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</Link>
+              <Link to="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</Link>
+              <Link to="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</Link>
+              <Link to="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</Link>
+              <Link to="/#contact" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</Link>
             </nav>
           </div>
           <div>
             <h4 className="font-bold mb-4">Калькуляторы</h4>
             <nav className="space-y-2">
-              <a href="/calculator" className="block text-gray-600 hover:text-primary transition-colors text-sm">Все калькуляторы</a>
-              <a href="/calculator#stand" className="block text-gray-600 hover:text-primary transition-colors text-sm">Информационные стенды</a>
-              <a href="/calculator#volume" className="block text-gray-600 hover:text-primary transition-colors text-sm">Объёмные буквы</a>
+              <Link to="/calculator" className="block text-gray-600 hover:text-primary transition-colors text-sm">Все калькуляторы</Link>
+              <Link to="/calculator#stand" className="block text-gray-600 hover:text-primary transition-colors text-sm">Информационные стенды</Link>
+              <Link to="/calculator#volume" className="block text-gray-600 hover:text-primary transition-colors text-sm">Объёмные буквы</Link>
             </nav>
           </div>
           <div>
@@ -76,8 +79,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-600 text-xs sm:text-sm">
             <p className="text-center md:text-left">&copy; 2025 Рекламное агентство Графика. Все права защищены.</p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-center">
-              <a href="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
-              <a href="/consent" className="hover:text-primary transition-colors">Согласие на обработку данных</a>
+              <Link to="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</Link>
+              <Link to="/consent" className="hover:text-primary transition-colors">Согласие на обработку данных</Link>
             </div>
           </div>
         </div>
