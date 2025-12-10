@@ -60,7 +60,7 @@ const Signage = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/3c5475cf-da15-4396-8615-b22a7a2a6993.jpg" 
+                        src="https://cdn.poehali.dev/files/zeya-bukvi-na-karkase.jpg" 
                         alt="Объемные буквы на металлокаркасе"
                         className="w-full h-64 md:h-full object-cover"
                       />
@@ -95,7 +95,7 @@ const Signage = () => {
                   <div className="md:flex md:flex-row-reverse">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/c65bf7c2-c0d4-49e9-8588-1e6c8f21ece7.jpg" 
+                        src="https://cdn.poehali.dev/files/eapteka-bukvi-napodlogke.jpg" 
                         alt="Объемные буквы на подложке"
                         className="w-full h-64 md:h-full object-cover"
                       />
@@ -130,7 +130,7 @@ const Signage = () => {
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <img 
-                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/d8859d49-8f73-407b-ba29-8614f45db616.jpg" 
+                        src="https://cdn.poehali.dev/files/maxim-bukvi-na-konturnoi-podlogke.jpg" 
                         alt="Объемные буквы на контурной подложке"
                         className="w-full h-64 md:h-full object-cover"
                       />
