@@ -291,57 +291,59 @@ const ContentSections = () => {
 
       {lightboxOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 md:p-0"
           onClick={closeLightbox}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+            className="absolute top-2 right-2 md:top-4 md:right-4 z-50 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
           >
-            <Icon name="X" size={24} className="text-white" />
+            <Icon name="X" size={20} className="text-white md:w-6 md:h-6" />
           </button>
 
           <button
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
-            className="absolute left-4 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+            className="absolute left-2 md:left-4 z-50 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
           >
-            <Icon name="ChevronLeft" size={28} className="text-white" />
+            <Icon name="ChevronLeft" size={24} className="text-white md:w-7 md:h-7" />
           </button>
 
           <button
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
-            className="absolute right-4 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+            className="absolute right-2 md:right-4 z-50 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
           >
-            <Icon name="ChevronRight" size={28} className="text-white" />
+            <Icon name="ChevronRight" size={24} className="text-white md:w-7 md:h-7" />
           </button>
 
           <div 
-            className="max-w-7xl max-h-[90vh] mx-4"
+            className="w-full max-w-[90vw] md:max-w-7xl"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <img 
-              src={portfolio[currentImageIndex].image}
-              alt={portfolio[currentImageIndex].title}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            />
-            <div className="mt-4 text-center">
-              <div className="mb-2">
-                <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
-                  {portfolio[currentImageIndex].category}
-                </span>
+            <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-4 md:p-6">
+              <img 
+                src={portfolio[currentImageIndex].image}
+                alt={portfolio[currentImageIndex].title}
+                className="w-full max-h-[50vh] md:max-h-[70vh] object-contain rounded-lg mx-auto"
+              />
+              <div className="mt-4 text-center px-2">
+                <div className="mb-2">
+                  <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                    {portfolio[currentImageIndex].category}
+                  </span>
+                </div>
+                <h3 className="text-white text-lg md:text-2xl font-bold mb-2">
+                  {portfolio[currentImageIndex].title}
+                </h3>
+                <p className="text-white/80 text-xs md:text-base leading-relaxed">
+                  {portfolio[currentImageIndex].description}
+                </p>
+                <p className="text-white/60 text-xs md:text-sm mt-2">
+                  {currentImageIndex + 1} / {portfolio.length}
+                </p>
               </div>
-              <h3 className="text-white text-xl md:text-2xl font-bold mb-2">
-                {portfolio[currentImageIndex].title}
-              </h3>
-              <p className="text-white/80 text-sm md:text-base">
-                {portfolio[currentImageIndex].description}
-              </p>
-              <p className="text-white/60 text-sm mt-2">
-                {currentImageIndex + 1} / {portfolio.length}
-              </p>
             </div>
           </div>
         </div>
