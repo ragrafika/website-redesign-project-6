@@ -59,7 +59,7 @@ const Footer = () => {
                 <Icon name="Send" size={16} className="mt-0.5 flex-shrink-0" />
                 <span>Telegram</span>
               </a>
-              <a href="https://max.app/dial?phone=79656713170" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-primary transition-colors">
+              <a href="https://max.ru/u/f9LHodD0cOKASB-ZXfa0KQeVeidCfM-E7__-QVbgfFavZQs-CtbluHz4ajU" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-primary transition-colors">
                 <Icon name="MessageSquare" size={16} className="mt-0.5 flex-shrink-0" />
                 <span>МАХ</span>
               </a>
