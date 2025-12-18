@@ -73,13 +73,7 @@ export function PortfolioGallery({
   }
 
   if (photos.length === 0) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-muted-foreground">
-          Портфолио скоро появится. Следите за обновлениями!
-        </p>
-      </div>
-    );
+    return null;
   }
 
   return (
