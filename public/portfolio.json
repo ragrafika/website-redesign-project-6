@@ -6,27 +6,6 @@
       "url": "https://cdn.poehali.dev/files/tarkett.jpg",
       "title": "Торговый центр Tarkett",
       "description": "Объемные буквы на металлокаркасах, световой короб. Калинина, 114"
-    },
-    {
-      "id": 2,
-      "category": "signage",
-      "url": "https://cdn.poehali.dev/files/1-4.jpg",
-      "title": "Вывеска для магазина",
-      "description": "Световая вывеска с объемными буквами"
-    },
-    {
-      "id": 3,
-      "category": "transport",
-      "url": "https://cdn.poehali.dev/files/1-4.jpg",
-      "title": "Реклама на транспорте",
-      "description": "Брендирование корпоративного автомобиля"
-    },
-    {
-      "id": 4,
-      "category": "interior",
-      "url": "https://cdn.poehali.dev/files/1-4.jpg",
-      "title": "Интерьерная реклама",
-      "description": "Навигация и оформление офисного пространства"
     }
   ]
 }
