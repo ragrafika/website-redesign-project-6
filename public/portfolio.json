@@ -6,20 +6,6 @@
       "url": "https://cdn.poehali.dev/files/tarkett.jpg",
       "title": "Наружная реклама",
       "description": "Объемные буквы на металлокаркасах, световой короб"
-    },
-    {
-      "id": 2,
-      "category": "signage",
-      "url": "https://cdn.poehali.dev/files/tarkett.jpg",
-      "title": "Вывеска для магазина",
-      "description": "Световая вывеска с объемными буквами"
-    },
-    {
-      "id": 3,
-      "category": "transport",
-      "url": "https://cdn.poehali.dev/files/tarkett.jpg",
-      "title": "Реклама на транспорте",
-      "description": "Брендирование корпоративного автомобиля"
     }
   ]
 }
