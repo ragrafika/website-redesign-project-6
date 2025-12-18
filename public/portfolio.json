@@ -1,11 +1,3 @@
 {
-  "photos": [
-    {
-      "id": 1,
-      "category": "signage",
-      "url": "https://cdn.poehali.dev/files/tarkett.jpg",
-      "title": "Наружная реклама",
-      "description": "Объемные буквы на металлокаркасах, световой короб"
-    }
-  ]
+  "photos": []
 }
