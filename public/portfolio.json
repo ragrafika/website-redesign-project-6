@@ -1,0 +1,25 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "category": "signage",
+      "url": "https://cdn.poehali.dev/files/1-4.jpg",
+      "title": "Вывеска для магазина",
+      "description": "Световая вывеска с объемными буквами"
+    },
+    {
+      "id": 2,
+      "category": "transport",
+      "url": "https://cdn.poehali.dev/files/1-4.jpg",
+      "title": "Реклама на транспорте",
+      "description": "Брендирование корпоративного автомобиля"
+    },
+    {
+      "id": 3,
+      "category": "interior",
+      "url": "https://cdn.poehali.dev/files/1-4.jpg",
+      "title": "Интерьерная реклама",
+      "description": "Навигация и оформление офисного пространства"
+    }
+  ]
+}
