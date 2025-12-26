@@ -3,12 +3,17 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
+const PORTFOLIO_API = 'https://functions.poehali.dev/08086c25-661f-495d-bda3-b1f9b9037d91';
+
 interface Photo {
   id: number;
   category: string;
-  url: string;
+  original_url: string;
+  styled_url: string | null;
   title: string;
   description: string;
+  is_processed: boolean;
+  created_at: string;
 }
 
 interface PortfolioGalleryProps {
@@ -32,14 +37,12 @@ export function PortfolioGallery({
     const loadPhotos = async () => {
       setLoading(true);
       try {
-        const res = await fetch('/portfolio.json');
+        const url = category 
+          ? `${PORTFOLIO_API}?category=${category}`
+          : PORTFOLIO_API;
+        const res = await fetch(url);
         const data = await res.json();
-        let allPhotos = data.photos || [];
-        
-        if (category) {
-          allPhotos = allPhotos.filter((p: Photo) => p.category === category);
-        }
-        
+        const allPhotos = data.photos || [];
         setPhotos(limit ? allPhotos.slice(0, limit) : allPhotos);
       } catch (error) {
         console.error('Failed to load portfolio photos:', error);
@@ -73,7 +76,13 @@ export function PortfolioGallery({
   }
 
   if (photos.length === 0) {
-    return null;
+    return (
+      <div className="text-center py-12">
+        <p className="text-muted-foreground">
+          Портфолио скоро появится. Следите за обновлениями!
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -88,7 +97,7 @@ export function PortfolioGallery({
             <CardContent className="p-0">
               <div className="aspect-video relative overflow-hidden bg-muted">
                 <img
-                  src={photo.url}
+                  src={photo.styled_url || photo.original_url}
                   alt={photo.title || 'Портфолио'}
                   className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                   loading="lazy"
@@ -120,7 +129,7 @@ export function PortfolioGallery({
             <div className="space-y-4">
               <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                 <img
-                  src={selectedPhoto.url}
+                  src={selectedPhoto.styled_url || selectedPhoto.original_url}
                   alt={selectedPhoto.title}
                   className="object-contain w-full h-full"
                 />
