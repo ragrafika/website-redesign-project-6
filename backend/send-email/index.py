@@ -179,7 +179,19 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False,
             'body': json.dumps({'success': True, 'message': 'Email sent successfully'})
         }
+    except smtplib.SMTPAuthenticationError as e:
+        print(f'SMTP Auth Error: {str(e)}')
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'SMTP authentication failed - check EMAIL_PASSWORD'}),
+            'isBase64Encoded': False
+        }
     except Exception as e:
+        print(f'General Error: {str(e)}')
         return {
             'statusCode': 500,
             'headers': {
