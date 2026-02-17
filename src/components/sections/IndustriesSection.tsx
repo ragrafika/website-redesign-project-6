@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -10,91 +11,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
-const industries = [
-  {
-    icon: "Cross",
-    title: "Аптеки",
-    description: "Светодиодные кресты и информационные стенды"
-  },
-  {
-    icon: "Droplets",
-    title: "Автомойки",
-    description: "Вывески и навигация для автомоек"
-  },
-  {
-    icon: "Wrench",
-    title: "Автосервисы",
-    description: "Вывески и навигация для СТО"
-  },
-  {
-    icon: "Car",
-    title: "Автобизнес",
-    description: "Вывески для автосалонов и дилерских центров"
-  },
-  {
-    icon: "Building2",
-    title: "Банки",
-    description: "Представительские вывески и интерьерное оформление"
-  },
-  {
-    icon: "Landmark",
-    title: "Госучреждения",
-    description: "Представительские таблички и навигация"
-  },
-  {
-    icon: "Coffee",
-    title: "Кафе и рестораны",
-    description: "Вывески, меню-борды и интерьерное оформление"
-  },
-  {
-    icon: "Tag",
-    title: "Магазины",
-    description: "Вывески, витринная реклама и ценники"
-  },
-  {
-    icon: "MapPin",
-    title: "Медучреждения",
-    description: "Вывески, навигация и информационные стенды"
-  },
-  {
-    icon: "Hotel",
-    title: "Отели",
-    description: "Вывески, навигация и информационные стенды"
-  },
-  {
-    icon: "Scissors",
-    title: "Парикмахерские",
-    description: "Световые вывески и интерьерные таблички"
-  },
-  {
-    icon: "Sparkles",
-    title: "Салоны красоты",
-    description: "Вывески, неоновый декор и навигация"
-  },
-  {
-    icon: "ShoppingBag",
-    title: "Торговые центры",
-    description: "Навигация, вывески арендаторов и брендирование"
-  },
-  {
-    icon: "Palmtree",
-    title: "Турагентства",
-    description: "Яркие вывески и информационные стенды"
-  },
-  {
-    icon: "GraduationCap",
-    title: "Учебные заведения",
-    description: "Навигация, стенды и таблички для школ и вузов"
-  },
-  {
-    icon: "Dumbbell",
-    title: "Фитнес-центры",
-    description: "Световые вывески и навигация в спортклубах"
-  }
-];
+import industriesData from "@/data/industries";
 
 const IndustriesSection = () => {
+  const navigate = useNavigate();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedIndustry, setSelectedIndustry] = useState('');
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', industry: '', message: '' });
@@ -159,21 +79,17 @@ const IndustriesSection = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-            {industries.map((industry, index) => (
+            {industriesData.map((industry, index) => (
               <Card 
                 key={index}
-                className="border-2 cursor-pointer transition-all hover:border-primary hover:shadow-lg"
-                onClick={() => {
-                  setSelectedIndustry(industry.title);
-                  setFormData(prev => ({ ...prev, industry: industry.title }));
-                  setIsDialogOpen(true);
-                }}
+                className="border-2 cursor-pointer transition-all hover:border-primary hover:shadow-lg group"
+                onClick={() => navigate(`/industries/${industry.slug}`)}
               >
                 <CardContent className="p-3 sm:p-4 md:p-6 text-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
                     <Icon name={industry.icon} size={20} className="text-primary sm:w-6 sm:h-6 md:w-7 md:h-7" />
                   </div>
-                  <h3 className="font-bold mb-1 md:mb-2 text-xs sm:text-sm leading-tight">{industry.title}</h3>
+                  <h3 className="font-bold mb-1 md:mb-2 text-xs sm:text-sm leading-tight">{industry.shortTitle}</h3>
                   <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight hidden sm:block">{industry.description}</p>
                 </CardContent>
               </Card>
