@@ -42,7 +42,7 @@ const HeroSection = () => {
         muted
         playsInline
       />
-      <div className="absolute inset-0 bg-secondary/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-secondary/40 to-secondary/60" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
