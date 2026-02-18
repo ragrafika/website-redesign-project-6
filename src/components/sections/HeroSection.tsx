@@ -38,7 +38,6 @@ const HeroSection = () => {
         style={{ opacity }}
         src={HERO_VIDEO_URL}
         autoPlay
-        loop
         muted
         playsInline
       />
