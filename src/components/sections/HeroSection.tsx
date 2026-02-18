@@ -16,10 +16,7 @@ const HeroSection = () => {
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      const timeLeft = video.duration - video.currentTime;
-      if (timeLeft <= FADE_DURATION) {
-        setOpacity(timeLeft / FADE_DURATION);
-      } else if (video.currentTime <= FADE_DURATION) {
+      if (video.currentTime <= FADE_DURATION) {
         setOpacity(video.currentTime / FADE_DURATION);
       } else {
         setOpacity(1);
