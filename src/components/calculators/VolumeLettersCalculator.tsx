@@ -141,12 +141,27 @@ const VolumeLettersCalculator = ({
               </div>
             </div>
 
-            <div className="bg-primary/5 rounded-xl p-4 md:p-6 space-y-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <span className="text-base md:text-lg font-medium">Предварительная стоимость:</span>
-                <span className="text-xl md:text-2xl font-bold text-primary">
-                  {calculatePrice().toLocaleString('ru-RU')} ₽
-                </span>
+            <div className="bg-primary/5 rounded-xl p-4 md:p-6 space-y-3">
+              <span className="text-base md:text-lg font-medium">Предварительная стоимость:</span>
+              <div className="grid grid-cols-3 gap-2 mt-2">
+                <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
+                  <span className="text-xs text-muted-foreground mb-1">Эконом</span>
+                  <span className="text-sm font-semibold text-foreground">
+                    {Math.round(calculatePrice() * 0.95).toLocaleString('ru-RU')} ₽
+                  </span>
+                </div>
+                <div className="flex flex-col items-center bg-primary/10 rounded-lg p-3 border-2 border-primary">
+                  <span className="text-xs text-primary font-medium mb-1">Стандарт</span>
+                  <span className="text-base font-bold text-primary">
+                    {calculatePrice().toLocaleString('ru-RU')} ₽
+                  </span>
+                </div>
+                <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
+                  <span className="text-xs text-muted-foreground mb-1">Премиум</span>
+                  <span className="text-sm font-semibold text-foreground">
+                    {Math.round(calculatePrice() * 1.07).toLocaleString('ru-RU')} ₽
+                  </span>
+                </div>
               </div>
               <p className="text-xs text-muted-foreground">
                 * точную стоимость сообщит менеджер после уточнения деталей
