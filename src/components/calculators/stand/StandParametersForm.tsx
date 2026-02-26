@@ -161,7 +161,7 @@ const StandParametersForm = ({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-4">
             <div>
               <Label className="block mb-2">Шрифт</Label>
               <Select value={standFontFamily} onValueChange={setStandFontFamily}>
@@ -257,7 +257,7 @@ const StandParametersForm = ({
 
           <div>
             <Label className="block mb-2">Карманы для материалов</Label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
               <div>
                 <Label className="block mb-1 text-sm">A5</Label>
                 <Input 

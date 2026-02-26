@@ -62,7 +62,7 @@ const StandCalculator = ({
   calculateStandPrice
 }: StandCalculatorProps) => {
   return (
-    <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+    <div className="grid lg:grid-cols-2 gap-6 md:gap-8 w-full overflow-hidden">
       <StandParametersForm
         standWidth={standWidth}
         setStandWidth={setStandWidth}

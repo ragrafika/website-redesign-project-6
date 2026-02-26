@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRef, useEffect, useState } from "react";
 
 interface StandPreviewCardProps {
   standWidth: string;
@@ -27,6 +28,19 @@ const StandPreviewCard = ({
   pocketsA3,
   pocketsA2,
 }: StandPreviewCardProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(400);
+
+  useEffect(() => {
+    const update = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
   const pocketSizes: Record<string, { width: number; height: number }> = {
     a5: { width: 14.8, height: 21 },
     a4: { width: 21, height: 29.7 },
@@ -62,8 +76,8 @@ const StandPreviewCard = ({
       );
     }
 
-    const maxWidth = 400;
-    const maxHeight = 500;
+    const maxWidth = Math.min(containerWidth - 8, 400);
+    const maxHeight = Math.min(Math.round(maxWidth * 1.25), 500);
     const aspectRatio = width / height;
     
     let previewWidth = maxWidth;
@@ -203,8 +217,8 @@ const StandPreviewCard = ({
       <CardHeader>
         <CardTitle className="text-xl md:text-2xl text-secondary">Визуализация</CardTitle>
       </CardHeader>
-      <CardContent className="p-4 md:p-6 lg:p-8">
-        <div className="flex items-center justify-center min-h-[300px] md:min-h-[500px]">
+      <CardContent className="p-3 md:p-6 lg:p-8">
+        <div ref={containerRef} className="flex items-center justify-center min-h-[200px] md:min-h-[400px] w-full overflow-hidden">
           {renderPreview()}
         </div>
       </CardContent>
