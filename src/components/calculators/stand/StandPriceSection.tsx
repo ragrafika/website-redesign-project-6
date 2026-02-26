@@ -56,16 +56,35 @@ const StandPriceSection = ({
     .map(([size, count]) => `${size.toUpperCase()}: ${count} шт`)
     .join(', ');
 
+  const basePrice = calculateStandPrice();
+
   return (
     <div className="bg-muted/30 rounded-lg p-4 md:p-6 lg:p-8">
       <div className="text-center mb-4 md:mb-6">
-        <div className="text-lg md:text-2xl font-bold text-secondary mb-2">Итого:</div>
-        <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-1">
-          {calculateStandPrice().toLocaleString('ru-RU')} ₽
+        <div className="text-lg md:text-2xl font-bold text-secondary mb-2">Предварительная стоимость:</div>
+      </div>
+      <div className="grid grid-cols-3 gap-2 mb-4 md:mb-6">
+        <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
+          <span className="text-xs text-muted-foreground mb-1">Эконом</span>
+          <span className="text-sm font-semibold text-foreground">
+            {basePrice.toLocaleString('ru-RU')} ₽
+          </span>
+        </div>
+        <div className="flex flex-col items-center bg-primary/10 rounded-lg p-3 border-2 border-primary">
+          <span className="text-xs text-primary font-medium mb-1">Стандарт</span>
+          <span className="text-base font-bold text-primary">
+            {Math.round(basePrice * 1.1).toLocaleString('ru-RU')} ₽
+          </span>
+        </div>
+        <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
+          <span className="text-xs text-muted-foreground mb-1">Премиум</span>
+          <span className="text-sm font-semibold text-foreground">
+            {Math.round(basePrice * 1.3).toLocaleString('ru-RU')} ₽
+          </span>
         </div>
       </div>
       <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
-        Цена включает изготовление, но не включает дизайн, доставку и монтаж
+        В стоимость входит изготовление — дизайн, доставку и монтаж менеджер подберёт отдельно под ваш проект
       </p>
       <OrderDialog
         calculatorType="Информационные стенды"
