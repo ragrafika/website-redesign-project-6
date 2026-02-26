@@ -19,6 +19,7 @@ import Banners from "./pages/services/Banners";
 import Design from "./pages/services/Design";
 import Installation from "./pages/services/Installation";
 import IndustryPage from "./pages/industries/IndustryPage";
+import NeonCalculator from "./pages/NeonCalculator";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/industries/:slug" element={<IndustryPage />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/consent" element={<Consent />} />
+          <Route path="/neon-calculator" element={<NeonCalculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
