@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -33,12 +34,14 @@ export interface NeonBackingColor {
 }
 
 export const NEON_FONTS: NeonFont[] = [
-  { id: "script", label: "Скрипт (рукописный)", style: "Dancing Script, cursive", preview: "Abc" },
-  { id: "bold", label: "Жирный гротеск", style: "Impact, Arial Black, sans-serif", preview: "ABC" },
-  { id: "retro", label: "Ретро", style: "Pacifico, cursive", preview: "Abc" },
-  { id: "thin", label: "Тонкий современный", style: "Raleway, sans-serif", preview: "ABC" },
-  { id: "rounded", label: "Округлый", style: "Nunito, sans-serif", preview: "Abc" },
-  { id: "serif", label: "Засечки (классика)", style: "Georgia, serif", preview: "Abc" },
+  { id: "bad-script", label: "Рукописный", style: "'Bad Script', cursive", preview: "Текст" },
+  { id: "dancing", label: "Каллиграфия", style: "'Dancing Script', cursive", preview: "Текст" },
+  { id: "russo", label: "Блочный (рус/лат)", style: "'Russo One', sans-serif", preview: "ТЕКСТ" },
+  { id: "oswald", label: "Узкий капслок", style: "'Oswald', sans-serif", preview: "ТЕКСТ" },
+  { id: "montserrat", label: "Гротеск тонкий", style: "'Montserrat', sans-serif", preview: "ТЕКСТ" },
+  { id: "comfortaa", label: "Округлый мягкий", style: "'Comfortaa', cursive", preview: "Текст" },
+  { id: "unbounded", label: "Технологичный", style: "'Unbounded', sans-serif", preview: "АВС" },
+  { id: "marck", label: "Маркер / граффити", style: "'Marck Script', cursive", preview: "Текст" },
 ];
 
 export const NEON_COLORS: NeonColor[] = [
@@ -93,6 +96,9 @@ interface NeonParametersFormProps {
   setWithFlicker: (v: boolean) => void;
 }
 
+const GOOGLE_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script:wght@600&family=Russo+One&family=Oswald:wght@500&family=Montserrat:wght@300;400&family=Comfortaa:wght@500&family=Unbounded:wght@600&family=Marck+Script&display=swap";
+
 export default function NeonParametersForm({
   signText, setSignText,
   fontId, setFontId,
@@ -105,6 +111,17 @@ export default function NeonParametersForm({
   withRemote, setWithRemote,
   withFlicker, setWithFlicker,
 }: NeonParametersFormProps) {
+  useEffect(() => {
+    const existing = document.getElementById("neon-gfonts");
+    if (!existing) {
+      const link = document.createElement("link");
+      link.id = "neon-gfonts";
+      link.rel = "stylesheet";
+      link.href = GOOGLE_FONTS_URL;
+      document.head.appendChild(link);
+    }
+  }, []);
+
   return (
     <Card className="shadow-xl">
       <CardHeader>
@@ -124,19 +141,28 @@ export default function NeonParametersForm({
         </div>
 
         <div>
-          <Label className="mb-1.5 block">Шрифт</Label>
-          <Select value={fontId} onValueChange={setFontId}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {NEON_FONTS.map(f => (
-                <SelectItem key={f.id} value={f.id}>
-                  {f.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <Label className="mb-2 block">Шрифт</Label>
+          <div className="grid grid-cols-2 gap-2">
+            {NEON_FONTS.map(f => (
+              <button
+                key={f.id}
+                onClick={() => setFontId(f.id)}
+                className={`flex flex-col items-start gap-0.5 rounded-lg px-3 py-2 border-2 text-left transition-all ${
+                  fontId === f.id
+                    ? "border-primary bg-primary/5"
+                    : "border-border hover:border-primary/40"
+                }`}
+              >
+                <span
+                  className="text-lg leading-tight truncate w-full"
+                  style={{ fontFamily: f.style }}
+                >
+                  {f.preview}
+                </span>
+                <span className="text-[10px] text-muted-foreground leading-tight">{f.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         <div>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NeonCalculator() {
   const [signText, setSignText] = useState("Coffee Time");
-  const [fontId, setFontId] = useState("script");
+  const [fontId, setFontId] = useState("bad-script");
   const [colorId, setColorId] = useState("pink");
   const [backingId, setBackingId] = useState("dark");
   const [diameter, setDiameter] = useState("10");
