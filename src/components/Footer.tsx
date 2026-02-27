@@ -21,12 +21,12 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Навигация</h4>
             <nav className="space-y-2">
-              <Link to="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</Link>
-              <Link to="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</Link>
+              <a href="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</a>
+              <a href="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</a>
               <Link to="/calculator" className="block text-gray-600 hover:text-primary transition-colors text-sm">Калькуляторы</Link>
-              <Link to="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</Link>
-              <Link to="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</Link>
-              <Link to="/#contact" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</Link>
+              <a href="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</a>
+              <a href="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</a>
+              <a href="/#contacts" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</a>
             </nav>
           </div>
           <div>
