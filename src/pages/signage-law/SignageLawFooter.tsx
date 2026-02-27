@@ -22,14 +22,18 @@ export default function SignageLawFooter() {
             <Icon name="Zap" size={22} />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-bold mb-1">Поможем с вывеской, которая пройдёт согласование</h3>
+            <div className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-900 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg mb-2">
+              <Icon name="Gift" size={11} />
+              Спецпредложение
+            </div>
+            <h3 className="text-lg font-bold mb-1">При заказе световой вывески в Благовещенске — согласование бесплатно</h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-4">
               Мы изготавливаем вывески с учётом требований местного законодательства —
               Благовещенск, Свободный и другие города Амурской области. Разработаем
               дизайн-проект, который соответствует нормам и выглядит как надо.
             </p>
             <Link
-              to="/"
+              to="/#contacts"
               className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
             >
               Обсудить вывеску

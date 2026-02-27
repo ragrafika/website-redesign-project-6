@@ -74,13 +74,13 @@ export const DOCS: DocCard[] = [
       {
         icon: "Info",
         title: "Что это означает для бизнеса",
-        text: "Любая вывеска на фасаде — будь то световой короб, объёмные буквы, баннер или таблица — требует предварительного согласования с администрацией города до её физической установки.",
+        text: "Любая вывеска на фасаде — будь то световой короб, объёмные буквы, баннер или табличка — требует предварительного согласования с администрацией города до её физической установки.",
       },
     ],
     links: [
       {
-        label: "admblag.ru — Согласование дизайн-проекта размещения вывески",
-        url: "https://admblag.ru/gradostroitelstvo/arxitekturnyj-oblik/soglasovanie-dizajn-proekta-razmeshheniya-vyiveski/",
+        label: "admblag.ru — раздел «Согласование дизайн-проекта размещения вывески»",
+        url: "https://admblag.ru/gradostroitelstvo/arxitekturnyj-oblik/",
       },
     ],
   },
@@ -167,8 +167,8 @@ export const DOCS: DocCard[] = [
     ],
     links: [
       {
-        label: "svob.amurobl.ru — Правила благоустройства (PDF, требования к наружной информации)",
-        url: "https://svob.amurobl.ru/munitsipalnie-uslugi/ustanovka-informaczionnoj-vyiveski-soglasovanie-dizajn-proekta-razmeshheniya-vyiveski/",
+        label: "svob.amurobl.ru — муниципальные услуги",
+        url: "https://svob.amurobl.ru/munitsipalnie-uslugi/",
       },
     ],
     note: "На официальном сайте г. Свободного доступны для скачивания: «Правила благоустройства» (PDF) и «Перечень документов для согласования вывески» (PDF).",
