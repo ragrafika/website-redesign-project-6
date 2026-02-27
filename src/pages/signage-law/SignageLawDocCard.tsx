@@ -1,10 +1,7 @@
-import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { DocCard } from "./signageLawData";
 
 export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
-  const [screenshotIndex, setScreenshotIndex] = useState<number | null>(null);
-
   return (
     <div className={`rounded-2xl border-2 ${doc.color} overflow-hidden shadow-sm`} id={doc.id}>
       {/* Шапка карточки */}
@@ -53,97 +50,29 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
         )}
       </div>
 
-      {/* Скрины документов */}
-      {doc.screenshot && doc.screenshot.length > 0 && (
+      {/* Ссылки на конкретные документы */}
+      {doc.links.length > 0 && (
         <div className="border-t border-current/10 px-5 md:px-7 py-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-3 flex items-center gap-1.5">
-            <Icon name="Image" size={11} />
-            Скрины документов
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-2 flex items-center gap-1.5">
+            <Icon name="ExternalLink" size={11} />
+            Первоисточник
           </p>
-          <div className="flex flex-wrap gap-3">
-            {doc.screenshot.map((sc, i) => (
-              <button
+          <div className="flex flex-col gap-1.5">
+            {doc.links.map((link, i) => (
+              <a
                 key={i}
-                onClick={() => setScreenshotIndex(screenshotIndex === i ? null : i)}
-                className="group relative rounded-xl overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all"
-                style={{ width: 120, height: 80 }}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1.5 transition-colors"
               >
-                <img
-                  src={sc.url}
-                  alt={sc.caption}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Icon name="ZoomIn" size={20} className="text-white" />
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Раскрытый скрин */}
-          {screenshotIndex !== null && doc.screenshot[screenshotIndex] && (
-            <div className="mt-3">
-              <div className="relative rounded-xl overflow-hidden border-2 border-gray-300">
-                <img
-                  src={doc.screenshot[screenshotIndex].url}
-                  alt={doc.screenshot[screenshotIndex].caption}
-                  className="w-full object-contain max-h-[500px]"
-                />
-                <button
-                  onClick={() => setScreenshotIndex(null)}
-                  className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 transition-colors"
-                >
-                  <Icon name="X" size={14} />
-                </button>
-              </div>
-              <p className="text-xs text-gray-500 mt-1.5 italic">{doc.screenshot[screenshotIndex].caption}</p>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Контакты (только для Свободного) */}
-      {doc.contacts && doc.contacts.length > 0 && (
-        <div className="border-t border-current/10 px-5 md:px-7 py-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-3 flex items-center gap-1.5">
-            <Icon name="Phone" size={11} />
-            Куда обращаться в г. Свободном
-          </p>
-          <div className="grid sm:grid-cols-2 gap-2">
-            {doc.contacts.map((c, i) => (
-              <div key={i} className="flex items-start gap-2.5 bg-white/60 rounded-lg px-3 py-2">
-                <Icon name={c.icon as "MapPin"} size={14} className="flex-shrink-0 mt-0.5 text-green-600" />
-                <div>
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wide">{c.label}</p>
-                  <p className="text-sm font-medium text-gray-800">{c.value}</p>
-                </div>
-              </div>
+                <Icon name="ArrowUpRight" size={12} className="flex-shrink-0" />
+                {link.label}
+              </a>
             ))}
           </div>
         </div>
       )}
-
-      {/* Ссылки */}
-      <div className="border-t border-current/10 px-5 md:px-7 py-4">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-2 flex items-center gap-1.5">
-          <Icon name="ExternalLink" size={11} />
-          Ссылки на первоисточники
-        </p>
-        <div className="flex flex-col gap-1.5">
-          {doc.links.map((link, i) => (
-            <a
-              key={i}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1.5 transition-colors"
-            >
-              <Icon name="ArrowUpRight" size={12} className="flex-shrink-0" />
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
