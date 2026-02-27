@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const FEDERAL_LINKS = [
@@ -13,6 +13,15 @@ const FEDERAL_LINKS = [
 ];
 
 export default function SignageLawFooter() {
+  const navigate = useNavigate();
+
+  const handleDiscuss = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     <>
       {/* CTA компании */}
@@ -32,13 +41,13 @@ export default function SignageLawFooter() {
               Благовещенск, Свободный и другие города Амурской области. Разработаем
               дизайн-проект, который соответствует нормам и выглядит как надо.
             </p>
-            <Link
-              to="/#contacts"
+            <button
+              onClick={handleDiscuss}
               className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
             >
               Обсудить вывеску
               <Icon name="ArrowRight" size={15} />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
