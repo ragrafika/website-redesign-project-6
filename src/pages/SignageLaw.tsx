@@ -5,6 +5,7 @@ import { DOCS } from "./signage-law/signageLawData";
 import SignageLawDocCard from "./signage-law/SignageLawDocCard";
 import SignageLawHero from "./signage-law/SignageLawHero";
 import SignageLawFooter from "./signage-law/SignageLawFooter";
+import Footer from "@/components/Footer";
 
 const REGIONS = [
   { label: "Все", value: "all" },
@@ -71,6 +72,7 @@ export default function SignageLaw() {
         <SignageLawFooter />
 
       </div>
+      <Footer />
     </div>
   );
 }
