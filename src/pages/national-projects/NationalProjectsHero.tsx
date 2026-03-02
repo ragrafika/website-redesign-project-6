@@ -39,6 +39,67 @@ export default function NationalProjectsHero() {
         ))}
       </div>
 
+      {/* Галерея работ */}
+      <div className="mb-8">
+        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-1.5">
+          <Icon name="Images" size={12} />
+          Наши реализованные объекты
+        </p>
+        <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory">
+          {[
+            {
+              url: "https://cdn.poehali.dev/files/ee0ddc7b-d2e5-4ecd-b02a-66033522690a.jpg",
+              label: "Библиотека нового поколения",
+              tag: "Культура",
+            },
+            {
+              url: "https://cdn.poehali.dev/files/03a0bbb4-82ad-49ab-9e7f-586537773c4e.jpg",
+              label: "Городская поликлиника №1",
+              tag: "Семья",
+            },
+            {
+              url: "https://cdn.poehali.dev/files/35fcab5e-e586-4e61-b96c-f488e8b78865.jpg",
+              label: "Детская библиотека",
+              tag: "Молодёжь и дети",
+            },
+            {
+              url: "https://cdn.poehali.dev/files/a20bc55a-f64b-4bdd-913f-b6ad2d7cc61d.jpg",
+              label: "Детская библиотека — зал",
+              tag: "Культура",
+            },
+            {
+              url: "https://cdn.poehali.dev/files/6962e723-ea6d-4954-b875-cea984478cbd.jpg",
+              label: "Интерьерная инсталляция",
+              tag: "Культура",
+            },
+            {
+              url: "https://cdn.poehali.dev/files/350fea77-2f03-4ce7-80c4-b77522b2438a.jpg",
+              label: "Зимнее оформление",
+              tag: "Культура",
+            },
+          ].map((photo, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 snap-start w-52 md:w-64 rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white"
+            >
+              <div className="h-36 md:h-44 overflow-hidden">
+                <img
+                  src={photo.url}
+                  alt={photo.label}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="px-3 py-2.5">
+                <span className="text-[10px] font-bold uppercase tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                  {photo.tag}
+                </span>
+                <p className="text-xs font-medium text-gray-700 mt-1.5 leading-snug">{photo.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* CTA-блок */}
       <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-2xl p-5 md:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-shrink-0 bg-primary/20 rounded-xl p-3">

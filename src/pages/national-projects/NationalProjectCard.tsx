@@ -73,6 +73,24 @@ export default function NationalProjectCard({ project }: { project: NatProject }
           </div>
         )}
 
+        {/* Фото объекта */}
+        {project.isParticipating && project.photo && (
+          <div className="mt-4 rounded-xl overflow-hidden border border-white/60 shadow-sm">
+            <div className="relative h-48 md:h-56 overflow-hidden">
+              <img
+                src={project.photo}
+                alt={project.photoLabel}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+              {project.photoLabel && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
+                  <p className="text-white text-xs font-medium">{project.photoLabel}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Примеры работ */}
         <div className="mt-4 space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 flex items-center gap-1.5">

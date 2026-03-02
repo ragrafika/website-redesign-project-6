@@ -12,6 +12,8 @@ export interface NatProject {
   areas: string[];
   examples: { icon: string; text: string }[];
   curator?: string;
+  photo?: string;
+  photoLabel?: string;
 }
 
 export const PROJECTS: NatProject[] = [
@@ -56,6 +58,8 @@ export const PROJECTS: NatProject[] = [
       { icon: "Palette", text: "Дизайн-оформление молодёжных пространств" },
     ],
     curator: "Росмолодёжь",
+    photo: "https://cdn.poehali.dev/files/35fcab5e-e586-4e61-b96c-f488e8b78865.jpg",
+    photoLabel: "Детская библиотека — интерьерное оформление",
   },
   {
     id: "ekonomika-dannykh",
@@ -97,6 +101,8 @@ export const PROJECTS: NatProject[] = [
       { icon: "Accessibility", text: "Доступная среда: указатели и тактильные элементы" },
     ],
     curator: "Минтруд России",
+    photo: "https://cdn.poehali.dev/files/03a0bbb4-82ad-49ab-9e7f-586537773c4e.jpg",
+    photoLabel: "Городская поликлиника №1 — навигационная вывеска",
   },
   {
     id: "kultura",
@@ -118,6 +124,8 @@ export const PROJECTS: NatProject[] = [
       { icon: "Image", text: "Выставочные конструкции для музеев" },
     ],
     curator: "Минкультуры России",
+    photo: "https://cdn.poehali.dev/files/ee0ddc7b-d2e5-4ecd-b02a-66033522690a.jpg",
+    photoLabel: "Библиотека нового поколения — стойка регистрации",
   },
   {
     id: "zdravookhranenie",
