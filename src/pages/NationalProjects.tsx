@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import { PROJECTS } from "./national-projects/nationalProjectsData";
 import NationalProjectsHero from "./national-projects/NationalProjectsHero";
 import NationalProjectCard from "./national-projects/NationalProjectCard";
+import NationalProjectsContactForm from "./national-projects/NationalProjectsContactForm";
 import Footer from "@/components/Footer";
 
 const FILTERS = [
@@ -87,37 +88,7 @@ export default function NationalProjects() {
           ))}
         </div>
 
-        {/* Нижний CTA */}
-        <div className="mt-10 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 text-center">
-          <div className="flex justify-center mb-4">
-            <div className="bg-primary/10 rounded-2xl p-4">
-              <Icon name="Award" size={32} className="text-primary" />
-            </div>
-          </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">
-            Работаем по 44-ФЗ и 223-ФЗ
-          </h2>
-          <p className="text-gray-500 text-sm leading-relaxed max-w-md mx-auto mb-6">
-            Опыт работы в государственном заказе, понимание требований нацпроектов,
-            соблюдение сроков и документооборота. Готовы рассмотреть любой объект.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:+74162000000"
-              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-red-600 transition-colors text-white font-bold px-6 py-3 rounded-xl text-sm"
-            >
-              <Icon name="Phone" size={16} />
-              Позвонить
-            </a>
-            <a
-              href="mailto:info@example.ru"
-              className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 transition-colors text-slate-800 font-bold px-6 py-3 rounded-xl text-sm"
-            >
-              <Icon name="Mail" size={16} />
-              Написать
-            </a>
-          </div>
-        </div>
+        <NationalProjectsContactForm />
 
       </div>
 
