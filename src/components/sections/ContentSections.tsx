@@ -117,6 +117,12 @@ const portfolio = [
     title: "Зея Благовещенская кондитерская фабрика",
     description: "Фасадная вывеска для кондитерской фабрики",
     category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/86cdfc1b-1026-4941-9def-af05d5a94c97.jpg",
+    title: "Tarkett",
+    description: "Комплексное брендирование фасада торгового центра напольных покрытий",
+    category: "Наружная реклама"
   }
 ];
 
