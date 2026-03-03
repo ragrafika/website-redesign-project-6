@@ -1,8 +1,33 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { NatProject } from "./nationalProjectsData";
 
 export default function NationalProjectCard({ project }: { project: NatProject }) {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  const allPhotos = [
+    ...(project.photo ? [{ url: project.photo, label: project.photoLabel || "" }] : []),
+    ...(project.gallery || []),
+  ];
+
   return (
+    <>
+    {lightbox && (
+      <div
+        className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+        onClick={() => setLightbox(null)}
+      >
+        <button className="absolute top-4 right-4 text-white/70 hover:text-white">
+          <Icon name="X" size={28} />
+        </button>
+        <img
+          src={lightbox}
+          alt=""
+          className="max-w-full max-h-[90vh] rounded-xl object-contain"
+          onClick={e => e.stopPropagation()}
+        />
+      </div>
+    )}
     <div
       className={`rounded-2xl border-2 ${project.color} overflow-hidden shadow-sm`}
       id={project.id}
@@ -91,7 +116,40 @@ export default function NationalProjectCard({ project }: { project: NatProject }
             </div>
           ))}
         </div>
+
+        {/* Галерея фотографий */}
+        {allPhotos.length > 0 && (
+          <div className="mt-5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-1.5">
+              <Icon name="Images" size={11} />
+              Наши работы на объектах
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {allPhotos.map((ph, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightbox(ph.url)}
+                  className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-gray-100"
+                >
+                  <img
+                    src={ph.url}
+                    alt={ph.label}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  {ph.label && (
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-end">
+                      <p className="text-white text-xs px-2 pb-2 leading-tight opacity-0 group-hover:opacity-100 transition-opacity">
+                        {ph.label}
+                      </p>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
+    </>
   );
 }

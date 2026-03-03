@@ -14,6 +14,7 @@ export interface NatProject {
   curator?: string;
   photo?: string;
   photoLabel?: string;
+  gallery?: { url: string; label: string }[];
 }
 
 export const PROJECTS: NatProject[] = [
@@ -60,6 +61,10 @@ export const PROJECTS: NatProject[] = [
     curator: "Росмолодёжь",
     photo: "https://cdn.poehali.dev/files/35fcab5e-e586-4e61-b96c-f488e8b78865.jpg",
     photoLabel: "Детская библиотека — интерьерное оформление",
+    gallery: [
+      { url: "https://cdn.poehali.dev/files/1a84cf2f-cacd-454c-a8de-f1a737fc9aaa.png", label: "Кукольный театр для детской зоны" },
+      { url: "https://cdn.poehali.dev/files/fe3f4072-72ca-48f4-babb-16a96f647228.png", label: "Интерьерное оформление детской зоны" },
+    ],
   },
   {
     id: "ekonomika-dannykh",
@@ -103,6 +108,10 @@ export const PROJECTS: NatProject[] = [
     curator: "Минтруд России",
     photo: "https://cdn.poehali.dev/files/03a0bbb4-82ad-49ab-9e7f-586537773c4e.jpg",
     photoLabel: "Городская поликлиника №1 — навигационная вывеска",
+    gallery: [
+      { url: "https://cdn.poehali.dev/files/a5d8438b-3249-4e07-8540-c6e87da58875.png", label: "Городская поликлиника №1 — объёмные буквы" },
+      { url: "https://cdn.poehali.dev/files/a49c66c7-a9df-48a1-aeee-0498a84c37a3.png", label: "Городская поликлиника №1 — вывеска анфас" },
+    ],
   },
   {
     id: "kultura",
@@ -126,6 +135,23 @@ export const PROJECTS: NatProject[] = [
     curator: "Минкультуры России",
     photo: "https://cdn.poehali.dev/files/ee0ddc7b-d2e5-4ecd-b02a-66033522690a.jpg",
     photoLabel: "Библиотека нового поколения — стойка регистрации",
+    gallery: [
+      { url: "https://cdn.poehali.dev/files/ae1e63f0-bdc2-41d7-9da3-c7e0d8b5aeb5.png", label: "«Книжный меридиан» — интерьерное оформление" },
+      { url: "https://cdn.poehali.dev/files/44324215-888b-4eae-a64e-8e00284f1138.png", label: "Зонирование стеллажей — #Вдохновляйся, #Развивайся, #Достигай" },
+      { url: "https://cdn.poehali.dev/files/43e5c0f8-b275-4837-9309-86b32ad70c57.png", label: "Пробковые стенды в форме облаков речи" },
+      { url: "https://cdn.poehali.dev/files/d23355eb-c422-434a-8fc8-313be7cfb843.png", label: "#Читай с нами — детская зона" },
+      { url: "https://cdn.poehali.dev/files/b080a70f-bb46-4bde-a2a6-6aeccd7d92dd.png", label: "Краеведческая литература — оформление секции" },
+      { url: "https://cdn.poehali.dev/files/af8bb367-6c38-45c2-8db0-c0cadd58209f.png", label: "«ФотоФАКТика» — фотовыставочная система" },
+      { url: "https://cdn.poehali.dev/files/abd369ab-84fb-4b7a-aa28-a5acbadb6ee8.png", label: "История села Козьмодемьяновка — хронологический стенд" },
+      { url: "https://cdn.poehali.dev/files/4a6d6453-2297-4499-bc1c-781bc0bb2812.png", label: "Декоративная инсталляция с подсветкой" },
+      { url: "https://cdn.poehali.dev/files/99ff8071-ab18-4c57-a1e2-ad85bfd0c013.png", label: "Декоративная инсталляция — общий вид" },
+      { url: "https://cdn.poehali.dev/files/f39bec4e-a31f-4fd3-82e3-a2da6f24672e.png", label: "«Библиотека творчества» — навигация и зонирование" },
+      { url: "https://cdn.poehali.dev/files/2ab9e906-67e6-4bd6-b38a-9fa14ba595a5.png", label: "Выставка фотографий на акриловых держателях" },
+      { url: "https://cdn.poehali.dev/files/8d3ff7e7-bedc-4035-8dda-5f9e88e4add8.png", label: "Навигационные указатели — Мультицентр, Коворкинг, Детская зона" },
+      { url: "https://cdn.poehali.dev/files/e372d5c6-4fdc-4e0e-bd9c-564e88a3ea97.png", label: "«Библиотека нового поколения» — стойка регистрации" },
+      { url: "https://cdn.poehali.dev/files/fc17f64d-f6f8-4950-9f2c-005ff74a66d5.png", label: "«Толстовская библиотека-филиал» — входная группа" },
+      { url: "https://cdn.poehali.dev/files/b09ed661-5800-4b72-9288-1fa3116f5846.png", label: "Карта Тамбовского округа — объёмное панно" },
+    ],
   },
   {
     id: "zdravookhranenie",
