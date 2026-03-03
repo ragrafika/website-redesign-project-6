@@ -193,6 +193,6 @@ export const PROJECTS: NatProject[] = [
 export const COMPANY_STATS = [
   { value: "3", label: "Нацпроекта", sub: "уже участвуем" },
   { value: "150+", label: "Изделий", sub: "изготовлено" },
-  { value: "8–10", label: "Объектов", sub: "в рамках нацпроектов" },
+  { value: "ряд", label: "Объектов", sub: "в рамках нацпроектов" },
   { value: "ДФО", label: "Регион", sub: "присутствия" },
 ];
