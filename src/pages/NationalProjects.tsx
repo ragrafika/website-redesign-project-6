@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { PROJECTS } from "./national-projects/nationalProjectsData";
 import NationalProjectsHero from "./national-projects/NationalProjectsHero";
@@ -14,6 +14,7 @@ const FILTERS = [
 ];
 
 export default function NationalProjects() {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filtered =
@@ -31,13 +32,13 @@ export default function NationalProjects() {
       {/* Верхняя навигация */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
-          <Link
-            to="/"
+          <button
+            onClick={() => navigate(-1)}
             className="inline-flex items-center gap-1.5 text-gray-500 hover:text-gray-800 transition-colors flex-shrink-0 text-sm"
           >
             <Icon name="ArrowLeft" size={17} />
-            <span className="hidden sm:inline">На главную</span>
-          </Link>
+            <span className="hidden sm:inline">Назад</span>
+          </button>
           <div className="w-px h-5 bg-gray-200" />
           <h1 className="text-base md:text-lg font-bold text-gray-900 truncate">
             Национальные проекты России

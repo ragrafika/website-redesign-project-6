@@ -3,10 +3,11 @@ import NeonParametersForm from "@/components/calculators/neon/NeonParametersForm
 import NeonPreviewCard from "@/components/calculators/neon/NeonPreviewCard";
 import NeonPriceSection from "@/components/calculators/neon/NeonPriceSection";
 import Icon from "@/components/ui/icon";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function NeonCalculator() {
+  const navigate = useNavigate();
   const [signText, setSignText] = useState("Coffee Time");
   const [fontId, setFontId] = useState("bad-script");
   const [colorId, setColorId] = useState("pink");
@@ -25,12 +26,10 @@ export default function NeonCalculator() {
 
       <header className="border-b border-white/5 bg-black/40 backdrop-blur-sm sticky top-0 z-20">
         <div className="container mx-auto px-4 py-3 flex items-center gap-4">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="text-white/60 hover:text-white gap-2">
-              <Icon name="ArrowLeft" size={16} />
-              На главную
-            </Button>
-          </Link>
+          <Button variant="ghost" size="sm" className="text-white/60 hover:text-white gap-2" onClick={() => navigate(-1)}>
+            <Icon name="ArrowLeft" size={16} />
+            Назад
+          </Button>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-pink-500 shadow-[0_0_8px_#ff2d78]" />
             <span className="text-white/80 text-sm font-medium">Калькулятор гибкого неона</span>
