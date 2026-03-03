@@ -1,18 +1,19 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 const Consent = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Link 
-          to="/" 
+        <button
+          onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>На главную</span>
-        </Link>
+          <span>Назад</span>
+        </button>
 
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
           Согласие на обработку персональных данных
