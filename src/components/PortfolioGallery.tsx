@@ -1,20 +1,81 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
-const PORTFOLIO_API = 'https://functions.poehali.dev/08086c25-661f-495d-bda3-b1f9b9037d91';
-
-interface Photo {
-  id: number;
-  category: string;
-  original_url: string;
-  styled_url: string | null;
-  title: string;
-  description: string;
-  is_processed: boolean;
-  created_at: string;
-}
+export const portfolioItems = [
+  {
+    image: "https://cdn.poehali.dev/files/produkti.jpg",
+    title: "Павильон ПРОДУКТЫ",
+    description: "Световая вывеска для павильона с LED-подсветкой",
+    category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/nto-len60.jpg",
+    title: "Павильон овощи фрукты",
+    description: "Фасадные вывески для торгового павильона",
+    category: "Вывески и световые короба"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/alesha.jpg",
+    title: "Магазин мебели Алёша",
+    description: "Оформление фасада с объёмными буквами",
+    category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/eapteka.jpg",
+    title: "СберЕаптека",
+    description: "Объемные буквы с подсветкой на металлокаркасе для аптеки",
+    category: "Вывески и световые короба"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/dns-elegant.jpg",
+    title: "DNS Элегант",
+    description: "Объемные световые буквы на подложке из АКП",
+    category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/koffeina.jpg",
+    title: "Кофейня V.I.P.",
+    description: "Комплексное оформление фасада. Ремонт фасада, объёмные световые буквы на металлокаркасе, козырек из монолитного поликарбоната",
+    category: "Вывески и световые короба"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/baby.jpg",
+    title: "Баби Смайл",
+    description: "Световая вывеска для детской стоматологии",
+    category: "Вывески и световые короба"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/allauto.jpg",
+    title: "All auto",
+    description: "Объемные буквы на контурной подложке",
+    category: "Наружная вывеска"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/domkulturi.jpg",
+    title: "Дом культуры",
+    description: "Вывеска с LED-подсветкой и прямым монтажем на вентилируемый фасад",
+    category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/mvideo.jpg",
+    title: "М.Видео",
+    description: "Интерьерная навигация из световых вывесок для М.Видео",
+    category: "Интерьерная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/zeya.jpg",
+    title: "Зея Благовещенская кондитерская фабрика",
+    description: "Фасадная вывеска для кондитерской фабрики",
+    category: "Наружная реклама"
+  },
+  {
+    image: "https://cdn.poehali.dev/files/86cdfc1b-1026-4941-9def-af05d5a94c97.jpg",
+    title: "Tarkett",
+    description: "Комплексное брендирование фасада торгового центра напольных покрытий",
+    category: "Наружная реклама"
+  }
+];
 
 interface PortfolioGalleryProps {
   category?: string;
@@ -29,70 +90,30 @@ export function PortfolioGallery({
   showTitle = true,
   limit 
 }: PortfolioGalleryProps) {
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<typeof portfolioItems[0] | null>(null);
 
-  useEffect(() => {
-    const loadPhotos = async () => {
-      setLoading(true);
-      try {
-        const url = category 
-          ? `${PORTFOLIO_API}?category=${category}`
-          : PORTFOLIO_API;
-        const res = await fetch(url);
-        const data = await res.json();
-        const allPhotos = data.photos || [];
-        setPhotos(limit ? allPhotos.slice(0, limit) : allPhotos);
-      } catch (error) {
-        console.error('Failed to load portfolio photos:', error);
-        setPhotos([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+  let photos = category
+    ? portfolioItems.filter(p => p.category === category)
+    : portfolioItems;
 
-    loadPhotos();
-  }, [category, limit]);
+  if (limit) photos = photos.slice(0, limit);
 
-  if (loading) {
-    return (
-      <div className={`grid grid-cols-1 md:grid-cols-${columns} gap-6`}>
-        {[...Array(columns * 2)].map((_, i) => (
-          <Card key={i}>
-            <CardContent className="p-0">
-              <Skeleton className="aspect-video w-full" />
-              {showTitle && (
-                <div className="p-4 space-y-2">
-                  <Skeleton className="h-4 w-3/4" />
-                  <Skeleton className="h-3 w-full" />
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    );
-  }
-
-  if (photos.length === 0) {
-    return null;
-  }
+  if (photos.length === 0) return null;
 
   return (
     <>
       <div className={`grid grid-cols-1 md:grid-cols-${columns} gap-6`}>
-        {photos.map((photo) => (
+        {photos.map((photo, index) => (
           <Card 
-            key={photo.id} 
+            key={index}
             className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setSelectedPhoto(photo)}
           >
             <CardContent className="p-0">
               <div className="aspect-video relative overflow-hidden bg-muted">
                 <img
-                  src={photo.styled_url || photo.original_url}
-                  alt={photo.title || 'Портфолио'}
+                  src={photo.image}
+                  alt={photo.title}
                   className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -123,7 +144,7 @@ export function PortfolioGallery({
             <div className="space-y-4">
               <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                 <img
-                  src={selectedPhoto.styled_url || selectedPhoto.original_url}
+                  src={selectedPhoto.image}
                   alt={selectedPhoto.title}
                   className="object-contain w-full h-full"
                 />

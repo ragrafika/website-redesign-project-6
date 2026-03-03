@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
-import { PortfolioGallery } from "@/components/PortfolioGallery";
+import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -51,80 +51,7 @@ const advantages = [
   { number: 2000, suffix: "+", text: "реализованных проектов" }
 ];
 
-const portfolio = [
-  {
-    image: "https://cdn.poehali.dev/files/produkti.jpg",
-    title: "Павильон ПРОДУКТЫ",
-    description: "Световая вывеска для павильона с LED-подсветкой",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/nto-len60.jpg",
-    title: "Павильон овощи фрукты",
-    description: "Фасадные вывески для торгового павильона",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/alesha.jpg",
-    title: "Магазин мебели Алёша",
-    description: "Оформление фасада с объёмными буквами",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/eapteka.jpg",
-    title: "СберЕаптека",
-    description: "Объемные буквы с подсветкой на металлокаркасе для аптеки",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/dns-elegant.jpg",
-    title: "DNS Элегант",
-    description: "Объемные световые буквы на подложке из АКП",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/koffeina.jpg",
-    title: "Кофейня V.I.P.",
-    description: "Комплексное оформление фасада. Ремонт фасада, объёмные световые буквы на металлокаркасе, козырек из монолитного поликарбоната",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/baby.jpg",
-    title: "Баби Смайл",
-    description: "Световая вывеска для детской стоматологии",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/allauto.jpg",
-    title: "All auto",
-    description: "Объемные буквы на контурной подложке",
-    category: "Наружная вывеска"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/domkulturi.jpg",
-    title: "Дом культуры",
-    description: "Вывеска с LED-подсветкой и прямым монтажем на вентилируемый фасад",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/mvideo.jpg",
-    title: "М.Видео",
-    description: "Интерьерная навигация из световых вывесок для М.Видео",
-    category: "Интерьерная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/zeya.jpg",
-    title: "Зея Благовещенская кондитерская фабрика",
-    description: "Фасадная вывеска для кондитерской фабрики",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/files/86cdfc1b-1026-4941-9def-af05d5a94c97.jpg",
-    title: "Tarkett",
-    description: "Комплексное брендирование фасада торгового центра напольных покрытий",
-    category: "Наружная реклама"
-  }
-];
+const portfolio = portfolioItems;
 
 const testimonials = [
   {
