@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { PROJECTS } from "./national-projects/nationalProjectsData";
 import NationalProjectsHero from "./national-projects/NationalProjectsHero";
@@ -40,8 +40,13 @@ export default function NationalProjects() {
             <span className="hidden sm:inline">Назад</span>
           </button>
           <div className="w-px h-5 bg-gray-200" />
-          <h1 className="text-base md:text-lg font-bold text-gray-900 truncate">
-            Национальные проекты России
+          <nav className="hidden sm:flex items-center gap-1.5 text-sm text-gray-400">
+            <Link to="/" className="hover:text-primary transition-colors">Главная</Link>
+            <Icon name="ChevronRight" size={14} />
+            <span className="text-gray-700 font-medium">Национальные проекты</span>
+          </nav>
+          <h1 className="sm:hidden text-base font-bold text-gray-900 truncate">
+            Национальные проекты
           </h1>
           <div className="ml-auto flex-shrink-0">
             <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full">

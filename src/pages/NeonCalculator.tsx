@@ -3,7 +3,7 @@ import NeonParametersForm from "@/components/calculators/neon/NeonParametersForm
 import NeonPreviewCard from "@/components/calculators/neon/NeonPreviewCard";
 import NeonPriceSection from "@/components/calculators/neon/NeonPriceSection";
 import Icon from "@/components/ui/icon";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function NeonCalculator() {
@@ -30,6 +30,11 @@ export default function NeonCalculator() {
             <Icon name="ArrowLeft" size={16} />
             Назад
           </Button>
+          <div className="hidden sm:flex items-center gap-1.5 text-sm text-white/40">
+            <Link to="/" className="hover:text-white/80 transition-colors">Главная</Link>
+            <Icon name="ChevronRight" size={14} />
+            <span className="text-white/70">Калькулятор неона</span>
+          </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-pink-500 shadow-[0_0_8px_#ff2d78]" />
             <span className="text-white/80 text-sm font-medium">Калькулятор гибкого неона</span>

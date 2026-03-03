@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { DOCS } from "./signage-law/signageLawData";
@@ -36,8 +36,13 @@ export default function SignageLaw() {
             <span className="hidden sm:inline">Назад</span>
           </button>
           <div className="w-px h-5 bg-gray-200" />
-          <h1 className="text-base md:text-lg font-bold text-gray-900 truncate">
-            Правовые требования к вывескам
+          <nav className="hidden sm:flex items-center gap-1.5 text-sm text-gray-400">
+            <Link to="/" className="hover:text-primary transition-colors">Главная</Link>
+            <Icon name="ChevronRight" size={14} />
+            <span className="text-gray-700 font-medium">Требования к вывескам</span>
+          </nav>
+          <h1 className="sm:hidden text-base font-bold text-gray-900 truncate">
+            Требования к вывескам
           </h1>
         </div>
       </div>
