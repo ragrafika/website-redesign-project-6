@@ -2,11 +2,34 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { DocCard } from "./signageLawData";
 
+function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/85 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+      >
+        <Icon name="X" size={18} className="text-white" />
+      </button>
+      <img
+        src={src}
+        alt="Фото в полном размере"
+        className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  );
+}
+
 export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", comment: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +59,7 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
 
   return (
     <>
+      {lightboxSrc && <Lightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />}
       <div className={`rounded-2xl border-2 ${doc.color} overflow-hidden shadow-sm`} id={doc.id}>
         {/* Шапка карточки */}
         <div className="p-5 md:p-7">
@@ -63,14 +87,33 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
           {(doc.promoImage || doc.promoImages) && (
             <div className="mt-5 flex flex-col sm:flex-row gap-4 items-stretch bg-white/70 rounded-xl overflow-hidden border border-white/80">
               {doc.promoImages ? (
-                <div className="sm:w-64 flex-shrink-0 grid grid-cols-2 gap-0.5">
+                <div className="sm:w-56 flex-shrink-0 grid grid-cols-2 gap-0.5">
                   {doc.promoImages.map((src, i) => (
-                    <img key={i} src={src} alt={`Пример работы ${i + 1}`} className="w-full h-32 sm:h-full object-cover" />
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setLightboxSrc(src)}
+                      className="overflow-hidden focus:outline-none group relative"
+                    >
+                      <img src={src} alt={`Пример работы ${i + 1}`} className="w-full h-20 object-cover transition-transform group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <Icon name="ZoomIn" size={18} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </button>
                   ))}
                 </div>
               ) : (
-                <div className="sm:w-48 flex-shrink-0">
-                  <img src={doc.promoImage} alt="Пример работы" className="w-full h-48 sm:h-full object-cover" />
+                <div className="sm:w-44 flex-shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setLightboxSrc(doc.promoImage!)}
+                    className="w-full h-full overflow-hidden focus:outline-none group relative block"
+                  >
+                    <img src={doc.promoImage} alt="Пример работы" className="w-full h-40 sm:h-full object-cover transition-transform group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <Icon name="ZoomIn" size={20} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </button>
                 </div>
               )}
               <div className="flex flex-col justify-center p-4 gap-3">
