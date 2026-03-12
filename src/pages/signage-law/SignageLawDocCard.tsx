@@ -6,10 +6,26 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", comment: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    try {
+      await fetch("https://functions.poehali.dev/c848bf2f-05f1-42c0-b695-5d345ad19872", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          message: form.comment || "Не указан",
+          industry: "Адресный аншлаг (Постановление № 132)",
+        }),
+      });
+    } finally {
+      setLoading(false);
+      setSent(true);
+    }
   };
 
   const closeModal = () => {
@@ -194,10 +210,11 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-3 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                    disabled={loading}
+                    className="w-full bg-blue-600 text-white py-3 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
                   >
-                    <Icon name="Send" size={15} />
-                    Отправить заявку
+                    <Icon name={loading ? "Loader" : "Send"} size={15} className={loading ? "animate-spin" : ""} />
+                    {loading ? "Отправляем..." : "Отправить заявку"}
                   </button>
                 </form>
               </>
