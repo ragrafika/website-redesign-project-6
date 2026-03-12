@@ -14,6 +14,7 @@ export interface DocCard {
   links: { label: string; url: string }[];
   note?: string;
   promoImage?: string;
+  promoImages?: string[];
   promoButtonLabel?: string;
   promoDescription?: string;
 }
@@ -124,6 +125,12 @@ export const DOCS: DocCard[] = [
       },
     ],
     note: "Важно разграничивать: вывеска с названием и адресом организации — не реклама. Реклама — это привлечение внимания к товарам и услугам. Это разные правовые категории с разными требованиями.",
+    promoImages: [
+      "https://cdn.poehali.dev/files/70d632fb-52e5-4e6d-9365-38620947be27.jpg",
+      "https://cdn.poehali.dev/files/6fdd4275-bb5f-4c86-ab61-fefea653ea84.jpg",
+    ],
+    promoButtonLabel: "Привести вывеску в соответствие",
+    promoDescription: "Проверим вашу вывеску на соответствие требованиям закона и при необходимости изготовим новую с русскоязычным текстом.",
   },
   {
     id: "rf-38fz",
@@ -170,6 +177,9 @@ export const DOCS: DocCard[] = [
       },
     ],
     note: "Практически: вывеска с названием и адресом — не реклама (ЗоЗПП). Световой короб/баннер с рекламой товара — рекламная конструкция (ФЗ № 38-ФЗ, нужно разрешение). Интерьерная реклама внутри здания — ст. 19 не применяется.",
+    promoImage: "https://cdn.poehali.dev/files/1d0076d5-4612-4bce-8b7e-8e26c27d8c8c.jpg",
+    promoButtonLabel: "Заказать рекламную конструкцию",
+    promoDescription: "Изготовим билборд, световой короб или баннер. Разработаем дизайн и поможем оформить разрешение на установку.",
   },
   {
     id: "svobodny",

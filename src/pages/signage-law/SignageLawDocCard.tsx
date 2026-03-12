@@ -60,15 +60,19 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
           </div>
 
           {/* Фото + кнопка */}
-          {doc.promoImage && (
+          {(doc.promoImage || doc.promoImages) && (
             <div className="mt-5 flex flex-col sm:flex-row gap-4 items-stretch bg-white/70 rounded-xl overflow-hidden border border-white/80">
-              <div className="sm:w-48 flex-shrink-0">
-                <img
-                  src={doc.promoImage}
-                  alt="Адресный аншлаг"
-                  className="w-full h-48 sm:h-full object-cover"
-                />
-              </div>
+              {doc.promoImages ? (
+                <div className="sm:w-64 flex-shrink-0 grid grid-cols-2 gap-0.5">
+                  {doc.promoImages.map((src, i) => (
+                    <img key={i} src={src} alt={`Пример работы ${i + 1}`} className="w-full h-32 sm:h-full object-cover" />
+                  ))}
+                </div>
+              ) : (
+                <div className="sm:w-48 flex-shrink-0">
+                  <img src={doc.promoImage} alt="Пример работы" className="w-full h-48 sm:h-full object-cover" />
+                </div>
+              )}
               <div className="flex flex-col justify-center p-4 gap-3">
                 {doc.promoDescription && (
                   <p className="text-xs text-gray-500 leading-relaxed">{doc.promoDescription}</p>
