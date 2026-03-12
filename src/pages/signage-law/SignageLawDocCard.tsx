@@ -19,7 +19,7 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
           name: form.name,
           phone: form.phone,
           message: form.comment || "Не указан",
-          industry: "Адресный аншлаг (Постановление № 132)",
+          industry: `${doc.promoButtonLabel} — ${doc.title}`,
         }),
       });
     } finally {
@@ -70,8 +70,9 @@ export default function SignageLawDocCard({ doc }: { doc: DocCard }) {
                 />
               </div>
               <div className="flex flex-col justify-center p-4 gap-3">
-                <p className="text-sm font-semibold text-gray-800">Изготовим адресный аншлаг по требованиям постановления № 132</p>
-                <p className="text-xs text-gray-500 leading-relaxed">Таблички улиц и номеров домов из качественных материалов. Соответствие требованиям администрации.</p>
+                {doc.promoDescription && (
+                  <p className="text-xs text-gray-500 leading-relaxed">{doc.promoDescription}</p>
+                )}
                 <button
                   onClick={() => setModalOpen(true)}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all w-fit ${doc.accentColor} hover:opacity-80`}

@@ -15,6 +15,7 @@ export interface DocCard {
   note?: string;
   promoImage?: string;
   promoButtonLabel?: string;
+  promoDescription?: string;
 }
 
 export const DOCS: DocCard[] = [
@@ -51,6 +52,7 @@ export const DOCS: DocCard[] = [
     note: "Постановление № 132 касается исключительно адресных табличек (аншлагов) — указателей улиц и номеров домов. Для вывесок организаций действует другой документ — Постановление № 1812.",
     promoImage: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/19fc6ad1-1258-4195-ae3e-393c75392ff0.jpg",
     promoButtonLabel: "Заказать адресный аншлаг",
+    promoDescription: "Изготовим таблички улиц и номеров домов из качественных материалов в соответствии с требованиями Постановления № 132.",
   },
   {
     id: "blag-1812",
@@ -82,6 +84,9 @@ export const DOCS: DocCard[] = [
       },
     ],
     links: [],
+    promoImage: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/336c1a76-f12d-4121-86d4-9acf8c11875b.jpg",
+    promoButtonLabel: "Согласовать вывеску под ключ",
+    promoDescription: "Разработаем дизайн-проект и поможем пройти согласование в администрации Благовещенска — с нами вывеска появится на фасаде без бюрократических задержек.",
   },
   {
     id: "rf-2026",
@@ -212,5 +217,8 @@ export const DOCS: DocCard[] = [
     ],
     links: [],
     note: "На официальном сайте г. Свободного доступны для скачивания: «Правила благоустройства» (PDF) и «Перечень документов для согласования вывески» (PDF).",
+    promoImage: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c1a80348-fd17-46e9-a2d8-8361c62c93bb.jpg",
+    promoButtonLabel: "Заказать вывеску для г. Свободный",
+    promoDescription: "Изготовим и установим вывеску с соблюдением Правил благоустройства города Свободного — объёмные буквы, световые короба, таблички.",
   },
 ];
