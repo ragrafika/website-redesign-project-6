@@ -13,6 +13,8 @@ export interface DocCard {
   keyPoints: { icon: string; title: string; text: string }[];
   links: { label: string; url: string }[];
   note?: string;
+  promoImage?: string;
+  promoButtonLabel?: string;
 }
 
 export const DOCS: DocCard[] = [
@@ -47,6 +49,8 @@ export const DOCS: DocCard[] = [
     ],
     links: [],
     note: "Постановление № 132 касается исключительно адресных табличек (аншлагов) — указателей улиц и номеров домов. Для вывесок организаций действует другой документ — Постановление № 1812.",
+    promoImage: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/19fc6ad1-1258-4195-ae3e-393c75392ff0.jpg",
+    promoButtonLabel: "Заказать адресный аншлаг",
   },
   {
     id: "blag-1812",
