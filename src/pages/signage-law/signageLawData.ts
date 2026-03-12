@@ -126,10 +126,8 @@ export const DOCS: DocCard[] = [
     ],
     note: "Важно разграничивать: вывеска с названием и адресом организации — не реклама. Реклама — это привлечение внимания к товарам и услугам. Это разные правовые категории с разными требованиями.",
     promoImages: [
-      "https://cdn.poehali.dev/files/4dcb9a77-d1eb-4d3e-b3ad-f6666e1ff5c9.jpg",
       "https://cdn.poehali.dev/files/a8c5deca-a596-4cf0-838d-729a6b24b673.jpg",
       "https://cdn.poehali.dev/files/cb470a14-104b-4afc-8a5c-fd3f97ae304b.jpg",
-      "https://cdn.poehali.dev/files/35a990b4-446c-412d-857b-cebfcbf148cf.jpg",
     ],
     promoButtonLabel: "Привести вывеску в соответствие",
     promoDescription: "Проверим вашу вывеску на соответствие требованиям закона и при необходимости изготовим новую с русскоязычным текстом.",
