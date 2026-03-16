@@ -145,6 +145,53 @@ const ContentSections = () => {
 
   return (
     <>
+      <section id="advantages" className="py-20 bg-secondary text-white scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {advantages.map((adv, index) => (
+              <AdvantageCounter 
+                key={index}
+                number={adv.number}
+                suffix={adv.suffix}
+                text={adv.text}
+              />
+            ))}
+          </div>
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="CheckCircle2" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Согласуем вывеску</h3>
+                <p className="text-white/80">Поможем с согласованием и оформлением документов</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="Gift" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">К вывеске подарим режим работы</h3>
+                <p className="text-white/80">Бесплатная табличка с режимом работы к каждой вывеске</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="Workflow" size={24} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Разработаем → изготовим → смонтируем</h3>
+                <p className="text-white/80">Полный цикл работ от идеи до установки</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="py-20 bg-muted/30 scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
@@ -177,8 +224,6 @@ const ContentSections = () => {
           </div>
         </div>
       </section>
-
-      <CalculatorsBlockSection />
 
       <section id="portfolio" className="py-20 scroll-mt-24 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -284,53 +329,6 @@ const ContentSections = () => {
         </div>
       )}
 
-      <section id="advantages" className="py-20 bg-secondary text-white scroll-mt-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-12">
-            {advantages.map((adv, index) => (
-              <AdvantageCounter 
-                key={index}
-                number={adv.number}
-                suffix={adv.suffix}
-                text={adv.text}
-              />
-            ))}
-          </div>
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="flex gap-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="CheckCircle2" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-2">Согласуем вывеску</h3>
-                <p className="text-white/80">Поможем с согласованием и оформлением документов</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="Gift" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-2">К вывеске подарим режим работы</h3>
-                <p className="text-white/80">Бесплатная табличка с режимом работы к каждой вывеске</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="Workflow" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-2">Разработаем → изготовим → смонтируем</h3>
-                <p className="text-white/80">Полный цикл работ от идеи до установки</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="testimonials" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -393,6 +391,8 @@ const ContentSections = () => {
           </div>
         </div>
       </section>
+
+      <CalculatorsBlockSection />
     </>
   );
 };

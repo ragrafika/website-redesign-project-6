@@ -98,9 +98,9 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ContentSections />
+      <IndustriesSection />
       <SignageLawTeaser />
       <NationalProjectsTeaser />
-      <IndustriesSection />
       <ContactSection />
       <Footer />
     </div>
