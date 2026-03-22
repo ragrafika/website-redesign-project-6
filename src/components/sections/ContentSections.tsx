@@ -82,7 +82,7 @@ const AdvantageCounter = ({ number, suffix, text }: { number: number; suffix: st
       <div className="text-5xl md:text-6xl font-bold text-primary mb-3 animate-scale-in">
         {count}{suffix}
       </div>
-      <div className="text-lg text-white/90">{text}</div>
+      <div className="text-lg text-muted-foreground">{text}</div>
     </div>
   );
 };
