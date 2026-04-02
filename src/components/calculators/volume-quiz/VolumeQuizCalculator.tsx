@@ -6,7 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import Icon from '@/components/ui/icon';
 import { OptionCard, StepHeader } from './StepCard';
 import {
-  CALC_CONFIG,
+  HEIGHT_RANGES,
   QuizState,
   initialQuizState,
   calculatePrice,
@@ -17,6 +17,8 @@ import {
   BaseType,
   InstallationType,
   UrgencyType,
+  PRODUCT_BASE_PRESET,
+  PRODUCT_INSTALL_PRESET,
 } from './config';
 
 const TOTAL_STEPS = 6;
@@ -32,10 +34,10 @@ const MOTIVATIONAL = [
 ];
 
 const productOptions: { value: ProductType; label: string; icon: string; desc: string }[] = [
-  { value: 'volumeLight', label: 'Объёмные световые буквы', icon: '✨', desc: 'Буквы с внутренней LED-подсветкой' },
-  { value: 'volumeOnBase', label: 'Световые буквы на подложке', icon: '🔲', desc: 'Буквы на плоском основании' },
-  { value: 'volumeWithLogo', label: 'Буквы + логотип', icon: '🎨', desc: 'Текст и фирменный знак вместе' },
-  { value: 'complex', label: 'Комплекс: изготовление + монтаж', icon: '🔧', desc: 'Производство и установка под ключ' },
+  { value: 'volumeLight',   label: 'Объёмные световые буквы',        icon: '✨', desc: 'Прямое крепление каждой буквы к фасаду' },
+  { value: 'volumeOnBase',  label: 'Световые буквы на подложке',      icon: '🔲', desc: 'Буквы смонтированы на общей панели' },
+  { value: 'volumeOnFrame', label: 'Световые буквы на металлической раме', icon: '🔩', desc: 'Жёсткая рамная конструкция' },
+  { value: 'complex',       label: 'Комплекс: изготовление + монтаж', icon: '🔧', desc: 'Производство и установка под ключ' },
 ];
 
 const lightingOptions: { value: LightingType; label: string; icon: string; desc: string }[] = [
@@ -62,16 +64,16 @@ const installOptions: { value: InstallationType; label: string; icon: string; de
 ];
 
 const urgencyOptions: { value: UrgencyType; label: string; icon: string; desc: string; days: string }[] = [
-  { value: 'standard', label: 'Стандартный срок', icon: '📅', desc: 'Без доплаты', days: '7–10 рабочих дней' },
-  { value: 'urgent', label: 'Срочно', icon: '⚡', desc: '+25% к стоимости', days: '4–6 рабочих дней' },
-  { value: 'veryUrgent', label: 'Очень срочно', icon: '🔥', desc: '+50% к стоимости', days: '2–4 рабочих дня' },
+  { value: 'standard',   label: 'Стандартный срок', icon: '📅', desc: 'Без доплаты',       days: '7–10 рабочих дней' },
+  { value: 'urgent',     label: 'Срочно',           icon: '⚡', desc: '+20% к стоимости', days: '4–6 рабочих дней' },
+  { value: 'veryUrgent', label: 'Очень срочно',     icon: '🔥', desc: '+35% к стоимости', days: '2–4 рабочих дня' },
 ];
 
 const productLabels: Record<ProductType, string> = {
-  volumeLight: 'Объёмные световые буквы',
-  volumeOnBase: 'Световые буквы на подложке',
-  volumeWithLogo: 'Буквы + логотип',
-  complex: 'Комплекс: изготовление + монтаж',
+  volumeLight:   'Объёмные световые буквы',
+  volumeOnBase:  'Световые буквы на подложке',
+  volumeOnFrame: 'Световые буквы на металлической раме',
+  complex:       'Комплекс: изготовление + монтаж',
 };
 const lightingLabels: Record<LightingType, string> = {
   facade: 'Подсветка фасада',
@@ -93,7 +95,7 @@ const installLabels: Record<InstallationType, string> = {
   crane: 'С автовышкой',
   consultation: 'По консультации',
 };
-const heightLabels = CALC_CONFIG.heightRanges.map((r) => r.label);
+const heightLabels = HEIGHT_RANGES.map((r) => r.label);
 
 export default function VolumeQuizCalculator() {
   const [step, setStep] = useState<'start' | number | 'result'>('start');
@@ -269,7 +271,8 @@ export default function VolumeQuizCalculator() {
                   setQuiz((q) => ({
                     ...q,
                     productType: opt.value,
-                    installation: opt.value === 'complex' ? q.installation || 'upTo3m' : q.installation,
+                    baseType: PRODUCT_BASE_PRESET[opt.value],
+                    installation: PRODUCT_INSTALL_PRESET[opt.value] ?? q.installation,
                   }));
                 }}
                 icon={opt.icon}
@@ -336,7 +339,7 @@ export default function VolumeQuizCalculator() {
         <div>
           <StepHeader stepNum={3} totalSteps={TOTAL_STEPS} question="Какая высота букв вам нужна?" hint="От высоты зависит стоимость и видимость вывески" />
           <div className="grid sm:grid-cols-2 gap-3">
-            {CALC_CONFIG.heightRanges.map((range, i) => (
+            {HEIGHT_RANGES.map((range, i) => (
               <OptionCard
                 key={i}
                 selected={quiz.heightIndex === i}
