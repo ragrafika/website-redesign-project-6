@@ -21,6 +21,7 @@ import IndustryPage from "./pages/industries/IndustryPage";
 import NeonCalculator from "./pages/NeonCalculator";
 import SignageLaw from "./pages/SignageLaw";
 import NationalProjects from "./pages/NationalProjects";
+import VolumeLettersCalculator from "./pages/VolumeLettersCalculator";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/neon-calculator" element={<NeonCalculator />} />
           <Route path="/signage-law" element={<SignageLaw />} />
           <Route path="/national-projects" element={<NationalProjects />} />
+          <Route path="/volume-letters-calculator" element={<VolumeLettersCalculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
