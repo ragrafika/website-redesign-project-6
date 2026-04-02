@@ -9,6 +9,7 @@ export const LIGHTING_RATES: Record<LightingType, number> = {
 
 // ─── Коэффициенты высоты ────────────────────────────────────────────────────
 export const HEIGHT_RANGES = [
+  { label: 'До 20 см',     calcHeight: 15,  coefficient: 1.30 },
   { label: '20–30 см',     calcHeight: 25,  coefficient: 1.15 },
   { label: '31–50 см',     calcHeight: 40,  coefficient: 1.00 },
   { label: '51–70 см',     calcHeight: 60,  coefficient: 1.10 },

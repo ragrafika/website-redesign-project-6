@@ -34,53 +34,52 @@ const MOTIVATIONAL = [
 ];
 
 const productOptions: { value: ProductType; label: string; icon: string; desc: string }[] = [
-  { value: 'volumeLight',   label: 'Объёмные световые буквы',        icon: '✨', desc: 'Прямое крепление каждой буквы к фасаду' },
-  { value: 'volumeOnBase',  label: 'Световые буквы на подложке',      icon: '🔲', desc: 'Буквы смонтированы на общей панели' },
-  { value: 'volumeOnFrame', label: 'Световые буквы на металлической раме', icon: '🔩', desc: 'Жёсткая рамная конструкция' },
-  { value: 'complex',       label: 'Комплекс: изготовление + монтаж', icon: '🔧', desc: 'Производство и установка под ключ' },
+  { value: 'volumeLight',   label: 'Объёмные световые буквы',             icon: 'Zap',        desc: 'Прямое крепление каждой буквы к фасаду' },
+  { value: 'volumeOnBase',  label: 'Световые буквы на подложке',           icon: 'LayoutPanel', desc: 'Буквы смонтированы на общей панели' },
+  { value: 'volumeOnFrame', label: 'Световые буквы на металлической раме', icon: 'Frame',       desc: 'Жёсткая рамная конструкция' },
+  { value: 'complex',       label: 'Объёмные буквы без подсветки',         icon: 'Type',        desc: 'Без светодиодов, только форма' },
 ];
 
 const lightingOptions: { value: LightingType; label: string; icon: string; desc: string }[] = [
-  { value: 'facade', label: 'Подсветка фасада', icon: '💡', desc: 'Направленная подсветка снаружи' },
-  { value: 'contour', label: 'Контражур (контурная)', icon: '🌟', desc: 'Световой ореол за буквами' },
-  { value: 'facadeAndContour', label: 'Фасад + контражур', icon: '✨', desc: 'Максимальный световой эффект' },
-  { value: 'none', label: 'Без подсветки', icon: '🔆', desc: 'Только объём, без светодиодов' },
-  { value: 'consultation', label: 'Нужна консультация', icon: '💬', desc: 'Подберём оптимальный вариант' },
+  { value: 'facade',          label: 'Подсветка лица',       icon: 'Sun',         desc: 'Светится лицевая часть буквы' },
+  { value: 'contour',         label: 'Контражур (контурная)', icon: 'Circle',      desc: 'Световой ореол за буквами' },
+  { value: 'facadeAndContour', label: 'Лицо + контражур',    icon: 'Sparkles',    desc: 'Максимальный световой эффект' },
+  { value: 'consultation',    label: 'Нужна консультация',   icon: 'MessageCircle', desc: 'Подберём оптимальный вариант' },
 ];
 
 const baseOptions: { value: BaseType; label: string; icon: string; desc: string }[] = [
-  { value: 'separate', label: 'Каждая буква отдельно', icon: '🔤', desc: 'Прямое крепление к фасаду' },
-  { value: 'backing', label: 'На подложке', icon: '🟦', desc: 'Буквы на общей панели' },
-  { value: 'metalFrame', label: 'На металлической раме', icon: '🔩', desc: 'Жёсткая рамная конструкция' },
-  { value: 'consultation', label: 'Нужна консультация', icon: '💬', desc: 'Поможем выбрать крепление' },
+  { value: 'separate',     label: 'Каждая буква отдельно', icon: 'AlignLeft',   desc: 'Прямое крепление к стене' },
+  { value: 'backing',      label: 'На подложке',           icon: 'Square',      desc: 'Буквы на общей панели' },
+  { value: 'metalFrame',   label: 'На металлической раме', icon: 'Frame',       desc: 'Жёсткая сварная конструкция или алюминиевые профили' },
+  { value: 'consultation', label: 'Нужна консультация',    icon: 'MessageCircle', desc: 'Поможем выбрать крепление' },
 ];
 
 const installOptions: { value: InstallationType; label: string; icon: string; desc: string }[] = [
-  { value: 'none', label: 'Монтаж не нужен', icon: '🚫', desc: 'Установим самостоятельно' },
-  { value: 'upTo3m', label: 'Нужен, высота до 3 м', icon: '🪜', desc: 'Стандартный монтаж' },
-  { value: 'from3to6m', label: 'Нужен, высота 3–6 м', icon: '📏', desc: 'Монтаж с подъёмом' },
-  { value: 'crane', label: 'Нужен с автовышкой', icon: '🏗️', desc: 'Высотный монтаж' },
-  { value: 'consultation', label: 'Нужна консультация', icon: '💬', desc: 'Оценим условия монтажа' },
+  { value: 'none',         label: 'Монтаж не нужен',      icon: 'PackageCheck', desc: 'Установим самостоятельно' },
+  { value: 'upTo3m',       label: 'Нужен, высота до 3 м', icon: 'ArrowUpFromLine', desc: 'Стандартный монтаж' },
+  { value: 'from3to6m',    label: 'Нужен, высота 3–6 м',  icon: 'TrendingUp',   desc: 'Монтаж с подъёмом' },
+  { value: 'crane',        label: 'Нужен с автовышкой',   icon: 'Construction', desc: 'Высотный монтаж' },
+  { value: 'consultation', label: 'Нужна консультация',   icon: 'MessageCircle', desc: 'Оценим условия монтажа' },
 ];
 
 const urgencyOptions: { value: UrgencyType; label: string; icon: string; desc: string; days: string }[] = [
-  { value: 'standard',   label: 'Стандартный срок', icon: '📅', desc: 'Без доплаты',       days: '7–10 рабочих дней' },
-  { value: 'urgent',     label: 'Срочно',           icon: '⚡', desc: '+20% к стоимости', days: '4–6 рабочих дней' },
-  { value: 'veryUrgent', label: 'Очень срочно',     icon: '🔥', desc: '+35% к стоимости', days: '2–4 рабочих дня' },
+  { value: 'standard',   label: 'Стандартный срок', icon: 'CalendarDays', desc: 'Без доплаты',       days: '7–10 рабочих дней' },
+  { value: 'urgent',     label: 'Срочно',           icon: 'Zap',         desc: '+20% к стоимости', days: '4–6 рабочих дней' },
+  { value: 'veryUrgent', label: 'Очень срочно',     icon: 'Flame',       desc: '+35% к стоимости', days: '2–4 рабочих дня' },
 ];
 
 const productLabels: Record<ProductType, string> = {
   volumeLight:   'Объёмные световые буквы',
   volumeOnBase:  'Световые буквы на подложке',
   volumeOnFrame: 'Световые буквы на металлической раме',
-  complex:       'Комплекс: изготовление + монтаж',
+  complex:       'Объёмные буквы без подсветки',
 };
 const lightingLabels: Record<LightingType, string> = {
-  facade: 'Подсветка фасада',
-  contour: 'Контражур',
-  facadeAndContour: 'Фасад + контражур',
-  none: 'Без подсветки',
-  consultation: 'По консультации',
+  facade:          'Подсветка лица',
+  contour:         'Контражур',
+  facadeAndContour: 'Лицо + контражур',
+  none:            'Без подсветки',
+  consultation:    'По консультации',
 };
 const baseLabels: Record<BaseType, string> = {
   separate: 'Каждая буква отдельно',
@@ -246,12 +245,12 @@ export default function VolumeQuizCalculator() {
           </Button>
           <div className="flex flex-wrap justify-center gap-6 mt-8">
             {[
-              { icon: '🏭', text: 'Собственное производство' },
-              { icon: '⚡', text: 'Расчёт за 1 минуту' },
-              { icon: '📐', text: 'Точный расчёт по фото фасада' },
+              { icon: 'Factory',    text: 'Собственное производство' },
+              { icon: 'Timer',      text: 'Расчёт за 1 минуту' },
+              { icon: 'ScanLine',   text: 'Точный расчёт по фото фасада' },
             ].map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>{icon}</span>
+                <Icon name={icon} size={16} className="text-primary" />
                 <span>{text}</span>
               </div>
             ))}

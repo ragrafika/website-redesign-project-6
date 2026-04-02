@@ -1,3 +1,6 @@
+import React from 'react';
+import Icon from '@/components/ui/icon';
+
 interface OptionCardProps {
   selected: boolean;
   onClick: () => void;
@@ -17,7 +20,11 @@ export const OptionCard = ({ selected, onClick, children, icon, description }: O
     }`}
   >
     <div className="flex items-start gap-3">
-      {icon && <span className="text-2xl flex-shrink-0 mt-0.5">{icon}</span>}
+      {icon && (
+        <span className="flex-shrink-0 mt-0.5 text-primary">
+          <Icon name={icon} size={22} />
+        </span>
+      )}
       <div className="flex-1 min-w-0">
         <div className={`font-semibold text-sm sm:text-base leading-snug ${selected ? 'text-primary' : 'text-foreground'}`}>
           {children}
