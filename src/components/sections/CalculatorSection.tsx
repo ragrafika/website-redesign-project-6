@@ -10,7 +10,7 @@ const CalculatorSection = () => {
     const hash = window.location.hash.replace('#', '');
     if (hash === 'stand') return 'stand';
     if (hash === 'volume') return 'volume-letters';
-    return 'stand';
+    return 'volume-letters';
   };
 
   const [selectedCalculator, setSelectedCalculator] = useState<string>(getInitialCalculator());

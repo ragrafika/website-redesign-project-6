@@ -147,7 +147,7 @@ const VolumeLettersCalculator = ({
                 <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
                   <span className="text-xs text-muted-foreground mb-1">Эконом</span>
                   <span className="text-sm font-semibold text-foreground">
-                    {Math.round(calculatePrice() * 0.95).toLocaleString('ru-RU')} ₽
+                    {Math.round(calculatePrice() * 0.92).toLocaleString('ru-RU')} ₽
                   </span>
                 </div>
                 <div className="flex flex-col items-center bg-primary/10 rounded-lg p-3 border-2 border-primary">
@@ -159,7 +159,7 @@ const VolumeLettersCalculator = ({
                 <div className="flex flex-col items-center bg-white rounded-lg p-3 border border-border">
                   <span className="text-xs text-muted-foreground mb-1">Премиум</span>
                   <span className="text-sm font-semibold text-foreground">
-                    {Math.round(calculatePrice() * 1.07).toLocaleString('ru-RU')} ₽
+                    {Math.round(calculatePrice() * 1.25).toLocaleString('ru-RU')} ₽
                   </span>
                 </div>
               </div>
