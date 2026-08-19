@@ -147,6 +147,109 @@ const SignageTurnkey = () => {
               </Link>
             </div>
 
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Комплектации уличных вывесок</h2>
+              <p className="text-gray-700 mb-8">
+                Мы изготавливаем вывески с учётом сложных климатических условий Дальнего Востока: перепадов температур, высокой влажности, ветровых нагрузок и интенсивных осадков. Комплектации отличаются характеристиками материалов, технологией сборки, расчётным сроком эксплуатации и сроком гарантии.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: "Wallet",
+                    title: "Эконом",
+                    subtitle: "Практичное решение для краткосрочных задач",
+                    text: "Подходит для временных торговых точек, сезонных проектов и бизнеса с ограниченным бюджетом. При изготовлении используются доступные материалы и базовая технология сборки, обеспечивающие необходимую надёжность при уличной эксплуатации.",
+                    life: "2–4 года",
+                    warranty: "12 месяцев",
+                    points: [
+                      "Оптимальная стоимость",
+                      "Базовая защита от климатических воздействий",
+                      "Для временного и сезонного размещения",
+                    ],
+                    highlight: false,
+                  },
+                  {
+                    icon: "Award",
+                    title: "Стандарт",
+                    subtitle: "Оптимальный баланс стоимости и надёжности",
+                    text: "Универсальная комплектация для большинства магазинов, офисов, кафе и других коммерческих объектов. Используются более устойчивые к внешней среде материалы и усиленная технология сборки, рассчитанная на длительную эксплуатацию в климате Дальнего Востока.",
+                    life: "3–5 лет",
+                    warranty: "24 месяца",
+                    points: [
+                      "Материалы с повышенной устойчивостью к внешней среде",
+                      "Надёжная сборка и защита элементов вывески",
+                      "Оптимальный выбор для постоянного бизнеса",
+                    ],
+                    highlight: true,
+                  },
+                  {
+                    icon: "ShieldCheck",
+                    title: "Премиум",
+                    subtitle: "Максимальная надёжность и длительный срок службы",
+                    text: "Комплектация для объектов, где особенно важны долговечность, стабильная работа и безупречный внешний вид вывески. Применяются материалы с улучшенными характеристиками и наиболее надёжные технологии сборки с повышенной защитой от влаги, перепадов температур и других климатических нагрузок.",
+                    life: "5–7 лет",
+                    warranty: "36 месяцев",
+                    points: [
+                      "Материалы с повышенными эксплуатационными характеристиками",
+                      "Усиленная конструкция и дополнительная защита",
+                      "Для долгосрочного размещения и имиджевых объектов",
+                    ],
+                    highlight: false,
+                  },
+                ].map((tier, i) => (
+                  <div
+                    key={i}
+                    className={`relative bg-white rounded-xl shadow-md p-6 flex flex-col ${tier.highlight ? "border-2 border-primary" : "border-2 border-transparent"}`}
+                  >
+                    {tier.highlight && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-semibold px-4 py-1 rounded-full whitespace-nowrap">
+                        Оптимальный выбор
+                      </div>
+                    )}
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <Icon name={tier.icon} size={24} className="text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-1">{tier.title}</h3>
+                    <p className="text-primary font-medium text-sm mb-3">{tier.subtitle}</p>
+                    <p className="text-gray-600 text-sm mb-5 flex-grow">{tier.text}</p>
+
+                    <div className="grid grid-cols-2 gap-3 mb-5">
+                      <div className="bg-gray-50 rounded-lg p-3">
+                        <div className="text-xs text-gray-500 mb-1">Срок эксплуатации</div>
+                        <div className="font-bold">{tier.life}</div>
+                      </div>
+                      <div className="bg-gray-50 rounded-lg p-3">
+                        <div className="text-xs text-gray-500 mb-1">Гарантия</div>
+                        <div className="font-bold">{tier.warranty}</div>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2 mb-6">
+                      {tier.points.map((point, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
+                          <Icon name="Check" size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button
+                      variant={tier.highlight ? "default" : "outline"}
+                      className={tier.highlight ? "w-full bg-primary hover:bg-primary/90 text-white mt-auto" : "w-full mt-auto"}
+                      onClick={() => setIsModalOpen(true)}
+                    >
+                      Получить расчёт
+                    </Button>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs text-gray-500 mt-6 max-w-3xl">
+                Расчётный срок эксплуатации не является гарантийным сроком. Фактический срок службы зависит от типа и места размещения вывески, интенсивности климатических воздействий, соблюдения правил эксплуатации и своевременного обслуживания. Точная комплектация определяется после осмотра объекта и согласования технического задания.
+              </p>
+            </div>
+
             <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-6 md:p-8 mb-8 text-white">
               <div className="text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">Нужна консультация?</h2>
