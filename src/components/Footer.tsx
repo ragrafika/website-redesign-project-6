@@ -32,7 +32,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Услуги</h4>
             <nav className="space-y-2">
-              <Link to="/signage" className="block text-gray-600 hover:text-primary transition-colors text-sm">Вывески и световые короба</Link>
+              <Link to="/signage" className="block text-gray-600 hover:text-primary transition-colors text-sm">Вывески под ключ</Link>
               <Link to="/interior" className="block text-gray-600 hover:text-primary transition-colors text-sm">Интерьерная реклама</Link>
               <Link to="/transport" className="block text-gray-600 hover:text-primary transition-colors text-sm">Брендирование транспорта</Link>
               <Link to="/banners" className="block text-gray-600 hover:text-primary transition-colors text-sm">Баннеры и штендеры</Link>

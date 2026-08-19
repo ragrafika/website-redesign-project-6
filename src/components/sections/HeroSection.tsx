@@ -42,11 +42,11 @@ const HeroSection = () => {
       <div className="container relative z-10 mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Реклама, которая работает на вас
+            Вывески под ключ
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Изготовление и монтаж наружной и интерьерной рекламы в
-            Благовещенске и Амурской области
+            От дизайна и согласования до монтажа — в Благовещенске
+            и Амурской области
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

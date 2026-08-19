@@ -19,20 +19,20 @@ const Signage = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Заказать вывеску в Благовещенске | Объемные буквы, световые короба | Графика</title>
-        <meta name="description" content="Изготовление и установка вывесок в Благовещенске. Объемные буквы, световой короб, световая вывеска для магазина. Производство в Амурской области. Бесплатный дизайн-проект. Гарантия 3 года." />
-        <meta name="keywords" content="заказать вывеску, заказать вывеску Благовещенск, объемные буквы, световой короб, световая вывеска, световые буквы, световая реклама, стенды, вывеска в магазин, вывеска Благовещенск, вывеска Свободный" />
+        <title>Вывески под ключ в Благовещенске | Дизайн, согласование, монтаж | Графика</title>
+        <meta name="description" content="Вывески под ключ в Благовещенске: от дизайна и согласования в администрации до изготовления и монтажа. Объемные буквы, световой короб, световая вывеска для магазина. Гарантия 3 года." />
+        <meta name="keywords" content="вывеска под ключ, заказать вывеску, заказать вывеску Благовещенск, объемные буквы, световой короб, световая вывеска, световые буквы, световая реклама, стенды, вывеска в магазин, вывеска Благовещенск, вывеска Свободный" />
         <link rel="canonical" href="https://ragrafika.ru/signage" />
-        <meta property="og:title" content="Заказать вывеску в Благовещенске | Объемные буквы и световые короба" />
-        <meta property="og:description" content="Изготовление световых вывесок в Благовещенске. Бесплатный дизайн-проект. Гарантия 3 года." />
+        <meta property="og:title" content="Вывески под ключ в Благовещенске | Дизайн, согласование, монтаж" />
+        <meta property="og:description" content="Вывески под ключ в Благовещенске: от дизайна и согласования до монтажа. Бесплатный дизайн-проект. Гарантия 3 года." />
         <meta property="og:url" content="https://ragrafika.ru/signage" />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Изготовление вывесок и световых коробов",
-            "serviceType": "Вывески и световая реклама",
+            "name": "Вывески под ключ",
+            "serviceType": "Вывески под ключ: дизайн, согласование, изготовление, монтаж",
             "provider": {
               "@type": "Organization",
               "name": "Графика",
@@ -69,7 +69,7 @@ const Signage = () => {
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Вывески и световые короба",
+                "name": "Вывески под ключ",
                 "item": "https://ragrafika.ru/signage"
               }
             ]
@@ -83,16 +83,38 @@ const Signage = () => {
           <div className="max-w-4xl mx-auto">
             <Breadcrumbs items={[
               { label: "Главная", path: "/" },
-              { label: "Вывески и световые короба" }
+              { label: "Вывески под ключ" }
             ]} />
             
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Вывески и световые короба в Благовещенске
+              Вывески под ключ в Благовещенске
             </h1>
             
             <p className="text-lg text-gray-700 mb-8">
-              Производство световых вывесок в Благовещенске. Изготавливаем объёмные буквы с подсветкой, световой короб, световую рекламу для магазина любой сложности. Работаем по всей Амурской области, включая Свободный. Подбираем конструкцию под архитектуру фасада и требования законодательства.
+              Берём на себя весь цикл: от уточнения задания и разработки макета с визуализацией до согласования в администрации, изготовления и монтажа. Изготавливаем объёмные буквы с подсветкой, световой короб, световую рекламу для магазина любой сложности. Работаем по всей Амурской области, включая Свободный.
             </p>
+
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Как мы работаем</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {[
+                  { icon: "MessageSquare", title: "Уточнение задания", text: "Обсуждаем ваши пожелания, замеряем фасад, изучаем требования" },
+                  { icon: "PenTool", title: "Макет с визуализацией", text: "Разрабатываем дизайн-проект и показываем, как вывеска будет смотреться на здании" },
+                  { icon: "FileCheck", title: "Согласование", text: "Согласуем дизайн-проект в администрации г. Благовещенск — бесплатно" },
+                  { icon: "Settings", title: "Изготовление", text: "Производим вывеску на собственном оборудовании из качественных материалов" },
+                  { icon: "Wrench", title: "Монтаж", text: "Устанавливаем и подключаем вывеску, проверяем работу подсветки" },
+                ].map((step, i) => (
+                  <div key={i} className="bg-white rounded-xl shadow-md p-5 relative">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-3">
+                      <Icon name={step.icon} size={20} className="text-primary" />
+                    </div>
+                    <div className="text-xs font-semibold text-primary mb-1">Шаг {i + 1}</div>
+                    <h3 className="font-bold mb-2">{step.title}</h3>
+                    <p className="text-sm text-gray-600">{step.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
               <div className="flex items-start gap-3 sm:gap-4">
@@ -102,7 +124,7 @@ const Signage = () => {
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold mb-2">Специальное предложение</h3>
                   <p className="text-gray-700 mb-3">
-                    При заказе вывески с подсветкой — <span className="font-semibold text-primary">дизайн-проект и визуализация бесплатно</span>. Вы увидите, как будет выглядеть вывеска на вашем здании до начала производства.
+                    При заказе вывески с подсветкой — <span className="font-semibold text-primary">дизайн-проект и визуализация бесплатно</span>. А <span className="font-semibold text-primary">согласование вывески в администрации г. Благовещенск — бесплатно</span>. Вы увидите, как будет выглядеть вывеска на вашем здании до начала производства.
                   </p>
                   <Button size="default" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
                     Заказать световую вывеску
@@ -415,7 +437,7 @@ const Signage = () => {
             <ServiceCards excludeService="signage" />
             
             <div className="mt-8" id="contact-form">
-              <ServiceContactForm serviceName="Вывески и световые короба" />
+              <ServiceContactForm serviceName="Вывески под ключ" />
             </div>
           </div>
         </div>
@@ -432,7 +454,7 @@ const Signage = () => {
           </DialogHeader>
           <div className="mt-4">
             <ServiceContactForm 
-              serviceName="Вывески и световые короба" 
+              serviceName="Вывески под ключ" 
               compact
               onSuccess={() => setIsModalOpen(false)}
             />

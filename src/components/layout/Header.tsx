@@ -8,7 +8,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const services = [
-    { path: "/signage", label: "Вывески и световые короба" },
+    { path: "/signage", label: "Вывески под ключ" },
     { path: "/interior", label: "Интерьерная реклама" },
     { path: "/transport", label: "Брендирование транспорта" },
     { path: "/banners", label: "Баннеры и штендеры" },
