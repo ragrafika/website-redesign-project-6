@@ -121,7 +121,7 @@ const Header = () => {
                   Отзывы
                 </a>
                 <a 
-                  href="/#contact" 
+                  href="/#contacts" 
                   className="text-lg font-medium hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
