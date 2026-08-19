@@ -8,12 +8,6 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: "Store",
-    title: "Вывески под ключ",
-    description: "От дизайна и согласования до монтажа: объёмные буквы, световые короба, брендирование фасадов",
-    path: "/signage"
-  },
-  {
     icon: "Home",
     title: "Интерьерная реклама",
     description: "Оформление офисов, навигация, информационные стенды",
@@ -195,28 +189,48 @@ const ContentSections = () => {
       <section id="services" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Комплексное оформление</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Широкий спектр рекламных услуг для вашего бизнеса
+              Основное направление — вывески под ключ. Также выполняем сопутствующие виды рекламы
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <Link to="/signage-turnkey" className="block mb-10 animate-fade-in">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-secondary to-secondary/90 group hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="text-white max-w-2xl">
+                  <div className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                    <Icon name="Star" size={14} />
+                    Основное направление
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-3">Вывески под ключ</h3>
+                  <p className="text-white/80 text-lg">
+                    От уточнения задания и макета с визуализацией до согласования в администрации, изготовления и монтажа. Объёмные буквы, световые короба, брендирование фасадов.
+                  </p>
+                </div>
+                <button className="flex-shrink-0 bg-white text-secondary py-4 px-8 rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 whitespace-nowrap">
+                  Подробнее
+                  <Icon name="ArrowRight" size={20} />
+                </button>
+              </div>
+            </div>
+          </Link>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary h-full flex flex-col"
+                className="group hover:shadow-lg transition-all duration-300 border hover:border-primary h-full flex flex-col"
               >
-                <CardContent className="p-8 flex flex-col flex-grow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <Icon name={service.icon} size={32} className="text-primary" />
+                <CardContent className="p-5 flex flex-col flex-grow">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Icon name={service.icon} size={22} className="text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
-                  <Link to={service.path}>
-                    <button className="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
-                      Подробнее
-                      <Icon name="ArrowRight" size={20} />
-                    </button>
+                  <h3 className="font-bold mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 flex-grow">{service.description}</p>
+                  <Link to={service.path} className="text-primary text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                    Подробнее
+                    <Icon name="ArrowRight" size={16} />
                   </Link>
                 </CardContent>
               </Card>

@@ -12,7 +12,7 @@ const ServiceCards = ({ excludeService }: ServiceCardsProps) => {
       id: 'signage',
       icon: 'Store',
       title: 'Вывески под ключ',
-      link: '/signage'
+      link: '/signage-turnkey'
     },
     {
       id: 'interior',

@@ -12,6 +12,7 @@ import Privacy from "./pages/Privacy";
 import Consent from "./pages/Consent";
 import NotFound from "./pages/NotFound";
 import Signage from "./pages/services/Signage";
+import SignageTurnkey from "./pages/services/SignageTurnkey";
 import Interior from "./pages/services/Interior";
 import Transport from "./pages/services/Transport";
 import Banners from "./pages/services/Banners";
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/signage" element={<Signage />} />
+          <Route path="/signage-turnkey" element={<SignageTurnkey />} />
           <Route path="/interior" element={<Interior />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/banners" element={<Banners />} />
