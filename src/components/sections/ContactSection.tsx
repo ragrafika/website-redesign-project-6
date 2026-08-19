@@ -61,8 +61,11 @@ const ContactSection = () => {
                     <Icon name="Phone" size={32} className="text-primary" />
                   </div>
                   <h3 className="font-bold mb-2 text-white">Телефон</h3>
-                  <a href="tel:+74162227678" className="text-white hover:text-primary transition-colors">
+                  <a href="tel:+74162227678" className="block text-white hover:text-primary transition-colors">
                     +7 (4162) 22-76-78
+                  </a>
+                  <a href="tel:+79656713170" className="block text-white hover:text-primary transition-colors">
+                    +7 (965) 671-31-70
                   </a>
                 </CardContent>
               </Card>
