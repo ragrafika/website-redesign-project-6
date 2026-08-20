@@ -205,7 +205,7 @@ const ContentSections = () => {
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-3">Вывески под ключ</h3>
                   <p className="text-white/80 text-lg">
-                    От уточнения задания и макета с визуализацией до согласования в администрации, изготовления и монтажа. Объёмные буквы, световые короба и вывески для бизнеса и госучреждений.
+                    От макета с визуализацией и согласования в администрации до изготовления и монтажа. Объёмные буквы, световые короба и вывески для бизнеса и госучреждений.
                   </p>
                 </div>
                 <button className="flex-shrink-0 bg-white text-secondary py-4 px-8 rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 whitespace-nowrap">
