@@ -215,13 +215,13 @@ const SignageTurnkey = () => {
                     <p className="text-gray-600 text-sm mb-5 text-justify md:min-h-[170px]">{tier.text}</p>
 
                     <div className="grid grid-cols-2 gap-3 mb-5">
-                      <div className="bg-gray-50 rounded-lg p-3">
+                      <div className="bg-gray-50 rounded-lg p-3 flex flex-col justify-between md:min-h-[88px]">
                         <div className="text-xs text-gray-500 mb-1 md:min-h-[32px]">Срок эксплуатации</div>
-                        <div className="font-bold">{tier.life}</div>
+                        <div className="font-bold whitespace-nowrap">{tier.life}</div>
                       </div>
-                      <div className="bg-gray-50 rounded-lg p-3">
+                      <div className="bg-gray-50 rounded-lg p-3 flex flex-col justify-between md:min-h-[88px]">
                         <div className="text-xs text-gray-500 mb-1 md:min-h-[32px]">Гарантия</div>
-                        <div className="font-bold">{tier.warranty}</div>
+                        <div className="font-bold whitespace-nowrap">{tier.warranty}</div>
                       </div>
                     </div>
 
