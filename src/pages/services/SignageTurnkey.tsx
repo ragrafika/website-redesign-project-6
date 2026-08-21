@@ -216,11 +216,11 @@ const SignageTurnkey = () => {
 
                     <div className="grid grid-cols-2 gap-3 mb-5">
                       <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-xs text-gray-500 mb-1">Срок эксплуатации</div>
+                        <div className="text-xs text-gray-500 mb-1 md:min-h-[32px]">Срок эксплуатации</div>
                         <div className="font-bold">{tier.life}</div>
                       </div>
                       <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-xs text-gray-500 mb-1">Гарантия</div>
+                        <div className="text-xs text-gray-500 mb-1 md:min-h-[32px]">Гарантия</div>
                         <div className="font-bold">{tier.warranty}</div>
                       </div>
                     </div>
