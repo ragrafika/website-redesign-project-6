@@ -211,8 +211,8 @@ const SignageTurnkey = () => {
                       <Icon name={tier.icon} size={24} className="text-primary" />
                     </div>
                     <h3 className="text-xl font-bold mb-1">{tier.title}</h3>
-                    <p className="text-primary font-medium text-sm mb-3">{tier.subtitle}</p>
-                    <p className="text-gray-600 text-sm mb-5 flex-grow text-justify">{tier.text}</p>
+                    <p className="text-primary font-medium text-sm mb-3 md:min-h-[40px]">{tier.subtitle}</p>
+                    <p className="text-gray-600 text-sm mb-5 text-justify md:min-h-[170px]">{tier.text}</p>
 
                     <div className="grid grid-cols-2 gap-3 mb-5">
                       <div className="bg-gray-50 rounded-lg p-3">
