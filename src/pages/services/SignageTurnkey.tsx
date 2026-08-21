@@ -91,7 +91,7 @@ const SignageTurnkey = () => {
               Вывески под ключ в Благовещенске
             </h1>
 
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-gray-700 mb-8 text-justify">
               Берём на себя весь цикл: от разработки макета с визуализацией и согласования в администрации до изготовления и монтажа. Изготавливаем объёмные буквы с подсветкой, световые коробы и световую рекламу любой сложности для бизнеса и госучреждений. Работаем по всей Амурской области, включая г. Свободный.
             </p>
 
@@ -212,7 +212,7 @@ const SignageTurnkey = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-1">{tier.title}</h3>
                     <p className="text-primary font-medium text-sm mb-3">{tier.subtitle}</p>
-                    <p className="text-gray-600 text-sm mb-5 flex-grow">{tier.text}</p>
+                    <p className="text-gray-600 text-sm mb-5 flex-grow text-justify">{tier.text}</p>
 
                     <div className="grid grid-cols-2 gap-3 mb-5">
                       <div className="bg-gray-50 rounded-lg p-3">
