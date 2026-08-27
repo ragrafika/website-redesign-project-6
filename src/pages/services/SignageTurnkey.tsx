@@ -289,6 +289,37 @@ const SignageTurnkey = () => {
               </div>
             </div>
 
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">География наших проектов</h2>
+              <p className="text-gray-700 mb-8">
+                Изготавливаем и монтируем вывески не только в Благовещенске, но и по всему Дальнему Востоку. Учитываем особенности логистики и климата каждого региона.
+              </p>
+
+              <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+                  {[
+                    "Амурская область",
+                    "Республика Саха (Якутия)",
+                    "Еврейская автономная область",
+                    "Хабаровский край",
+                    "Приморский край",
+                  ].map((region, i) => (
+                    <div key={i} className="flex flex-col items-center text-center gap-2 bg-primary/5 rounded-xl p-4 border border-primary/10">
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Icon name="MapPin" size={20} className="text-primary" />
+                      </div>
+                      <span className="text-sm font-medium">{region}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 justify-center text-gray-500 text-sm border-t pt-5">
+                  <Icon name="Route" size={16} className="text-primary" />
+                  5 регионов Дальнего Востока
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-6 md:p-8 mb-8 text-white">
               <div className="text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">Нужна консультация?</h2>
