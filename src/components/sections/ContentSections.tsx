@@ -218,22 +218,23 @@ const ContentSections = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {services.map((service, index) => (
-              <Card 
-                key={index}
-                className="group hover:shadow-lg transition-all duration-300 border hover:border-primary h-full flex flex-col"
-              >
-                <CardContent className="p-5 flex flex-col flex-grow">
-                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon name={service.icon} size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-bold mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-grow">{service.description}</p>
-                  <Link to={service.path} className="text-primary text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-                    Подробнее
-                    <Icon name="ArrowRight" size={16} />
-                  </Link>
-                </CardContent>
-              </Card>
+              <Link key={index} to={service.path} className="h-full block">
+                <Card 
+                  className="group hover:shadow-lg transition-all duration-300 border hover:border-primary h-full flex flex-col cursor-pointer"
+                >
+                  <CardContent className="p-5 flex flex-col flex-grow">
+                    <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Icon name={service.icon} size={22} className="text-primary" />
+                    </div>
+                    <h3 className="font-bold mb-2">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 flex-grow">{service.description}</p>
+                    <span className="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Подробнее
+                      <Icon name="ArrowRight" size={16} />
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
