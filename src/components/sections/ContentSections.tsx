@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
+import SignageTurnkeySection from "./SignageTurnkeySection";
 import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -186,35 +187,16 @@ const ContentSections = () => {
         </div>
       </section>
 
+      <SignageTurnkeySection />
+
       <section id="services" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Комплексное оформление</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Основное направление — вывески под ключ. Также выполняем сопутствующие виды рекламы
+              Также выполняем сопутствующие виды рекламы
             </p>
           </div>
-
-          <Link to="/signage-turnkey" className="block mb-10 animate-fade-in">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-secondary to-secondary/90 group hover:shadow-2xl transition-shadow duration-300">
-              <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div className="text-white max-w-2xl">
-                  <div className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-                    <Icon name="Star" size={14} />
-                    Основное направление
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-3">Вывески под ключ</h3>
-                  <p className="text-white/80 text-lg">
-                    От макета с визуализацией и согласования в администрации до изготовления и монтажа. Объёмные буквы, световые короба и вывески для бизнеса и госучреждений.
-                  </p>
-                </div>
-                <button className="flex-shrink-0 bg-white text-secondary py-4 px-8 rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 whitespace-nowrap">
-                  Подробнее
-                  <Icon name="ArrowRight" size={20} />
-                </button>
-              </div>
-            </div>
-          </Link>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {services.map((service, index) => (
