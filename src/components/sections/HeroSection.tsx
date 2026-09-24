@@ -54,7 +54,7 @@ const HeroSection = () => {
               className="bg-white text-secondary hover:bg-primary hover:text-white transition-colors text-lg px-8 py-6"
               asChild
             >
-              <a href="/calculator">Рассчитать стоимость</a>
+              <a href="tel:+79656713170">Получить расчёт</a>
             </Button>
             <Button
               size="lg"
