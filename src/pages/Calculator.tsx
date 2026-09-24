@@ -16,7 +16,7 @@ const Calculator = () => {
                 Главная
               </a>
               <Icon name="ChevronRight" size={16} className="text-muted-foreground" />
-              <span className="text-foreground font-medium">Калькуляторы</span>
+              <span className="text-foreground font-medium">Калькулятор</span>
             </nav>
           </div>
         </div>

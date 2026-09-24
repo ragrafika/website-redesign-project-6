@@ -97,7 +97,7 @@ const Header = () => {
                   className="text-lg font-medium hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Калькуляторы
+                  Калькулятор
                 </Link>
                 <a 
                   href="/#portfolio" 

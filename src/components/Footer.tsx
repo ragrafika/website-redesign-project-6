@@ -23,7 +23,7 @@ const Footer = () => {
             <nav className="space-y-2">
               <a href="/" className="block text-gray-600 hover:text-primary transition-colors text-sm">Главная</a>
               <a href="/#services" className="block text-gray-600 hover:text-primary transition-colors text-sm">Услуги</a>
-              <Link to="/calculator" className="block text-gray-600 hover:text-primary transition-colors text-sm">Калькуляторы</Link>
+              <Link to="/calculator" className="block text-gray-600 hover:text-primary transition-colors text-sm">Калькулятор</Link>
               <a href="/#portfolio" className="block text-gray-600 hover:text-primary transition-colors text-sm">Портфолио</a>
               <a href="/#testimonials" className="block text-gray-600 hover:text-primary transition-colors text-sm">Отзывы</a>
               <a href="/#contacts" className="block text-gray-600 hover:text-primary transition-colors text-sm">Контакты</a>

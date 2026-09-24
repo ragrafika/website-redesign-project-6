@@ -16,7 +16,7 @@ const CalculatorsBlockSection = () => {
     <section id="calculators" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Онлайн калькуляторы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Онлайн калькулятор</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Рассчитайте стоимость рекламной продукции прямо сейчас
           </p>
