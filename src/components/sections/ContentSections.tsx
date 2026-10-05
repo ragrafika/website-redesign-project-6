@@ -360,8 +360,7 @@ const ContentSections = () => {
                       "{isExpanded ? testimonial.text : shortText}"
                     </p>
                     <div>
-                      <div className="font-bold">Заказчик</div>
-                      <div className="text-sm font-medium">{testimonial.author}</div>
+                      <div className="font-bold">{testimonial.author}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.company}</div>
                     </div>
                   </CardContent>
