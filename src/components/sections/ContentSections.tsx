@@ -50,28 +50,24 @@ const portfolio = portfolioItems;
 
 const testimonials = [
   {
-    name: "Клиент компании",
     author: "Игорь Нагайцев, г. Тында",
     company: "Источник: 2ГИС",
     text: "Отличная компания, работал с сотрудниками удалённо, приятное общение, всегда обратная связь. Заказ выполнили в кратчайшие сроки, на протяжении всего времени изготовления рекламной вывески приходили фотоотчёты с комментариями, отличное качество, с данным агентством буду сотрудничать далее, всем очень доволен.",
     rating: 5
   },
   {
-    name: "Постоянный клиент",
     author: "Спец БЛГ, г. Благовещенск",
     company: "Источник: 2ГИС",
     text: "Сотрудничаем с данной фирмой очень давно. Качество материалов на высоте. Цены очень конкурентоспособны. Очень радует обратная связь и взаимодействие с заказчиком.",
     rating: 5
   },
   {
-    name: "Новый клиент",
     author: "Алексей Жуков, г. Владивосток",
     company: "Источник: 2ГИС",
     text: "Ребята вернули мне веру в качественный сервис в Благовещенске. Обратился за оформлением филиала. Без лишних вопросов, все четко, быстро, качественно. И главное - более чем приемлемая стоимость. Дважды рекомендую! Впредь только сюда. Спасибо вам!",
     rating: 5
   },
   {
-    name: "Заказчик",
     author: "Мария Шерникова",
     company: "Источник: Яндекс Карты",
     text: "Отличное рекламное агентство. Сотрудничаем в создании декора для модельных библиотек Тамбовского округа. 12 декабря 2025 открыли модельную библиотеку в с. Козьмодемьяновка. Компания изготовила акриловые декоративные элементы, стенды, подвесную конструкцию из труб, тросов и акриловых рамок. Всегда консультируют, помогают, предоставляют запасные элементы. Коллектив приятен в общении, работают в срок.",
@@ -351,20 +347,20 @@ const ContentSections = () => {
               return (
                 <Card 
                   key={index} 
-                  className="hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  className="hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
                   onClick={() => setExpandedTestimonial(isExpanded ? null : index)}
                 >
-                  <CardContent className="p-8">
+                  <CardContent className="p-8 flex flex-col flex-grow">
                     <div className="flex gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-6 italic">
+                    <p className="text-muted-foreground mb-6 italic lg:min-h-[10.5rem]">
                       "{isExpanded ? testimonial.text : shortText}"
                     </p>
                     <div>
-                      <div className="font-bold">{testimonial.name}</div>
+                      <div className="font-bold">Заказчик</div>
                       <div className="text-sm font-medium">{testimonial.author}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.company}</div>
                     </div>
