@@ -74,54 +74,6 @@ export const portfolioItems = [
     title: "Tarkett",
     description: "Комплексное брендирование фасада торгового центра напольных покрытий",
     category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/dd39487e-3741-4b97-98bb-f351979961bb.jpg",
-    title: "Магазин Пчеловодство",
-    description: "Фасадная вывеска и круговая консольная вывеска. Фото до монтажа",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3f78c13c-c979-4385-aaea-6b95591f49a8.JPG",
-    title: "Магазин Пчеловодство",
-    description: "Световая вывеска и консоль с логотипом. Результат, дневное фото",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f034a4c9-41e3-4c5b-97ff-7ae91f339933.jpg",
-    title: "Магазин Пчеловодство",
-    description: "Световая вывеска и консоль с логотипом. Результат, вечернее фото",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bee6b3cb-101d-468b-94c7-a56b230b8a5e.JPG",
-    title: "Образовательный центр Школьник",
-    description: "Объёмные буквы и логотип на металлокаркасе. Дневное фото",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/fefb8c2a-a1d5-43bf-a8b5-2485fe3a9e5a.jpg",
-    title: "Образовательный центр Школьник",
-    description: "Объёмные буквы и логотип с контражурной подсветкой. Вечернее фото",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/96a5953c-076c-4b06-a640-e78ac6ec90f2.jpg",
-    title: "Парикмахерская",
-    description: "Фасад до замены вывески",
-    category: "Наружная реклама"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/d5585b18-4f7c-46f4-8b64-fd0e1124136d.jpg",
-    title: "Парикмахерская",
-    description: "Объёмные световые буквы на козырьке входной группы. Вечернее фото",
-    category: "Вывески и световые короба"
-  },
-  {
-    image: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7da5c24b-22b1-4296-900d-292d1c29cc72.jpg",
-    title: "Магазин мебели Алёша",
-    description: "Фасад с композитными панелями до монтажа вывески",
-    category: "Наружная реклама"
   }
 ];
 
