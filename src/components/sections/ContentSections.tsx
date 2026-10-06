@@ -194,9 +194,9 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <SignageTurnkeySection />
-
       <StoriesSection />
+
+      <SignageTurnkeySection />
 
       <section id="services" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
