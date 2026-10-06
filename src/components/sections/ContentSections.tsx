@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
 import SignageTurnkeySection from "./SignageTurnkeySection";
+import StoriesSection from "./StoriesSection";
 import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -194,6 +195,8 @@ const ContentSections = () => {
       </section>
 
       <SignageTurnkeySection />
+
+      <StoriesSection />
 
       <section id="services" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
