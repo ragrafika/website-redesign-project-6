@@ -57,7 +57,7 @@ const SignageTurnkeySection = () => {
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
             <div className="flex items-start gap-3 sm:gap-4">
               <div className="bg-primary text-primary-foreground rounded-full p-2 sm:p-3 flex-shrink-0">
-                <Icon name="Gift" size={20} className="sm:w-6 sm:h-6" />
+                <Icon name="Eye" size={20} className="sm:w-6 sm:h-6" />
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">Вы увидите вывеску на своём фасаде до изготовления</h3>
