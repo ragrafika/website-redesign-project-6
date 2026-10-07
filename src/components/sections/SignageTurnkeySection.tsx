@@ -105,7 +105,7 @@ const SignageTurnkeySection = () => {
                     loading="lazy"
                   />
                   <span className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Результат
+                    Фотопривязка
                   </span>
                 </div>
                 <p className="text-sm text-gray-700">
