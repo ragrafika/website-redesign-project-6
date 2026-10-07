@@ -61,7 +61,8 @@ const PhotoRequestForm = ({ onSuccess }: PhotoRequestFormProps) => {
         body: JSON.stringify({
           name: name || "Не указано",
           phone,
-          calculatorType: "Вывески под ключ (фото фасада)",
+          calculatorType: "Вывески под ключ — фото фасада",
+          requestSource: "site_button",
           price: 0,
           details: { "Комментарий": comment },
           imageData,

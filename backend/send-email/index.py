@@ -83,7 +83,15 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         details = body_data.get('details', {})
         price = body_data.get('price', 0)
         
-        msg['Subject'] = f'Новая заявка: {calculator_type}'
+        is_site_request = body_data.get('requestSource') == 'site_button'
+        if is_site_request:
+            msg['Subject'] = f'Новая заявка с сайта: {calculator_type}'
+        else:
+            msg['Subject'] = f'Новая заявка: {calculator_type}'
+        page_title = 'Новая заявка с сайта (кнопка «Отправить фото»)' if is_site_request else 'Новая заявка с калькулятора'
+        type_label = 'Источник' if is_site_request else 'Тип калькулятора'
+        price_html = '' if is_site_request else f'<p><strong>Рассчитанная стоимость:</strong> {price:,} ₽</p>'
+        details_title = 'Детали заявки:' if is_site_request else 'Детали расчёта:'
         
         html_details = '<br>'.join([f'<strong>{k}:</strong> {v}' for k, v in details.items()])
         
@@ -94,13 +102,13 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         html_content = f'''
         <html>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <h2 style="color: #2563eb;">Новая заявка с калькулятора</h2>
-            <p><strong>Тип калькулятора:</strong> {calculator_type}</p>
+            <h2 style="color: #2563eb;">{page_title}</h2>
+            <p><strong>{type_label}:</strong> {calculator_type}</p>
             <p><strong>Имя клиента:</strong> {name}</p>
             <p><strong>Телефон:</strong> {phone}</p>
             <p><strong>Email:</strong> {email_client}</p>
-            <p><strong>Рассчитанная стоимость:</strong> {price:,} ₽</p>
-            <h3 style="color: #2563eb; margin-top: 20px;">Детали расчёта:</h3>
+            {price_html}
+            <h3 style="color: #2563eb; margin-top: 20px;">{details_title}</h3>
             <div style="background: #f3f4f6; padding: 15px; border-radius: 5px;">
               {html_details}
             </div>
