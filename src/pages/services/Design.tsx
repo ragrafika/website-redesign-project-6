@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import PhotoBeforeAfterBlock from "@/components/services/PhotoBeforeAfterBlock";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -61,6 +62,8 @@ const Design = () => {
                 </div>
               </div>
             </div>
+
+            <PhotoBeforeAfterBlock />
 
             <div className="mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-8">Этапы разработки дизайна</h2>
