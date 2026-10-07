@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
+import PhotoRequestForm from "@/components/services/PhotoRequestForm";
 import {
   Dialog,
   DialogContent,
@@ -12,6 +13,7 @@ import {
 
 const SignageTurnkeySection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPhotoOpen, setIsPhotoOpen] = useState(false);
 
   return (
     <section id="signage-turnkey" className="py-20 bg-white scroll-mt-24">
@@ -67,6 +69,16 @@ const SignageTurnkeySection = () => {
                 </Button>
               </div>
             </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 md:p-8 mb-8 border-2 border-primary/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-gray-700 text-base md:text-lg">
+              Разработаем макет, изготовим и установим. Пришлите фото фасада для расчёта.
+            </p>
+            <Button size="lg" className="flex-shrink-0 w-full sm:w-auto" onClick={() => setIsPhotoOpen(true)}>
+              <Icon name="Camera" size={20} className="mr-2" />
+              Отправить фото
+            </Button>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-6 md:p-8 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -358,6 +370,16 @@ const SignageTurnkeySection = () => {
               serviceName="Вывески под ключ"
               onSuccess={() => setIsModalOpen(false)}
             />
+          </div>
+        </DialogContent>
+      </Dialog>
+      <Dialog open={isPhotoOpen} onOpenChange={setIsPhotoOpen}>
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Отправьте фото фасада</DialogTitle>
+          </DialogHeader>
+          <div className="mt-2">
+            <PhotoRequestForm onSuccess={() => setIsPhotoOpen(false)} />
           </div>
         </DialogContent>
       </Dialog>
