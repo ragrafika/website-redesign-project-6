@@ -60,12 +60,12 @@ const SignageTurnkeySection = () => {
                 <Icon name="Gift" size={20} className="sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">Специальное предложение</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">Вы увидите вывеску на своём фасаде до изготовления</h3>
                 <p className="text-gray-700 mb-3">
-                  При заказе вывески с подсветкой — <span className="font-semibold text-primary">дизайн-проект и визуализация бесплатно</span>. А <span className="font-semibold text-primary">согласование вывески в администрации г. Благовещенск — бесплатно</span>. Вы увидите, как будет выглядеть вывеска на вашем здании до начала производства.
+                  При заказе вывески с подсветкой подготовим дизайн-проект и покажем, как она будет выглядеть на вашем здании. Согласование вывески в администрации Благовещенска возьмём на себя без дополнительной оплаты.
                 </p>
                 <Button size="default" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
-                  Заказать вывеску под ключ
+                  Рассчитать вывеску
                 </Button>
               </div>
             </div>
@@ -73,7 +73,7 @@ const SignageTurnkeySection = () => {
 
           <div className="bg-white rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
             <p className="text-gray-700 text-base md:text-lg text-center max-w-3xl mx-auto mb-6">
-              Разработаем макет, изготовим и установим. Пришлите фото фасада для расчёта.
+              Пришлите фото фасада — оценим задачу и подготовим расчёт
             </p>
             <div className="grid md:grid-cols-2 gap-6 items-start">
               <div className="flex flex-col gap-4">
