@@ -226,7 +226,7 @@ const IndustryPage = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
-                      <span>Гарантия на работы — 3 года</span>
+                      <span>Гарантия на работы — до 3 лет</span>
                     </div>
                   </div>
                 </div>

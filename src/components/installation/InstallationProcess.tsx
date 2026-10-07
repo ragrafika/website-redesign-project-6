@@ -65,7 +65,7 @@ const InstallationProcess = () => {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <Icon name="Shield" size={32} className="text-primary" />
-                <h3 className="text-xl font-bold">3 года гарантии</h3>
+                <h3 className="text-xl font-bold">Гарантия до 3 лет</h3>
               </div>
               <p className="text-gray-700">
                 Гарантируем качество монтажа и надёжность креплений. При проблемах приедем и устраним бесплатно.
