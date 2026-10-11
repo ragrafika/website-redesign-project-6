@@ -405,6 +405,14 @@ const ContentSections = () => {
                         </div>
                       </div>
                     )}
+                    {!testimonial.photo && (
+                      <div className="mb-4 mt-auto">
+                        <div className="w-full aspect-[4/3] rounded-lg border-2 border-dashed border-muted-foreground/20 bg-gradient-to-br from-muted/60 to-muted flex flex-col items-center justify-center gap-2 text-muted-foreground/60">
+                          <Icon name="ImageOff" size={32} />
+                          <span className="text-sm font-medium">Отзыв без фото</span>
+                        </div>
+                      </div>
+                    )}
                     <div>
                       <div className="font-bold">{testimonial.author}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.company}</div>
