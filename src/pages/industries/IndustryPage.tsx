@@ -133,8 +133,8 @@ const IndustryPage = () => {
 
             {industry.workPhoto && (
               <section className="mb-16">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">Наша работа</h2>
-                <p className="text-muted-foreground mb-6">Одна и та же вывеска днём и вечером</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">{industry.workPhoto.title}</h2>
+                <p className="text-muted-foreground mb-6">Реализованный проект в Благовещенске. Сравните, как выглядят вывески на фасаде при дневном свете и с включённой подсветкой.</p>
                 <div className="grid md:grid-cols-2 gap-4 items-start">
                   <div className="relative">
                     <img
@@ -143,7 +143,7 @@ const IndustryPage = () => {
                       className="w-full rounded-xl shadow-lg"
                       loading="lazy"
                     />
-                    <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">День</span>
+                    <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">Днём</span>
                   </div>
                   <div className="relative">
                     <img
@@ -152,7 +152,7 @@ const IndustryPage = () => {
                       className="w-full rounded-xl shadow-lg"
                       loading="lazy"
                     />
-                    <span className="absolute top-3 left-3 bg-black/70 text-white text-xs font-semibold px-3 py-1 rounded-full">Вечер</span>
+                    <span className="absolute top-3 left-3 bg-black/70 text-white text-xs font-semibold px-3 py-1 rounded-full">С подсветкой</span>
                   </div>
                 </div>
               </section>

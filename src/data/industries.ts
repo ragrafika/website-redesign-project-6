@@ -16,13 +16,14 @@ export interface IndustryData {
   facadeTips: IndustryTip[];
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
-  workPhoto?: { day: string; night: string; alt: string };
+  workPhoto?: { title: string; day: string; night: string; alt: string };
 }
 
 const industries: IndustryData[] = [
   {
     slug: "apteki",
     workPhoto: {
+      title: "Вывески для аптек: днём и вечером",
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c14437c1-74e9-45a1-9d29-d014e2f448e1.jpg",
       night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/22830832-78a9-41ef-a0f0-62ca42c28556.jpg",
       alt: "Вывеска аптеки Сбер Еаптека в Благовещенске: объёмные световые буквы и светодиодный крест днём и ночью",
@@ -78,6 +79,7 @@ const industries: IndustryData[] = [
   {
     slug: "avtomoiki",
     workPhoto: {
+      title: "Вывески для автомойки: днём и вечером",
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/5e1207a4-b007-4397-b489-b60cc2c560f7.jpg",
       night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7ffcb984-43c9-4375-ad81-5b5a147f4afe.png",
       alt: "Вывеска автомойки Foamtime в Благовещенске: объёмные световые буквы и логотип днём и вечером",
@@ -133,6 +135,7 @@ const industries: IndustryData[] = [
   {
     slug: "avtoservisy",
     workPhoto: {
+      title: "Вывески для автосервиса: днём и вечером",
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3baf0ed5-a8c4-49e5-af62-6aa5b584d738.jpg",
       night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/b1f2b9c2-0e52-4c08-83f0-42809ea00994.jpg",
       alt: "Вывески автосервиса Tuning Imperia: световые буквы и логотип днём и вечером",
