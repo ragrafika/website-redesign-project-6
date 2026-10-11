@@ -132,6 +132,11 @@ const industries: IndustryData[] = [
   },
   {
     slug: "avtoservisy",
+    workPhoto: {
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3baf0ed5-a8c4-49e5-af62-6aa5b584d738.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/b1f2b9c2-0e52-4c08-83f0-42809ea00994.jpg",
+      alt: "Вывески автосервиса Tuning Imperia: световые буквы и логотип днём и вечером",
+    },
     icon: "Wrench",
     title: "Вывески для автосервисов",
     shortTitle: "Автосервисы",
