@@ -12,7 +12,7 @@ const TestimonialPhotos = ({ photo, photoAlt, extraPhotos = [] }: TestimonialPho
 
   if (!photo) {
     return (
-      <div className="mb-4 mt-auto">
+      <div className="mb-4">
         <div className="w-full aspect-[4/3] rounded-lg border-2 border-dashed border-muted-foreground/20 bg-gradient-to-br from-muted/60 to-muted flex flex-col items-center justify-center gap-2 text-muted-foreground/60">
           <Icon name="ImageOff" size={32} />
           <span className="text-sm font-medium">Отзыв без фото</span>
@@ -30,7 +30,7 @@ const TestimonialPhotos = ({ photo, photoAlt, extraPhotos = [] }: TestimonialPho
 
   return (
     <div
-      className="mb-4 mt-auto relative aspect-[4/3] rounded-lg overflow-hidden bg-muted"
+      className="mb-4 relative aspect-[4/3] rounded-lg overflow-hidden bg-muted"
       onMouseLeave={() => setActive(0)}
     >
       {all.map((src, i) => (

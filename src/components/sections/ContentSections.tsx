@@ -378,7 +378,7 @@ const ContentSections = () => {
                         <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-6 italic lg:min-h-[10.5rem]">
+                    <p className="text-muted-foreground mb-6 italic md:min-h-[10.5rem]">
                       "{isExpanded ? testimonial.text : shortText}"
                     </p>
                     <TestimonialPhotos
