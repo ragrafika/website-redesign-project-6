@@ -23,6 +23,11 @@ const TestimonialPhotos = ({ photo, photoAlt, extraPhotos = [] }: TestimonialPho
 
   const all = [photo, ...extraPhotos];
 
+  const go = (e: React.MouseEvent, dir: number) => {
+    e.stopPropagation();
+    setActive((prev) => (prev + dir + all.length) % all.length);
+  };
+
   return (
     <div
       className="mb-4 mt-auto relative aspect-[4/3] rounded-lg overflow-hidden bg-muted"
@@ -61,7 +66,27 @@ const TestimonialPhotos = ({ photo, photoAlt, extraPhotos = [] }: TestimonialPho
         </div>
       )}
       {all.length > 1 && (
-        <div className="absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black/50 px-2 py-0.5 text-xs text-white group-hover:opacity-0 transition-opacity">
+        <>
+          <button
+            type="button"
+            aria-label="Предыдущее фото"
+            onClick={(e) => go(e, -1)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
+          >
+            <Icon name="ChevronLeft" size={18} />
+          </button>
+          <button
+            type="button"
+            aria-label="Следующее фото"
+            onClick={(e) => go(e, 1)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
+          >
+            <Icon name="ChevronRight" size={18} />
+          </button>
+        </>
+      )}
+      {all.length > 1 && (
+        <div className="absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black/50 px-2 py-0.5 text-xs text-white md:group-hover:opacity-0 transition-opacity">
           <Icon name="Images" size={12} />
           {all.length}
         </div>
