@@ -57,10 +57,15 @@ const testimonials = [
     rating: 5
   },
   {
-    author: "Спец БЛГ, г. Благовещенск",
+    author: "Алеша мебель, г. Благовещенск",
     company: "Источник: 2ГИС",
     text: "Сотрудничаем с данной фирмой очень давно. Качество материалов на высоте. Цены очень конкурентоспособны. Очень радует обратная связь и взаимодействие с заказчиком.",
-    rating: 5
+    rating: 5,
+    photo: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/5dac4e14-022b-43d9-bca9-4d18d6c4d255.jpg",
+    extraPhotos: [
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f4850646-a452-4c97-b5c0-daa01fd77d80.jpg",
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/fc37ba35-c1fb-4747-945f-5c9d9341c434.jpg"
+    ]
   },
   {
     author: "Алексей Жуков, г. Владивосток",
@@ -350,7 +355,7 @@ const ContentSections = () => {
               return (
                 <Card 
                   key={index} 
-                  className="hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
+                  className="group hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
                   onClick={() => setExpandedTestimonial(isExpanded ? null : index)}
                 >
                   <CardContent className="p-8 flex flex-col flex-grow">
@@ -362,6 +367,31 @@ const ContentSections = () => {
                     <p className="text-muted-foreground mb-6 italic lg:min-h-[10.5rem]">
                       "{isExpanded ? testimonial.text : shortText}"
                     </p>
+                    {testimonial.photo && (
+                      <div className="mb-4 mt-auto">
+                        <img
+                          src={testimonial.photo}
+                          alt="Фасад магазина Алёша с вывеской"
+                          className="w-full aspect-[16/9] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <div
+                          className={`grid grid-cols-2 gap-2 overflow-hidden transition-all duration-300 ${
+                            isExpanded ? "max-h-40 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-40 group-hover:mt-2 group-hover:opacity-100"
+                          }`}
+                        >
+                          {testimonial.extraPhotos?.map((src, i) => (
+                            <img
+                              key={i}
+                              src={src}
+                              alt="Интерьер магазина Алёша"
+                              className="w-full aspect-[16/10] object-cover rounded-md"
+                              loading="lazy"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     <div>
                       <div className="font-bold">{testimonial.author}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.company}</div>
