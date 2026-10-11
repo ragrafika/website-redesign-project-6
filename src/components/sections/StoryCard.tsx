@@ -1,14 +1,41 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 import type { Story } from "@/data/stories";
 
 const StoryCard = ({ story }: { story: Story }) => {
   const [active, setActive] = useState(story.photos.length > 1 ? 1 : 0);
+  const [hovered, setHovered] = useState(false);
+  const startIndex = useRef(story.photos.length > 1 ? 1 : 0);
   const photo = story.photos[active];
+  const total = story.photos.length;
+
+  useEffect(() => {
+    if (!hovered || total < 2) return;
+    const id = setInterval(() => {
+      setActive((prev) => (prev + 1) % total);
+    }, 1400);
+    return () => clearInterval(id);
+  }, [hovered, total]);
+
+  const handleEnter = () => {
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      setActive(0);
+      setHovered(true);
+    }
+  };
+
+  const handleLeave = () => {
+    setHovered(false);
+    setActive(startIndex.current);
+  };
 
   return (
     <article className="bg-background border-2 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
-      <div className="relative aspect-[4/3] bg-muted">
+      <div
+        className="relative aspect-[4/3] bg-muted"
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
         {photo ? (
           <img
             src={photo.url}
