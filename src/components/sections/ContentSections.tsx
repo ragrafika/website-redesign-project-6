@@ -82,7 +82,15 @@ const testimonials = [
     author: "Мария Шерникова",
     company: "Источник: Яндекс Карты",
     text: "Отличное рекламное агентство. Сотрудничаем в создании декора для модельных библиотек Тамбовского округа. 12 декабря 2025 открыли модельную библиотеку в с. Козьмодемьяновка. Компания изготовила акриловые декоративные элементы, стенды, подвесную конструкцию из труб, тросов и акриловых рамок. Всегда консультируют, помогают, предоставляют запасные элементы. Коллектив приятен в общении, работают в срок.",
-    rating: 5
+    rating: 5,
+    photo: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2bac9d6d-a0ed-4515-91be-2921e9477b72.jpg",
+    photoAlt: "Модельная библиотека: вывеска «Книжный меридиан»",
+    extraPhotos: [
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f62fe814-db7f-43cf-9b1a-8ff7c5948ed1.jpg",
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/a4eddba6-2340-4022-a5c9-8e664acdc2c9.jpg",
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/814ced04-823d-4d20-bcbb-0198005d9875.jpg",
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/ff34e6a7-2321-4a43-935c-d8bf182e0ce2.jpg"
+    ]
   }
 ];
 
@@ -382,14 +390,14 @@ const ContentSections = () => {
                         />
                         <div
                           className={`grid ${testimonial.extraPhotos?.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-2 overflow-hidden transition-all duration-300 ${
-                            isExpanded ? "max-h-64 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-64 group-hover:mt-2 group-hover:opacity-100"
+                            isExpanded ? "max-h-96 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-96 group-hover:mt-2 group-hover:opacity-100"
                           }`}
                         >
                           {testimonial.extraPhotos?.map((src, i) => (
                             <img
                               key={i}
                               src={src}
-                              alt={testimonial.photoAlt ? "Вывеска минимаркета РусСоф вечером" : "Интерьер магазина Алёша"}
+                              alt={testimonial.photoAlt ? "Фото объекта" : "Интерьер магазина Алёша"}
                               className="w-full aspect-[4/3] object-cover object-top rounded-md"
                               loading="lazy"
                             />
