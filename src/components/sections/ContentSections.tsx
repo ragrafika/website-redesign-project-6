@@ -4,6 +4,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
 import SignageTurnkeySection from "./SignageTurnkeySection";
 import StoriesSection from "./StoriesSection";
+import TestimonialPhotos from "./TestimonialPhotos";
 import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -380,39 +381,11 @@ const ContentSections = () => {
                     <p className="text-muted-foreground mb-6 italic lg:min-h-[10.5rem]">
                       "{isExpanded ? testimonial.text : shortText}"
                     </p>
-                    {testimonial.photo && (
-                      <div className="mb-4 mt-auto">
-                        <img
-                          src={testimonial.photo}
-                          alt={testimonial.photoAlt || "Фасад магазина Алёша с вывеской"}
-                          className="w-full aspect-[4/3] object-cover object-top rounded-lg"
-                          loading="lazy"
-                        />
-                        <div
-                          className={`grid ${testimonial.extraPhotos?.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-2 overflow-hidden transition-all duration-300 ${
-                            isExpanded ? "max-h-96 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-96 group-hover:mt-2 group-hover:opacity-100"
-                          }`}
-                        >
-                          {testimonial.extraPhotos?.map((src, i) => (
-                            <img
-                              key={i}
-                              src={src}
-                              alt={testimonial.photoAlt ? "Фото объекта" : "Интерьер магазина Алёша"}
-                              className="w-full aspect-[4/3] object-cover object-top rounded-md"
-                              loading="lazy"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {!testimonial.photo && (
-                      <div className="mb-4 mt-auto">
-                        <div className="w-full aspect-[4/3] rounded-lg border-2 border-dashed border-muted-foreground/20 bg-gradient-to-br from-muted/60 to-muted flex flex-col items-center justify-center gap-2 text-muted-foreground/60">
-                          <Icon name="ImageOff" size={32} />
-                          <span className="text-sm font-medium">Отзыв без фото</span>
-                        </div>
-                      </div>
-                    )}
+                    <TestimonialPhotos
+                      photo={testimonial.photo}
+                      photoAlt={testimonial.photoAlt}
+                      extraPhotos={testimonial.extraPhotos}
+                    />
                     <div>
                       <div className="font-bold">{testimonial.author}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.company}</div>
