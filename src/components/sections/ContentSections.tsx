@@ -54,7 +54,12 @@ const testimonials = [
     author: "Игорь Нагайцев, г. Тында",
     company: "Источник: 2ГИС",
     text: "Отличная компания, работал с сотрудниками удалённо, приятное общение, всегда обратная связь. Заказ выполнили в кратчайшие сроки, на протяжении всего времени изготовления рекламной вывески приходили фотоотчёты с комментариями, отличное качество, с данным агентством буду сотрудничать далее, всем очень доволен.",
-    rating: 5
+    rating: 5,
+    photo: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/468e6e0f-8d4a-4c4a-8c8d-b26aa9b1b56f.jpg",
+    photoAlt: "Вывеска минимаркета РусСоф днём",
+    extraPhotos: [
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/823f0435-1055-4e62-bcc8-28a0313ad63a.jpg"
+    ]
   },
   {
     author: "Алеша мебель, г. Благовещенск",
@@ -371,21 +376,21 @@ const ContentSections = () => {
                       <div className="mb-4 mt-auto">
                         <img
                           src={testimonial.photo}
-                          alt="Фасад магазина Алёша с вывеской"
+                          alt={testimonial.photoAlt || "Фасад магазина Алёша с вывеской"}
                           className="w-full aspect-[16/9] object-cover rounded-lg"
                           loading="lazy"
                         />
                         <div
-                          className={`grid grid-cols-2 gap-2 overflow-hidden transition-all duration-300 ${
-                            isExpanded ? "max-h-40 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-40 group-hover:mt-2 group-hover:opacity-100"
+                          className={`grid ${testimonial.extraPhotos?.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-2 overflow-hidden transition-all duration-300 ${
+                            isExpanded ? "max-h-64 mt-2 opacity-100" : "max-h-0 opacity-0 group-hover:max-h-64 group-hover:mt-2 group-hover:opacity-100"
                           }`}
                         >
                           {testimonial.extraPhotos?.map((src, i) => (
                             <img
                               key={i}
                               src={src}
-                              alt="Интерьер магазина Алёша"
-                              className="w-full aspect-[16/10] object-cover rounded-md"
+                              alt={testimonial.photoAlt ? "Вывеска минимаркета РусСоф вечером" : "Интерьер магазина Алёша"}
+                              className="w-full aspect-[16/10] object-cover object-top rounded-md"
                               loading="lazy"
                             />
                           ))}
