@@ -377,7 +377,7 @@ const ContentSections = () => {
                         <img
                           src={testimonial.photo}
                           alt={testimonial.photoAlt || "Фасад магазина Алёша с вывеской"}
-                          className="w-full aspect-[16/9] object-cover rounded-lg"
+                          className="w-full aspect-[4/3] object-cover object-top rounded-lg"
                           loading="lazy"
                         />
                         <div
@@ -390,7 +390,7 @@ const ContentSections = () => {
                               key={i}
                               src={src}
                               alt={testimonial.photoAlt ? "Вывеска минимаркета РусСоф вечером" : "Интерьер магазина Алёша"}
-                              className="w-full aspect-[16/10] object-cover object-top rounded-md"
+                              className="w-full aspect-[4/3] object-cover object-top rounded-md"
                               loading="lazy"
                             />
                           ))}
