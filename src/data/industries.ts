@@ -24,8 +24,8 @@ const industries: IndustryData[] = [
     slug: "apteki",
     workPhoto: {
       title: "Вывески для аптек: днём и вечером",
-      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c14437c1-74e9-45a1-9d29-d014e2f448e1.jpg",
-      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/22830832-78a9-41ef-a0f0-62ca42c28556.jpg",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/d6e288b0-45c1-4173-acb0-e67c26d41d9c.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c8114583-f546-4d6c-938c-b881c34d5d10.jpg",
       alt: "Вывеска аптеки Сбер Еаптека в Благовещенске: объёмные световые буквы и светодиодный крест днём и ночью",
     },
     icon: "Cross",
@@ -80,8 +80,8 @@ const industries: IndustryData[] = [
     slug: "avtomoiki",
     workPhoto: {
       title: "Вывески для автомойки: днём и вечером",
-      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/5e1207a4-b007-4397-b489-b60cc2c560f7.jpg",
-      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7ffcb984-43c9-4375-ad81-5b5a147f4afe.png",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/8c8e604b-93cb-4476-a36a-13b36b7b0dd0.png",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/71e94eae-7d06-4fb0-b7ae-f6e033cb6ec2.png",
       alt: "Вывеска автомойки Foamtime в Благовещенске: объёмные световые буквы и логотип днём и вечером",
     },
     icon: "Droplets",
