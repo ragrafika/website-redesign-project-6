@@ -83,13 +83,13 @@ const testimonials = [
     company: "Источник: Яндекс Карты",
     text: "Отличное рекламное агентство. Сотрудничаем в создании декора для модельных библиотек Тамбовского округа. 12 декабря 2025 открыли модельную библиотеку в с. Козьмодемьяновка. Компания изготовила акриловые декоративные элементы, стенды, подвесную конструкцию из труб, тросов и акриловых рамок. Всегда консультируют, помогают, предоставляют запасные элементы. Коллектив приятен в общении, работают в срок.",
     rating: 5,
-    photo: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2bac9d6d-a0ed-4515-91be-2921e9477b72.jpg",
-    photoAlt: "Модельная библиотека: вывеска «Книжный меридиан»",
+    photo: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/6b24309b-3d18-41c3-a3e8-b4af2baf16f0.jpg",
+    photoAlt: "Модельная библиотека: зона «ФотоФАКТика»",
     extraPhotos: [
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2bac9d6d-a0ed-4515-91be-2921e9477b72.jpg",
       "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f62fe814-db7f-43cf-9b1a-8ff7c5948ed1.jpg",
       "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/a4eddba6-2340-4022-a5c9-8e664acdc2c9.jpg",
-      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/814ced04-823d-4d20-bcbb-0198005d9875.jpg",
-      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/ff34e6a7-2321-4a43-935c-d8bf182e0ce2.jpg"
+      "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/814ced04-823d-4d20-bcbb-0198005d9875.jpg"
     ]
   }
 ];
