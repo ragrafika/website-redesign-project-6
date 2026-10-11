@@ -86,6 +86,26 @@ const IndustriesSection = () => {
                 onClick={() => navigate(`/industries/${industry.slug}`)}
               >
                 <CardContent className="p-3 sm:p-4 md:p-6 text-center">
+                  {industry.workPhoto && (
+                    <div className="relative aspect-[4/3] -mt-1 mb-3 overflow-hidden rounded-lg">
+                      <img
+                        src={industry.workPhoto.day}
+                        alt={industry.workPhoto.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <img
+                        src={industry.workPhoto.night}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute bottom-1.5 left-1.5 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-full">
+                        Наша работа
+                      </span>
+                    </div>
+                  )}
                   <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
                     <Icon name={industry.icon} size={20} className="text-primary sm:w-6 sm:h-6 md:w-7 md:h-7" />
                   </div>

@@ -16,11 +16,17 @@ export interface IndustryData {
   facadeTips: IndustryTip[];
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
+  workPhoto?: { day: string; night: string; alt: string };
 }
 
 const industries: IndustryData[] = [
   {
     slug: "apteki",
+    workPhoto: {
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c14437c1-74e9-45a1-9d29-d014e2f448e1.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/22830832-78a9-41ef-a0f0-62ca42c28556.jpg",
+      alt: "Вывеска аптеки Сбер Еаптека в Благовещенске: объёмные световые буквы и светодиодный крест днём и ночью",
+    },
     icon: "Cross",
     title: "Вывески для аптек",
     shortTitle: "Аптеки",
