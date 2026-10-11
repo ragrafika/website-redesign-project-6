@@ -77,6 +77,11 @@ const industries: IndustryData[] = [
   },
   {
     slug: "avtomoiki",
+    workPhoto: {
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/5e1207a4-b007-4397-b489-b60cc2c560f7.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7ffcb984-43c9-4375-ad81-5b5a147f4afe.png",
+      alt: "Вывеска автомойки Foamtime в Благовещенске: объёмные световые буквы и логотип днём и вечером",
+    },
     icon: "Droplets",
     title: "Вывески для автомоек",
     shortTitle: "Автомойки",

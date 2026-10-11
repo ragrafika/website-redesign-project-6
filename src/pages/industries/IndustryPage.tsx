@@ -135,12 +135,12 @@ const IndustryPage = () => {
               <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">Наша работа</h2>
                 <p className="text-muted-foreground mb-6">Одна и та же вывеска днём и вечером</p>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-4 items-start">
                   <div className="relative">
                     <img
                       src={industry.workPhoto.day}
                       alt={industry.workPhoto.alt}
-                      className="w-full rounded-xl shadow-lg object-cover aspect-[4/3]"
+                      className="w-full rounded-xl shadow-lg"
                       loading="lazy"
                     />
                     <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">День</span>
@@ -149,7 +149,7 @@ const IndustryPage = () => {
                     <img
                       src={industry.workPhoto.night}
                       alt={industry.workPhoto.alt}
-                      className="w-full rounded-xl shadow-lg object-cover aspect-[4/3]"
+                      className="w-full rounded-xl shadow-lg"
                       loading="lazy"
                     />
                     <span className="absolute top-3 left-3 bg-black/70 text-white text-xs font-semibold px-3 py-1 rounded-full">Вечер</span>
