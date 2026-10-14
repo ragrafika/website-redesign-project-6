@@ -94,8 +94,8 @@ const IndustriesSection = () => {
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
                       />
-                      {industry.workPhoto.night && <img
-                        src={industry.workPhoto.night}
+                      {(industry.workPhoto.night || industry.workPhoto.cardNight) && <img
+                        src={industry.workPhoto.cardNight || industry.workPhoto.night}
                         alt=""
                         aria-hidden="true"
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
