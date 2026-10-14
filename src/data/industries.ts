@@ -16,7 +16,7 @@ export interface IndustryData {
   facadeTips: IndustryTip[];
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
-  workPhoto?: { title: string; day: string; night: string; alt: string };
+  workPhoto?: { title: string; day: string; night?: string; alt: string; single?: boolean };
 }
 
 const industries: IndustryData[] = [
@@ -296,6 +296,11 @@ const industries: IndustryData[] = [
   },
   {
     slug: "gosuchrezhdeniya",
+    workPhoto: {
+      title: "Стела для госучреждения: реализованный проект",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/db392eae-82b2-4e87-81f8-af181f022f67.jpg",
+      alt: "Информационная стела Тамбовского муниципального округа с подсветкой, цифры 1926 и 2026",
+    },
     icon: "Landmark",
     title: "Вывески для госучреждений",
     shortTitle: "Госучреждения",

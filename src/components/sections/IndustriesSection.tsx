@@ -94,13 +94,13 @@ const IndustriesSection = () => {
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <img
+                      {industry.workPhoto.night && <img
                         src={industry.workPhoto.night}
                         alt=""
                         aria-hidden="true"
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                         loading="lazy"
-                      />
+                      />}
                     </div>
                   )}
                   <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">

@@ -134,8 +134,8 @@ const IndustryPage = () => {
             {industry.workPhoto && (
               <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">{industry.workPhoto.title}</h2>
-                <p className="text-muted-foreground mb-6">Реализованный проект в Благовещенске. Сравните, как выглядят вывески на фасаде при дневном свете и с включённой подсветкой.</p>
-                <div className="grid md:grid-cols-2 gap-4 items-start">
+                <p className="text-muted-foreground mb-6">{!industry.workPhoto.night ? "Реализованный проект нашей компании." : "Реализованный проект в Благовещенске. Сравните, как выглядят вывески на фасаде при дневном свете и с включённой подсветкой."}</p>
+                <div className={industry.workPhoto.night ? "grid md:grid-cols-2 gap-4 items-start" : "max-w-3xl"}>
                   <div className="relative">
                     <img
                       src={industry.workPhoto.day}
@@ -143,9 +143,9 @@ const IndustryPage = () => {
                       className="w-full rounded-xl shadow-lg"
                       loading="lazy"
                     />
-                    <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">Днём</span>
+                    <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">{industry.workPhoto.night ? "Днём" : "Наша работа"}</span>
                   </div>
-                  <div className="relative">
+                  {industry.workPhoto.night && <div className="relative">
                     <img
                       src={industry.workPhoto.night}
                       alt={industry.workPhoto.alt}
@@ -153,7 +153,7 @@ const IndustryPage = () => {
                       loading="lazy"
                     />
                     <span className="absolute top-3 left-3 bg-black/70 text-white text-xs font-semibold px-3 py-1 rounded-full">С подсветкой</span>
-                  </div>
+                  </div>}
                 </div>
               </section>
             )}
