@@ -4,8 +4,8 @@ import Icon from "@/components/ui/icon";
 import PhotoRequestForm from "@/components/services/PhotoRequestForm";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
-const BEFORE_URL = "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/92ac93c5-8e8b-48e7-9dd8-b5a889183c77.jpg";
-const AFTER_URL = "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7e6c57dd-7e37-46b3-9562-8e4254febb17.jpg";
+const BEFORE_URL = "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/660b2a01-6d77-41f8-8684-46050d85cd2c.jpg";
+const AFTER_URL = "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/ab18bc6c-da6e-4bc8-841c-7c8caeab460f.jpg";
 
 const PhotoBeforeAfterBlock = () => {
   const [isOpen, setIsOpen] = useState(false);
