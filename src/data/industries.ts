@@ -24,8 +24,8 @@ const industries: IndustryData[] = [
     slug: "apteki",
     workPhoto: {
       title: "Вывески для аптек: днём и вечером",
-      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/d6e288b0-45c1-4173-acb0-e67c26d41d9c.jpg",
-      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c8114583-f546-4d6c-938c-b881c34d5d10.jpg",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/95030c91-b30b-41cd-a6f3-5d97194072c0.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7beeb1da-a544-440a-a211-da308dfeb35d.jpg",
       alt: "Вывеска аптеки Сбер Еаптека в Благовещенске: объёмные световые буквы и светодиодный крест днём и ночью",
     },
     icon: "Cross",
