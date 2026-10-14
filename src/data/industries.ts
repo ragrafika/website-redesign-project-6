@@ -16,7 +16,7 @@ export interface IndustryData {
   facadeTips: IndustryTip[];
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
-  workPhoto?: { title: string; day: string; night?: string; cardNight?: string; alt: string };
+  workPhoto?: { title: string; day: string; night?: string; cardDay?: string; cardNight?: string; alt: string };
 }
 
 const industries: IndustryData[] = [
@@ -299,7 +299,8 @@ const industries: IndustryData[] = [
     workPhoto: {
       title: "Стела для госучреждения: реализованный проект",
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/db392eae-82b2-4e87-81f8-af181f022f67.jpg",
-      cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/057c2338-c334-411e-8b4f-496bf0f93624.jpg",
+      cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/27fe26cb-5794-4c38-b635-a350b17d9548.jpg",
+      cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/45795da5-d030-4d2b-a7f2-88eeecfa2ed8.jpg",
       alt: "Информационная стела Тамбовского муниципального округа с подсветкой, цифры 1926 и 2026",
     },
     icon: "Landmark",

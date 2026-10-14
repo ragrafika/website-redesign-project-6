@@ -89,7 +89,7 @@ const IndustriesSection = () => {
                   {industry.workPhoto && (
                     <div className="relative aspect-[4/3] -mt-1 mb-3 overflow-hidden rounded-lg">
                       <img
-                        src={industry.workPhoto.day}
+                        src={industry.workPhoto.cardDay || industry.workPhoto.day}
                         alt={industry.workPhoto.alt}
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
