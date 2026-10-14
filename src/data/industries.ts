@@ -192,8 +192,8 @@ const industries: IndustryData[] = [
     slug: "avtobiznes",
     workPhoto: {
       title: "Вывески для автобизнеса: днём и вечером",
-      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3a05652c-a2e3-4a09-8654-4e0d34627187.jpg",
-      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3ed15986-0134-4ac3-b8ae-1ecb642641b2.jpg",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/fe9c1e54-748b-4aa1-9289-11b49c316825.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/1029a1ff-b30b-4ac7-b7f1-db1f10f7a9d1.jpg",
       alt: "Вывеска All auto в Благовещенске: объёмные световые буквы и логотип днём и вечером",
     },
     icon: "Car",
