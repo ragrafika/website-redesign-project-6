@@ -80,8 +80,8 @@ const industries: IndustryData[] = [
     slug: "avtomoiki",
     workPhoto: {
       title: "Вывески для автомойки: днём и вечером",
-      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/8c8e604b-93cb-4476-a36a-13b36b7b0dd0.png",
-      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/71e94eae-7d06-4fb0-b7ae-f6e033cb6ec2.png",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/e625817d-808a-4eea-b9a5-06db2bfbb33c.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/12a97dad-cc30-48c4-a355-d2130c1aa91c.jpg",
       alt: "Вывеска автомойки Foamtime в Благовещенске: объёмные световые буквы и логотип днём и вечером",
     },
     icon: "Droplets",
