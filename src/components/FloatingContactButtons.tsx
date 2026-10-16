@@ -30,7 +30,7 @@ const FloatingContactButtons = () => {
         className="w-12 h-12 md:w-14 md:h-14 bg-[#FF4D00] hover:bg-[#E64400] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         title="Написать в МАХ"
       >
-        <Icon name="MessageSquare" size={20} className="md:w-6 md:h-6" />
+        <span className="text-xs md:text-sm font-extrabold leading-none tracking-tight">МАХ</span>
       </a>
     </div>
   );

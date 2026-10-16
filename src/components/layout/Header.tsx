@@ -55,7 +55,7 @@ const Header = () => {
             className="w-10 h-10 bg-[#FF4D00] hover:bg-[#E64400] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
             title="Написать в МАХ"
           >
-            <Icon name="MessageSquare" size={20} />
+            <span className="text-[11px] font-extrabold leading-none tracking-tight">МАХ</span>
           </a>
           <a 
             href="tel:+74162227678"
