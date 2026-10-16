@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import Icon from "@/components/ui/icon";
 
 const HERO_VIDEO_URL =
   "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/video/hero-video.mp4";
@@ -54,17 +53,7 @@ const HeroSection = () => {
               className="bg-white text-secondary hover:bg-primary hover:text-white transition-colors text-lg px-8 py-6"
               asChild
             >
-              <a href="tel:+79656713170">Получить расчёт</a>
-            </Button>
-            <Button
-              size="lg"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-secondary text-lg px-8 py-6"
-              asChild
-            >
-              <a href="#portfolio">
-                <Icon name="Play" size={20} className="mr-2" />
-                Смотреть портфолио
-              </a>
+              <a href="#calculate">Получить расчёт</a>
             </Button>
           </div>
         </div>

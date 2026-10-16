@@ -44,7 +44,7 @@ const services = [
 
 const advantages = [
   { number: 11, suffix: "+", text: "лет на рынке" },
-  { number: 3, suffix: " года", text: "гарантия — зависит от комплектации" },
+  { number: 3, suffix: "", text: "гарантия на вывески 1–3 года" },
   { number: 2000, suffix: "+", text: "реализованных проектов" }
 ];
 

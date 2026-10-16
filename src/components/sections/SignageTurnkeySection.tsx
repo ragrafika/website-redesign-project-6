@@ -71,7 +71,8 @@ const SignageTurnkeySection = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
+          <div id="calculate" className="scroll-mt-28 bg-white rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
+            <h3 className="text-2xl md:text-3xl font-bold text-secondary text-center mb-2">Рассчитаем вывеску</h3>
             <p className="text-gray-700 text-base md:text-lg text-center max-w-3xl mx-auto mb-6">
               Пришлите фото фасада — оценим задачу и подготовим расчёт
             </p>
