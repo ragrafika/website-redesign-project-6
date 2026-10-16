@@ -11,7 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const SignageTurnkeySection = () => {
+const SignageTurnkeySection = ({ compact = false }: { compact?: boolean }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPhotoOpen, setIsPhotoOpen] = useState(false);
 
@@ -32,6 +32,7 @@ const SignageTurnkeySection = () => {
             </p>
           </div>
 
+          {!compact && (<>
           <div className="mb-12">
             <h3 className="text-2xl md:text-3xl font-bold mb-8">Как мы работаем</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -54,6 +55,7 @@ const SignageTurnkeySection = () => {
             </div>
           </div>
 
+          </>)}
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
             <div className="flex items-start gap-3 sm:gap-4">
               <div className="bg-primary text-primary-foreground rounded-full p-2 sm:p-3 flex-shrink-0">
@@ -67,51 +69,6 @@ const SignageTurnkeySection = () => {
                 <Button size="default" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
                   Рассчитать вывеску
                 </Button>
-              </div>
-            </div>
-          </div>
-
-          <div id="calculate" className="scroll-mt-28 bg-white rounded-xl p-4 sm:p-6 md:p-8 mb-8 border-2 border-primary/20">
-            <h3 className="text-2xl md:text-3xl font-bold text-secondary text-center mb-2">Рассчитаем вывеску</h3>
-            <p className="text-gray-700 text-base md:text-lg text-center max-w-3xl mx-auto mb-6">
-              Пришлите фото фасада — оценим задачу и подготовим расчёт
-            </p>
-            <div className="grid md:grid-cols-2 gap-6 items-start">
-              <div className="flex flex-col gap-4">
-                <div className="relative">
-                  <img
-                    src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/660b2a01-6d77-41f8-8684-46050d85cd2c.jpg"
-                    alt="Фото чистого фасада здания без вывесок"
-                    className="w-full rounded-lg object-cover aspect-[16/10]"
-                    loading="lazy"
-                  />
-                  <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">
-                    Ваше фото
-                  </span>
-                </div>
-                <Button size="lg" className="w-full" onClick={() => setIsPhotoOpen(true)}>
-                  <Icon name="Camera" size={20} className="mr-2" />
-                  Отправить фото
-                </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  Снимите фасад прямо, целиком, при дневном свете
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="relative">
-                  <img
-                    src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/ab18bc6c-da6e-4bc8-841c-7c8caeab460f.jpg"
-                    alt="Фотопривязка вывески к фасаду здания"
-                    className="w-full rounded-lg object-cover aspect-[16/10]"
-                    loading="lazy"
-                  />
-                  <span className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Фотопривязка
-                  </span>
-                </div>
-                <p className="text-sm text-gray-700">
-                  Визуализацию вывески вы увидите до запуска в работу.
-                </p>
               </div>
             </div>
           </div>
