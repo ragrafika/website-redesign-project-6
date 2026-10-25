@@ -246,6 +246,12 @@ const industries: IndustryData[] = [
   },
   {
     slug: "banki",
+    workPhoto: {
+      title: "Вывески для банков: днём и вечером",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/99bbb837-b7f6-4be1-be76-453e6d2f4038.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c2532210-68ce-4bcd-ab12-783c8116596f.jpg",
+      alt: "Вывеска МКБ Дальневосточный банк в Благовещенске: объёмные световые буквы днём и вечером",
+    },
     icon: "Building2",
     title: "Вывески для банков",
     shortTitle: "Банки",
