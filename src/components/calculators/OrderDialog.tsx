@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Icon from "@/components/ui/icon";
+import { resizeImage } from "@/components/services/PhotoRequestForm";
 import {
   Dialog,
   DialogContent,
@@ -19,9 +21,12 @@ interface OrderDialogProps {
   children: React.ReactNode;
   imageData?: string;
   onImageCleanup?: () => void;
+  allowPhoto?: boolean;
 }
 
-const OrderDialog = ({ calculatorType, price, details, children, imageData, onImageCleanup }: OrderDialogProps) => {
+const OrderDialog = ({ calculatorType, price, details, children, imageData, onImageCleanup, allowPhoto }: OrderDialogProps) => {
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [photo, setPhoto] = useState<File | null>(null);
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -56,6 +61,7 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
     setIsSubmitting(true);
 
     try {
+      const photoData = photo ? await resizeImage(photo) : undefined;
       const response = await fetch("https://functions.poehali.dev/c848bf2f-05f1-42c0-b695-5d345ad19872", {
         method: "POST",
         headers: {
@@ -68,7 +74,7 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
           email,
           price,
           details,
-          imageData,
+          imageData: imageData || photoData,
         }),
       });
 
@@ -89,6 +95,7 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
       setPhone("");
       setEmail("");
       setConsent(true);
+      setPhoto(null);
       setOpen(false);
     } catch (error) {
       toast({
@@ -150,6 +157,22 @@ const OrderDialog = ({ calculatorType, price, details, children, imageData, onIm
               placeholder="mail@example.com"
             />
           </div>
+          {allowPhoto && (
+            <div>
+              <Label>Фото фасада</Label>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => setPhoto(e.target.files?.[0] || null)}
+              />
+              <Button type="button" variant="outline" className="w-full mt-1 justify-start" onClick={() => fileRef.current?.click()}>
+                <Icon name="Camera" size={16} className="mr-2" />
+                <span className="truncate">{photo ? photo.name : "Прикрепить фото фасада"}</span>
+              </Button>
+            </div>
+          )}
           <div className="bg-muted/30 rounded-lg p-3 sm:p-4">
             <div className="flex items-start gap-2 sm:gap-3">
               <input

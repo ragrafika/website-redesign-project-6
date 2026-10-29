@@ -10,7 +10,7 @@ interface PhotoRequestFormProps {
 
 const SEND_URL = "https://functions.poehali.dev/c848bf2f-05f1-42c0-b695-5d345ad19872";
 
-const resizeImage = (file: File, maxSize = 1600): Promise<string> =>
+export const resizeImage = (file: File, maxSize = 1600): Promise<string> =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = () => reject(new Error("read"));

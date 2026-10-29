@@ -76,6 +76,7 @@ const SignageExamplesSection = () => {
                 <div className="mt-auto pt-2">
                   <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
                   <OrderDialog
+                    allowPhoto
                     calculatorType={`Пример вывески «${ex.title}» — рассчитать для моего фасада`}
                     price={ex.price}
                     details={{
