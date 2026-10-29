@@ -460,6 +460,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "meduchrezhdeniya",
+    workPhoto: {
+      title: "Вывеска для клиники: реализованный проект",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/a4b7d68c-49e5-462c-9324-b5abb5e1a2d9.jpg",
+      cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/a4b7d68c-49e5-462c-9324-b5abb5e1a2d9.jpg",
+      cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2d13ca0e-e1d5-4bb6-8e66-95095f570351.jpg",
+      alt: "Объёмная вывеска клиники восстановительной медицины Эрлайн на фасаде днём",
+    },
     icon: "MapPin",
     title: "Вывески для медучреждений",
     shortTitle: "Медучреждения",
