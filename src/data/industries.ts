@@ -594,7 +594,8 @@ const industries: IndustryData[] = [
       alt: "Вывеска пункта выдачи заказов Lamoda: объёмные буквы с подсветкой днём и ночью",
     },
     gallery: [
-      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/78148573-4e83-4f3e-9426-1be2dcde0bcd.JPG", label: "Наша работа", alt: "Светящаяся вывеска ПВЗ Wildberries над входом вечером" },
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2142ecaa-47c9-4f21-b0e3-57476c413cd3.jpg", label: "Фасад с подсветкой", alt: "Светящаяся вывеска ПВЗ Wildberries над входом вечером" },
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/c45753d1-d99e-406f-9918-b1dfecfa36f9.JPG", label: "Интерьер", alt: "Объёмный логотип Lamoda на красной стене пункта выдачи" },
     ],
     icon: "Package",
     title: "Вывески для ПВЗ",
