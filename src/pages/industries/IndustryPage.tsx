@@ -146,7 +146,7 @@ const IndustryPage = () => {
               </section>
             )}
 
-            {industry.workPhoto && !industry.gallery && (
+            {industry.workPhoto && !industry.workPhoto.hideOnPage && !industry.gallery && (
               <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">{industry.workPhoto.title}</h2>
                 <p className="text-muted-foreground mb-6">{!industry.workPhoto.night ? "Реализованный проект нашей компании." : "Реализованный проект в Благовещенске. Сравните, как выглядят вывески на фасаде при дневном свете и с включённой подсветкой."}</p>

@@ -16,7 +16,7 @@ export interface IndustryData {
   facadeTips: IndustryTip[];
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
-  workPhoto?: { title: string; day: string; night?: string; cardDay?: string; cardNight?: string; alt: string };
+  workPhoto?: { title: string; day: string; night?: string; cardDay?: string; cardNight?: string; hideOnPage?: boolean; alt: string };
   gallery?: { src: string; label: string; alt: string }[];
 }
 
@@ -590,13 +590,9 @@ const industries: IndustryData[] = [
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7fb06367-1418-4a7e-9b1d-9f937e103cdb.jpg",
       cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7fb06367-1418-4a7e-9b1d-9f937e103cdb.jpg",
       cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/334947f6-48bf-43b7-86b9-b270c4bd273f.jpg",
+      hideOnPage: true,
       alt: "Вывеска пункта выдачи заказов Lamoda: объёмные буквы с подсветкой днём и ночью",
     },
-    gallery: [
-      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/7fb06367-1418-4a7e-9b1d-9f937e103cdb.jpg", label: "Фасад днём", alt: "Объёмная вывеска ПВЗ Lamoda над входом днём" },
-      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/334947f6-48bf-43b7-86b9-b270c4bd273f.jpg", label: "С подсветкой", alt: "Светящаяся вывеска ПВЗ Lamoda над входом вечером" },
-      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/1bf0bf50-78a6-4551-b946-db2f99879f26.jpg", label: "Интерьер", alt: "Логотип Lamoda на стене внутри пункта выдачи" },
-    ],
     icon: "Package",
     title: "Вывески для ПВЗ",
     shortTitle: "ПВЗ",
