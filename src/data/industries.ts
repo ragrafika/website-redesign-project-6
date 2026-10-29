@@ -17,6 +17,7 @@ export interface IndustryData {
   interiorTips: IndustryTip[];
   recommendedProducts: string[];
   workPhoto?: { title: string; day: string; night?: string; cardDay?: string; cardNight?: string; alt: string };
+  gallery?: { src: string; label: string; alt: string }[];
 }
 
 const industries: IndustryData[] = [
@@ -509,6 +510,19 @@ const industries: IndustryData[] = [
   },
   {
     slug: "oteli",
+    workPhoto: {
+      title: "Вывески для отелей: наши работы",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bfa4d486-3b64-45c6-9b13-5bc09623731e.jpg",
+      cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bfa4d486-3b64-45c6-9b13-5bc09623731e.jpg",
+      cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f668f5d9-3542-4f2a-889a-5959ed668dc8.jpg",
+      alt: "Вывески отелей Аурум и Анкор в Благовещенске",
+    },
+    gallery: [
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bfa4d486-3b64-45c6-9b13-5bc09623731e.jpg", label: "Отель «Аурум»: фасад", alt: "Фасад отеля Аурум с подсвеченными объёмными буквами и логотипом вечером" },
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3f2a4ec2-334b-44fc-ab7f-2e01143b85d2.jpg", label: "Отель «Аурум»: ресепшн", alt: "Золотой логотип отеля Аурум на стене ресепшн" },
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f668f5d9-3542-4f2a-889a-5959ed668dc8.jpg", label: "Гостиница «Анкор»: вечером", alt: "Светящиеся буквы гостиницы Анкор на фасаде ночью" },
+      { src: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3406e4a9-a9ca-4dcc-a0e6-a493262f7a3e.jpg", label: "Гостиница «Анкор»: днём", alt: "Объёмные синие буквы гостиницы Анкор на фасаде днём" },
+    ],
     icon: "Hotel",
     title: "Вывески для отелей",
     shortTitle: "Отели",

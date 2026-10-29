@@ -131,7 +131,22 @@ const IndustryPage = () => {
               </div>
             </div>
 
-            {industry.workPhoto && (
+            {industry.gallery && (
+              <section className="mb-16">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">{industry.workPhoto?.title}</h2>
+                <p className="text-muted-foreground mb-6">Реализованные проекты нашей компании в Благовещенске.</p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {industry.gallery.map((g) => (
+                    <div key={g.src} className="relative">
+                      <img src={g.src} alt={g.alt} className="w-full rounded-xl shadow-lg" loading="lazy" />
+                      <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">{g.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {industry.workPhoto && !industry.gallery && (
               <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">{industry.workPhoto.title}</h2>
                 <p className="text-muted-foreground mb-6">{!industry.workPhoto.night ? "Реализованный проект нашей компании." : "Реализованный проект в Благовещенске. Сравните, как выглядят вывески на фасаде при дневном свете и с включённой подсветкой."}</p>
