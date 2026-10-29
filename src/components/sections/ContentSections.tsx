@@ -7,6 +7,7 @@ import HowWeWorkBlock from "./HowWeWorkBlock";
 import IndustriesSection from "./IndustriesSection";
 import SignageTurnkeySection from "./SignageTurnkeySection";
 import StoriesSection from "./StoriesSection";
+import SignageExamplesSection from "./SignageExamplesSection";
 import TestimonialPhotos from "./TestimonialPhotos";
 import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
@@ -215,6 +216,8 @@ const ContentSections = () => {
           </div>
         </div>
       </section>
+
+      <SignageExamplesSection />
 
       <StoriesSection />
 
