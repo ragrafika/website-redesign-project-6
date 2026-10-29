@@ -513,7 +513,7 @@ const industries: IndustryData[] = [
     workPhoto: {
       title: "Вывески для отелей: наши работы",
       day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bfa4d486-3b64-45c6-9b13-5bc09623731e.jpg",
-      cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/bfa4d486-3b64-45c6-9b13-5bc09623731e.jpg",
+      cardDay: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/3406e4a9-a9ca-4dcc-a0e6-a493262f7a3e.jpg",
       cardNight: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/f668f5d9-3542-4f2a-889a-5959ed668dc8.jpg",
       alt: "Вывески отелей Аурум и Анкор в Благовещенске",
     },
