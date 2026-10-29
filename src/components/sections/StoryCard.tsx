@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import type { Story } from "@/data/stories";
 
@@ -9,12 +9,6 @@ const StoryCard = ({ story }: { story: Story }) => {
 
   const [touched, setTouched] = useState(false);
 
-  useEffect(() => {
-    if (touched || total < 2) return;
-    const id = setInterval(() => setActive((a) => (a + 1) % total), 1800);
-    return () => clearInterval(id);
-  }, [touched, total]);
-
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (total < 2) return;
     setTouched(true);
@@ -24,7 +18,7 @@ const StoryCard = ({ story }: { story: Story }) => {
   };
 
   const handleLeave = () => {
-    if (touched) setActive(startIndex);
+    setActive(startIndex);
   };
 
   return (
