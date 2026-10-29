@@ -360,6 +360,11 @@ const industries: IndustryData[] = [
   },
   {
     slug: "kafe-i-restorany",
+    workPhoto: {
+      title: "Вывеска для кофейни: реализованный проект",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/2cc3dad7-fb53-4639-be48-bb64226e64f8.png",
+      alt: "Объёмные буквы вывески кофейни V.I.P. на фасаде здания",
+    },
     icon: "Coffee",
     title: "Вывески для кафе и ресторанов",
     shortTitle: "Кафе и рестораны",
