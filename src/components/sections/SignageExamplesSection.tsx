@@ -1,9 +1,5 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import Icon from "@/components/ui/icon";
 import OrderDialog from "@/components/calculators/OrderDialog";
-import PhotoRequestForm from "@/components/services/PhotoRequestForm";
 
 const CDN = "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/";
 
@@ -45,8 +41,6 @@ const examples = [
 const included = "Изготовление, доставка в черте города, монтаж с автовышки";
 
 const SignageExamplesSection = () => {
-  const [isPhotoOpen, setIsPhotoOpen] = useState(false);
-
   return (
     <section id="signage-examples" className="py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
@@ -94,23 +88,7 @@ const SignageExamplesSection = () => {
             </article>
           ))}
         </div>
-        <div className="text-center mt-10">
-          <Button size="lg" variant="outline" onClick={() => setIsPhotoOpen(true)}>
-            <Icon name="Camera" size={18} className="mr-2" />
-            Отправить фото фасада
-          </Button>
-        </div>
       </div>
-      <Dialog open={isPhotoOpen} onOpenChange={setIsPhotoOpen}>
-        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Отправьте фото фасада</DialogTitle>
-          </DialogHeader>
-          <div className="mt-2">
-            <PhotoRequestForm onSuccess={() => setIsPhotoOpen(false)} />
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
