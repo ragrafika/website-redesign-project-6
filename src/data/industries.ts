@@ -415,6 +415,12 @@ const industries: IndustryData[] = [
   },
   {
     slug: "magaziny",
+    workPhoto: {
+      title: "Вывеска для магазина: днём и вечером",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/6e9ea858-5c8e-454d-a81a-e2440839c106.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/bucket/30257149-ad22-4a56-a5d9-4e42fc2286f3.jpg",
+      alt: "Вывеска магазина Алёнка в Благовещенске: объёмные буквы с контражурной подсветкой днём и ночью",
+    },
     icon: "Tag",
     title: "Вывески для магазинов",
     shortTitle: "Магазины",
