@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 import type { Story } from "@/data/stories";
 
@@ -7,14 +7,25 @@ const StoryCard = ({ story }: { story: Story }) => {
   const startIndex = story.photos.length > 1 ? 1 : 0;
   const total = story.photos.length;
 
+  const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    if (touched || total < 2) return;
+    const id = setInterval(() => setActive((a) => (a + 1) % total), 1800);
+    return () => clearInterval(id);
+  }, [touched, total]);
+
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (total < 2) return;
+    setTouched(true);
     const rect = e.currentTarget.getBoundingClientRect();
     const ratio = (e.clientX - rect.left) / rect.width;
     setActive(Math.min(total - 1, Math.max(0, Math.floor(ratio * total))));
   };
 
-  const handleLeave = () => setActive(startIndex);
+  const handleLeave = () => {
+    if (touched) setActive(startIndex);
+  };
 
   return (
     <article className="bg-background border-2 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
@@ -22,6 +33,7 @@ const StoryCard = ({ story }: { story: Story }) => {
         className="relative aspect-[4/3] bg-muted"
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
+        onTouchStart={() => setTouched(true)}
       >
         {total > 0 ? (
           story.photos.map((p, i) => (
@@ -40,12 +52,18 @@ const StoryCard = ({ story }: { story: Story }) => {
             <Icon name="Image" size={48} className="text-muted-foreground/40" />
           </div>
         )}
+        {story.photos.length > 1 && !touched && (
+          <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-black/60 text-white text-xs font-medium rounded-full px-3 py-1.5 animate-pulse pointer-events-none">
+            <Icon name="MousePointerClick" size={14} />
+            Наведите или нажмите
+          </div>
+        )}
         {story.photos.length > 1 && (
           <div className="absolute bottom-3 left-3 z-10 flex gap-1 bg-black/60 rounded-full p-1">
             {story.photos.map((p, i) => (
               <button
                 key={p.label}
-                onClick={() => setActive(i)}
+                onClick={() => { setTouched(true); setActive(i); }}
                 className={`px-3 py-1 text-xs font-semibold rounded-full transition-colors ${
                   i === active ? "bg-primary text-white" : "text-white hover:bg-white/20"
                 }`}
