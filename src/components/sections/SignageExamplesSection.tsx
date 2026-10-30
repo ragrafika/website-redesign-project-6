@@ -36,6 +36,26 @@ const examples = [
     price: 112600,
     image: `${CDN}13e04a9a-ee4c-4587-a29a-c14dade373ef.jpg`,
   },
+  {
+    title: "Кофейня",
+    type: "Объёмные световые буквы на подложке",
+    size: "150×40×10 см",
+    light: "Светодиоды ELFLED",
+    price: 30600,
+    tiers: { "Эконом": 29100, "Стандарт": 30600, "Премиум": 39900 },
+    included: "Изготовление, доставка в черте Благовещенска, монтаж",
+    image: `${CDN}05b4e140-2100-4781-bb7e-a7b747014541.jpg`,
+  },
+  {
+    title: "Барбершоп",
+    type: "Объёмные буквы с прямым монтажом на фасад",
+    size: "300×38×7 см",
+    light: "Светодиоды ELFLED",
+    price: 58500,
+    tiers: { "Эконом": 53850, "Стандарт": 58500, "Премиум": 69300 },
+    included: "Изготовление, доставка в черте Благовещенска, монтаж",
+    image: `${CDN}5b27c35e-8bae-4a32-9838-360fcd9fe505.jpg`,
+  },
 ];
 
 const included = "Изготовление, доставка в черте города, монтаж с автовышки";
@@ -47,10 +67,10 @@ const SignageExamplesSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Примеры вывесок с ценой под ключ</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Четыре варианта с указанными размерами и комплектацией. Выберите подходящий — рассчитаем стоимость для вашего фасада.
+            Шесть вариантов с указанными размерами и комплектацией. Выберите подходящий — рассчитаем стоимость для вашего фасада.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {examples.map((ex) => (
             <article key={ex.title} className="bg-background border-2 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
               <div className="relative aspect-square bg-muted">
@@ -65,10 +85,21 @@ const SignageExamplesSection = () => {
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Размер: {ex.size}</li>
                   <li>Подсветка: {ex.light}</li>
-                  <li>В стоимость включено: {included.toLowerCase()}</li>
+                  <li>В стоимость включено: {(ex.included ?? included).toLowerCase()}</li>
                 </ul>
                 <div className="mt-auto pt-2">
-                  <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
+                  {ex.tiers ? (
+                    <ul className="mb-3 space-y-1">
+                      {Object.entries(ex.tiers).map(([name, value]) => (
+                        <li key={name} className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">{name}</span>
+                          <span className={`font-bold ${name === "Стандарт" ? "text-primary text-lg" : ""}`}>{value.toLocaleString("ru-RU")} ₽</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
+                  )}
                   <OrderDialog
                     allowPhoto
                     calculatorType={`Пример вывески «${ex.title}» — рассчитать для моего фасада`}
@@ -78,7 +109,8 @@ const SignageExamplesSection = () => {
                       "Тип": ex.type,
                       "Размер": ex.size,
                       "Подсветка": ex.light,
-                      "В стоимость включено": included,
+                      "В стоимость включено": ex.included ?? included,
+                      ...(ex.tiers ? Object.fromEntries(Object.entries(ex.tiers).map(([k, v]) => [`Цена (${k})`, `${v.toLocaleString("ru-RU")} ₽`])) : {}),
                     }}
                   >
                     <Button className="w-full">Рассчитать для моего фасада</Button>
