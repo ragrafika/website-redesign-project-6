@@ -22,7 +22,7 @@ const items = [
   },
   {
     icon: "BookOpen",
-    title: "Все истории наших вывесок",
+    title: "Истории наших вывесок",
     text: "Подробные кейсы с фото: от идеи до монтажа",
     to: "/stories",
   },
@@ -37,14 +37,14 @@ const MoreInfoTeaser = () => (
           <Link
             key={item.to}
             to={item.to}
-            className="group bg-white rounded-xl border-2 p-6 hover:border-primary hover:shadow-lg transition-all"
+            className="group flex flex-col bg-white rounded-xl border-2 p-6 hover:border-primary hover:shadow-lg transition-all"
           >
             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <Icon name={item.icon} size={24} className="text-primary" />
             </div>
             <h3 className="font-bold text-lg mb-2">{item.title}</h3>
             <p className="text-muted-foreground text-sm mb-4">{item.text}</p>
-            <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm">
+            <span className="mt-auto inline-flex items-center gap-1 text-primary font-semibold text-sm">
               Подробнее
               <Icon name="ArrowRight" size={16} />
             </span>
