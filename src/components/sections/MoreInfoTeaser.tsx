@@ -21,6 +21,12 @@ const items = [
     to: "/signage",
   },
   {
+    icon: "Scale",
+    title: "Требования к вывескам",
+    text: "Согласование с администрацией и закон о русском языке на вывесках",
+    to: "/signage-law",
+  },
+  {
     icon: "BookOpen",
     title: "Истории наших вывесок",
     text: "Подробные кейсы с фото: от идеи до монтажа",
@@ -32,7 +38,7 @@ const MoreInfoTeaser = () => (
   <section className="py-16 bg-muted/30 scroll-mt-24">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Хотите узнать подробнее?</h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
         {items.map((item) => (
           <Link
             key={item.to}
