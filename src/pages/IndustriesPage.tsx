@@ -8,12 +8,10 @@ const IndustriesPage = () => (
   <div className="min-h-screen">
     <Header />
     <main className="pt-24">
-      <div className="container mx-auto px-4">
-        <Breadcrumbs items={[
+      <Breadcrumbs fullWidth items={[
           { label: "Главная", path: "/" },
           { label: "Сферы бизнеса" }
         ]} />
-      </div>
       <IndustriesSection />
     </main>
     <ContactSection />
