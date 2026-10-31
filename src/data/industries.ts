@@ -644,6 +644,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "parikmakherskie",
+    workPhoto: {
+      title: "Вывеска: Парикмахерская",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/b50a5355-fba3-4063-ad10-afb683796352.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/cc589886-2427-427a-ba11-434a376840ef.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Парикмахерская, днём и вечером",
+    },
     icon: "Scissors",
     title: "Вывески для парикмахерских",
     shortTitle: "Парикмахерские",
@@ -694,6 +701,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "salony-krasoty",
+    workPhoto: {
+      title: "Вывеска: Салон красоты",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/5d6e909f-60c6-4402-aac6-169b1d6a3368.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/01cd37ce-1257-4f7e-90fa-a6ffb5951d94.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Салон красоты, днём и вечером",
+    },
     icon: "Sparkles",
     title: "Вывески для салонов красоты",
     shortTitle: "Салоны красоты",
@@ -744,6 +758,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "torgovye-tsentry",
+    workPhoto: {
+      title: "Вывеска: Торговый центр",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/68e1ad15-47cb-4dd6-adff-6d64447f601c.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/76e6fc07-3ab2-4de6-ae2d-be1c879ff2df.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Торговый центр, днём и вечером",
+    },
     icon: "ShoppingBag",
     title: "Вывески для торговых центров",
     shortTitle: "Торговые центры",
@@ -794,6 +815,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "turagentstva",
+    workPhoto: {
+      title: "Вывеска: Турагентство",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/d5b0de5b-fadf-4510-9820-adebc6704b5b.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/eafdab4b-7ba3-465c-b666-c34da1f2d165.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Турагентство, днём и вечером",
+    },
     icon: "Palmtree",
     title: "Вывески для турагентств",
     shortTitle: "Турагентства",
@@ -844,6 +872,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "uchebnye-zavedeniya",
+    workPhoto: {
+      title: "Вывеска: Учебный центр",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/d4b6ad7d-a9ec-4d15-a99c-d3f4b36ee1a6.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/cfff2ed7-6337-446c-aebf-bad9f1266c6f.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Учебный центр, днём и вечером",
+    },
     icon: "GraduationCap",
     title: "Вывески для учебных заведений",
     shortTitle: "Учебные заведения",
@@ -894,6 +929,13 @@ const industries: IndustryData[] = [
   },
   {
     slug: "fitnes-tsentry",
+    workPhoto: {
+      title: "Вывеска: Фитнес-центр",
+      day: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/d9984aa8-889f-465c-aea2-424c07b0a890.jpg",
+      night: "https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/46b5264a-460e-45b8-819e-6050763736d9.jpg",
+      hideOnPage: true,
+      alt: "Вариант вывески: Фитнес-центр, днём и вечером",
+    },
     icon: "Dumbbell",
     title: "Вывески для фитнес-центров",
     shortTitle: "Фитнес-центры",
