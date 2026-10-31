@@ -25,14 +25,14 @@ const Breadcrumbs = ({ items, fullWidth }: BreadcrumbsProps) => {
     <div className={bar}>
     <div className={row}>
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => (window.history.length > 1 ? navigate(-1) : navigate("/"))}
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
       >
         <Icon name="ArrowLeft" size={16} />
         <span>Назад</span>
       </button>
 
-      <nav className="flex items-center gap-1.5 text-sm text-muted-foreground overflow-hidden">
+      <nav className="flex items-center gap-1.5 text-sm text-muted-foreground min-w-0">
         {items.map((item, index) => (
           <div key={index} className="flex items-center gap-1.5 min-w-0">
             {index > 0 && <Icon name="ChevronRight" size={14} className="flex-shrink-0" />}

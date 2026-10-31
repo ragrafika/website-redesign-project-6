@@ -83,6 +83,12 @@ const IndustryPage = () => {
               {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "Сферы бизнеса",
+                "item": "https://ragrafika.ru/industries"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
                 "name": industry.title,
                 "item": `https://ragrafika.ru/industries/${industry.slug}`
               }
@@ -98,6 +104,7 @@ const IndustryPage = () => {
           <div className="max-w-4xl mx-auto">
             <Breadcrumbs items={[
               { label: "Главная", path: "/" },
+              { label: "Сферы бизнеса", path: "/industries" },
               { label: industry.title }
             ]} />
 
