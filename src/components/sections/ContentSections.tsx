@@ -4,8 +4,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
 import CalculateBlock from "./CalculateBlock";
 import HowWeWorkBlock from "./HowWeWorkBlock";
-import IndustriesSection from "./IndustriesSection";
-import SignageTurnkeySection from "./SignageTurnkeySection";
+import MoreInfoTeaser from "./MoreInfoTeaser";
 import StoriesSection from "./StoriesSection";
 import SignageExamplesSection from "./SignageExamplesSection";
 import TestimonialPhotos from "./TestimonialPhotos";
@@ -219,7 +218,7 @@ const ContentSections = () => {
 
       <SignageExamplesSection />
 
-      <StoriesSection />
+      <StoriesSection limit={3} />
 
       <CalculateBlock />
 
@@ -293,9 +292,7 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <IndustriesSection />
-
-      <SignageTurnkeySection compact />
+      <MoreInfoTeaser />
 
       <section id="services" className="py-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">

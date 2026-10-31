@@ -22,8 +22,10 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SignageRouteImport } from './routes/signage'
 import { Route as SignageLawRouteImport } from './routes/signage-law'
 import { Route as SignageTurnkeyRouteImport } from './routes/signage-turnkey'
+import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as TransportRouteImport } from './routes/transport'
 import { Route as VolumeLettersCalculatorRouteImport } from './routes/volume-letters-calculator'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -91,6 +93,11 @@ const SignageTurnkeyRoute = SignageTurnkeyRouteImport.update({
   path: '/signage-turnkey',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StoriesRoute = StoriesRouteImport.update({
+  id: '/stories',
+  path: '/stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TransportRoute = TransportRouteImport.update({
   id: '/transport',
   path: '/transport',
@@ -99,6 +106,11 @@ const TransportRoute = TransportRouteImport.update({
 const VolumeLettersCalculatorRoute = VolumeLettersCalculatorRouteImport.update({
   id: '/volume-letters-calculator',
   path: '/volume-letters-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
@@ -121,9 +133,11 @@ export interface FileRoutesByFullPath {
   '/signage': typeof SignageRoute
   '/signage-law': typeof SignageLawRoute
   '/signage-turnkey': typeof SignageTurnkeyRoute
+  '/stories': typeof StoriesRoute
   '/transport': typeof TransportRoute
   '/volume-letters-calculator': typeof VolumeLettersCalculatorRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,9 +153,11 @@ export interface FileRoutesByTo {
   '/signage': typeof SignageRoute
   '/signage-law': typeof SignageLawRoute
   '/signage-turnkey': typeof SignageTurnkeyRoute
+  '/stories': typeof StoriesRoute
   '/transport': typeof TransportRoute
   '/volume-letters-calculator': typeof VolumeLettersCalculatorRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries': typeof IndustriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,9 +174,11 @@ export interface FileRoutesById {
   '/signage': typeof SignageRoute
   '/signage-law': typeof SignageLawRoute
   '/signage-turnkey': typeof SignageTurnkeyRoute
+  '/stories': typeof StoriesRoute
   '/transport': typeof TransportRoute
   '/volume-letters-calculator': typeof VolumeLettersCalculatorRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -178,9 +196,11 @@ export interface FileRouteTypes {
     | '/signage'
     | '/signage-law'
     | '/signage-turnkey'
+    | '/stories'
     | '/transport'
     | '/volume-letters-calculator'
     | '/industries/$slug'
+    | '/industries/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -196,9 +216,11 @@ export interface FileRouteTypes {
     | '/signage'
     | '/signage-law'
     | '/signage-turnkey'
+    | '/stories'
     | '/transport'
     | '/volume-letters-calculator'
     | '/industries/$slug'
+    | '/industries'
   id:
     | '__root__'
     | '/'
@@ -214,9 +236,11 @@ export interface FileRouteTypes {
     | '/signage'
     | '/signage-law'
     | '/signage-turnkey'
+    | '/stories'
     | '/transport'
     | '/volume-letters-calculator'
     | '/industries/$slug'
+    | '/industries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -233,9 +257,11 @@ export interface RootRouteChildren {
   SignageRoute: typeof SignageRoute
   SignageLawRoute: typeof SignageLawRoute
   SignageTurnkeyRoute: typeof SignageTurnkeyRoute
+  StoriesRoute: typeof StoriesRoute
   TransportRoute: typeof TransportRoute
   VolumeLettersCalculatorRoute: typeof VolumeLettersCalculatorRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -331,6 +357,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignageTurnkeyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stories': {
+      id: '/stories'
+      path: '/stories'
+      fullPath: '/stories'
+      preLoaderRoute: typeof StoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/transport': {
       id: '/transport'
       path: '/transport'
@@ -343,6 +376,13 @@ declare module '@tanstack/react-router' {
       path: '/volume-letters-calculator'
       fullPath: '/volume-letters-calculator'
       preLoaderRoute: typeof VolumeLettersCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/$slug': {
@@ -369,9 +409,11 @@ const rootRouteChildren: RootRouteChildren = {
   SignageRoute: SignageRoute,
   SignageLawRoute: SignageLawRoute,
   SignageTurnkeyRoute: SignageTurnkeyRoute,
+  StoriesRoute: StoriesRoute,
   TransportRoute: TransportRoute,
   VolumeLettersCalculatorRoute: VolumeLettersCalculatorRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
