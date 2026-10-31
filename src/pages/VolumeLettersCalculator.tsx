@@ -1,5 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import { Button } from '@/components/ui/button';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import Icon from '@/components/ui/icon';
 import VolumeQuizCalculator from '@/components/calculators/volume-quiz/VolumeQuizCalculator';
 
@@ -7,14 +8,10 @@ export default function VolumeLettersCalculatorPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-white sticky top-0 z-40 shadow-sm">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-            <Icon name="ArrowLeft" size={18} />
-            <span className="text-sm font-medium">На главную</span>
-          </Link>
-          <div className="font-bold text-lg tracking-tight">
+        <div className="container mx-auto px-4 h-[72px] md:h-20 flex items-center justify-between">
+          <Link to="/" className="font-bold text-lg tracking-tight">
             <span className="text-primary">РА</span> Графика
-          </div>
+          </Link>
           <a
             href="tel:+74162770778"
             className="flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors"
@@ -26,7 +23,12 @@ export default function VolumeLettersCalculatorPage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8 sm:py-12 max-w-2xl">
+      <Breadcrumbs fullWidth items={[
+        { label: "Главная", path: "/" },
+        { label: "Калькулятор объёмных букв" }
+      ]} />
+
+      <main className="container mx-auto px-4 pb-8 sm:pb-12 max-w-2xl">
         <VolumeQuizCalculator />
       </main>
 

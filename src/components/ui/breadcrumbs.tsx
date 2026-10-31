@@ -8,13 +8,22 @@ interface BreadcrumbItem {
 
 interface BreadcrumbsProps {
   items: BreadcrumbItem[];
+  fullWidth?: boolean;
 }
 
-const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ items, fullWidth }: BreadcrumbsProps) => {
   const navigate = useNavigate();
 
+  const bar = fullWidth
+    ? "sticky top-[72px] md:top-[80px] z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+    : "sticky top-[72px] md:top-[80px] z-40 -mx-4 px-4 mb-6 bg-white/95 backdrop-blur-sm border-b border-gray-100";
+  const row = fullWidth
+    ? "container mx-auto px-4 py-2.5 flex items-center justify-between gap-4"
+    : "py-2.5 flex items-center justify-between gap-4";
+
   return (
-    <div className="sticky top-[72px] md:top-[80px] z-40 -mx-4 px-4 py-2.5 mb-6 flex items-center justify-between gap-4 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <div className={bar}>
+    <div className={row}>
       <button
         onClick={() => navigate(-1)}
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
@@ -40,6 +49,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
           </div>
         ))}
       </nav>
+    </div>
     </div>
   );
 };

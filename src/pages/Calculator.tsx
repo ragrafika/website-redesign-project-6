@@ -9,12 +9,10 @@ const Calculator = () => {
       <Header />
 
       <div className="pt-20">
-        <div className="container mx-auto px-4">
-          <Breadcrumbs items={[
-            { label: "Главная", path: "/" },
-            { label: "Калькулятор" }
-          ]} />
-        </div>
+        <Breadcrumbs fullWidth items={[
+          { label: "Главная", path: "/" },
+          { label: "Калькулятор" }
+        ]} />
         <CalculatorSection />
       </div>
 
