@@ -1,24 +1,19 @@
 import Header from "@/components/layout/Header";
 import CalculatorSection from "@/components/sections/CalculatorSection";
 import Footer from "@/components/Footer";
-import Icon from "@/components/ui/icon";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 const Calculator = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip">
       <Header />
 
       <div className="pt-20">
-        <div className="bg-gray-50 py-4 border-b">
-          <div className="container mx-auto px-4">
-            <nav className="flex items-center gap-2 text-sm">
-              <a href="/" className="text-muted-foreground hover:text-primary transition-colors">
-                Главная
-              </a>
-              <Icon name="ChevronRight" size={16} className="text-muted-foreground" />
-              <span className="text-foreground font-medium">Калькулятор</span>
-            </nav>
-          </div>
+        <div className="container mx-auto px-4">
+          <Breadcrumbs items={[
+            { label: "Главная", path: "/" },
+            { label: "Калькулятор" }
+          ]} />
         </div>
         <CalculatorSection />
       </div>
