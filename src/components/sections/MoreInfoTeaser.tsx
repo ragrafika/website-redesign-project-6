@@ -10,9 +10,15 @@ const items = [
   },
   {
     icon: "Layers",
-    title: "Комплектации вывесок и советы по выбору",
-    text: "Что входит в цену и на что обратить внимание при заказе",
+    title: "Вывески под ключ",
+    text: "Дизайн, согласование, изготовление и монтаж. Комплектации и советы по выбору",
     to: "/signage-turnkey",
+  },
+  {
+    icon: "Lightbulb",
+    title: "Виды вывесок",
+    text: "Объёмные буквы, световые короба, панель-кронштейны и другие типы",
+    to: "/signage",
   },
   {
     icon: "BookOpen",
@@ -26,7 +32,7 @@ const MoreInfoTeaser = () => (
   <section className="py-16 bg-muted/30 scroll-mt-24">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Хотите узнать подробнее?</h2>
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {items.map((item) => (
           <Link
             key={item.to}
