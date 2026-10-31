@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
-import CalculatorsBlockSection from "./CalculatorsBlockSection";
 import CalculateBlock from "./CalculateBlock";
 import HowWeWorkBlock from "./HowWeWorkBlock";
 import MoreInfoTeaser from "./MoreInfoTeaser";
@@ -432,7 +431,6 @@ const ContentSections = () => {
       )}
 
 
-      <CalculatorsBlockSection />
     </>
   );
 };
