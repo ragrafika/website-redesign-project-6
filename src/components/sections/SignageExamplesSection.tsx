@@ -67,7 +67,7 @@ const SignageExamplesSection = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {examples.map((ex) => (
+          {[...examples].sort((a, b) => a.price - b.price).map((ex) => (
             <article key={ex.title} className="bg-background border-2 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
               <div className="relative aspect-square bg-muted">
                 <img src={ex.image} alt={`${ex.title} — визуализация типовой вывески`} loading="lazy" className="w-full h-full object-cover" />
