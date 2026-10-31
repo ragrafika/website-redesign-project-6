@@ -90,6 +90,35 @@ const ContactSection = () => {
                 </CardContent>
               </Card>
             </div>
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <a
+                href="https://wa.me/79656713170"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold rounded-xl py-3 px-4 transition-colors"
+              >
+                <Icon name="MessageCircle" size={20} />
+                WhatsApp
+              </a>
+              <a
+                href="https://t.me/ragrafika"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#0088cc] hover:bg-[#006699] text-white font-semibold rounded-xl py-3 px-4 transition-colors"
+              >
+                <Icon name="Send" size={20} />
+                Telegram
+              </a>
+              <a
+                href="https://max.ru/u/f9LHodD0cOKASB-ZXfa0KQeVeidCfM-E7__-QVbgfFavZQs-CtbluHz4ajU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#FF4D00] hover:bg-[#E64400] text-white font-semibold rounded-xl py-3 px-4 transition-colors"
+              >
+                <Icon name="MessagesSquare" size={20} />
+                МАХ
+              </a>
+            </div>
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Оставьте заявку</h3>
