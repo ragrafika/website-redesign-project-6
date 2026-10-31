@@ -33,6 +33,12 @@ const items = [
     to: "/calculator",
   },
   {
+    icon: "Landmark",
+    title: "Государственный заказ",
+    text: "Работаем по нацпроектам, 44-ФЗ и 223-ФЗ",
+    to: "/national-projects",
+  },
+  {
     icon: "BookOpen",
     title: "Истории наших вывесок",
     text: "Подробные кейсы с фото: от идеи до монтажа",
@@ -44,7 +50,7 @@ const MoreInfoTeaser = () => (
   <section className="py-16 bg-muted/30 scroll-mt-24">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Хотите узнать подробнее?</h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {items.map((item) => (
           <Link
             key={item.to}
