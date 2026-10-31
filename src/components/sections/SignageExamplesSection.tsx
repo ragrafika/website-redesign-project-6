@@ -38,22 +38,18 @@ const examples = [
   },
   {
     title: "Кофейня",
-    type: "Объёмные световые буквы на подложке",
+    type: "Объёмные световые буквы на подложке (стандарт)",
     size: "150×40×10 см",
     light: "Светодиоды ELFLED",
     price: 30600,
-    tiers: { "Эконом": 29100, "Стандарт": 30600, "Премиум": 39900 },
-    included: "Изготовление, доставка в черте города, монтаж",
     image: `${CDN}05b4e140-2100-4781-bb7e-a7b747014541.jpg`,
   },
   {
     title: "Барбершоп",
-    type: "Объёмные буквы с прямым монтажом на фасад",
+    type: "Объёмные буквы с прямым монтажом на фасад (стандарт)",
     size: "300×38×7 см",
     light: "Светодиоды ELFLED",
     price: 58500,
-    tiers: { "Эконом": 53850, "Стандарт": 58500, "Премиум": 69300 },
-    included: "Изготовление, доставка в черте города, монтаж",
     image: `${CDN}5b27c35e-8bae-4a32-9838-360fcd9fe505.jpg`,
   },
 ];
@@ -85,21 +81,10 @@ const SignageExamplesSection = () => {
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Размер: {ex.size}</li>
                   <li>Подсветка: {ex.light}</li>
-                  <li>В стоимость включено: {(ex.included ?? included).toLowerCase()}</li>
+                  <li>В стоимость включено: {included.toLowerCase()}</li>
                 </ul>
                 <div className="mt-auto pt-2">
-                  {ex.tiers ? (
-                    <ul className="mb-3 space-y-1">
-                      {Object.entries(ex.tiers).map(([name, value]) => (
-                        <li key={name} className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">{name}</span>
-                          <span className={`font-bold ${name === "Стандарт" ? "text-primary text-lg" : ""}`}>{value.toLocaleString("ru-RU")} ₽</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
-                  )}
+                  <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
                   <OrderDialog
                     allowPhoto
                     calculatorType={`Пример вывески «${ex.title}» — рассчитать для моего фасада`}
@@ -109,8 +94,7 @@ const SignageExamplesSection = () => {
                       "Тип": ex.type,
                       "Размер": ex.size,
                       "Подсветка": ex.light,
-                      "В стоимость включено": ex.included ?? included,
-                      ...(ex.tiers ? Object.fromEntries(Object.entries(ex.tiers).map(([k, v]) => [`Цена (${k})`, `${v.toLocaleString("ru-RU")} ₽`])) : {}),
+                      "В стоимость включено": included,
                     }}
                   >
                     <Button className="w-full">Рассчитать для моего фасада</Button>
