@@ -38,6 +38,7 @@ const examples = [
   },
   {
     title: "Кофейня",
+    included: "Изготовление, доставка в черте города, монтаж",
     type: "Объёмные световые буквы на подложке (стандарт)",
     size: "150×40×10 см",
     light: "Светодиоды ELFLED",
@@ -46,6 +47,7 @@ const examples = [
   },
   {
     title: "Барбершоп",
+    included: "Изготовление, доставка в черте города, монтаж",
     type: "Объёмные буквы с прямым монтажом на фасад (стандарт)",
     size: "300×38×7 см",
     light: "Светодиоды ELFLED",
@@ -54,7 +56,7 @@ const examples = [
   },
 ];
 
-const included = "Изготовление, доставка в черте города, монтаж с автовышки";
+const defaultIncluded = "Изготовление, доставка в черте города, монтаж с автовышки";
 
 const SignageExamplesSection = () => {
   return (
@@ -81,7 +83,7 @@ const SignageExamplesSection = () => {
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Размер: {ex.size}</li>
                   <li>Подсветка: {ex.light}</li>
-                  <li>В стоимость включено: {included.toLowerCase()}</li>
+                  <li>В стоимость включено: {(ex.included ?? defaultIncluded).toLowerCase()}</li>
                 </ul>
                 <div className="mt-auto pt-2">
                   <p className="text-2xl font-bold text-primary mb-3">{ex.price.toLocaleString("ru-RU")} ₽</p>
@@ -94,7 +96,7 @@ const SignageExamplesSection = () => {
                       "Тип": ex.type,
                       "Размер": ex.size,
                       "Подсветка": ex.light,
-                      "В стоимость включено": included,
+                      "В стоимость включено": ex.included ?? defaultIncluded,
                     }}
                   >
                     <Button className="w-full">Рассчитать для моего фасада</Button>
