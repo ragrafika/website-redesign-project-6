@@ -3,7 +3,7 @@ import NeonParametersForm from "@/components/calculators/neon/NeonParametersForm
 import NeonPreviewCard from "@/components/calculators/neon/NeonPreviewCard";
 import NeonPriceSection from "@/components/calculators/neon/NeonPriceSection";
 import Icon from "@/components/ui/icon";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 
 export default function NeonCalculator() {

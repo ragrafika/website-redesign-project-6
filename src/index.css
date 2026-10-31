@@ -1,13 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap");
 
-@font-face {
-  font-family: "Geometria";
-  src: url("https://db.onlinewebfonts.com/t/1eb70124cb1ca4eb960547daff96a6bc.woff2")
-    format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* "Geometria" (700) is registered after page load in src/routes/__root.tsx */
 
 @tailwind base;
 @tailwind components;

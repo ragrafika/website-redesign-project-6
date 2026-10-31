@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

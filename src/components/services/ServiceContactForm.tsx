@@ -9,6 +9,7 @@ import { useEffect } from "react";
 interface ServiceContactFormProps {
   serviceName: string;
   onSuccess?: () => void;
+  compact?: boolean;
 }
 
 const ServiceContactForm = ({ serviceName, onSuccess }: ServiceContactFormProps) => {

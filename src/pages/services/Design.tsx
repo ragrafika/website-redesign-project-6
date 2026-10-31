@@ -8,7 +8,7 @@ import ServiceContactForm from "@/components/services/ServiceContactForm";
 import PhotoBeforeAfterBlock from "@/components/services/PhotoBeforeAfterBlock";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-noop";
 
 const Design = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

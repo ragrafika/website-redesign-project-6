@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-noop";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";

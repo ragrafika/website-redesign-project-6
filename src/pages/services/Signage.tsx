@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-noop";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,7 @@ import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceCards from "@/components/services/ServiceCards";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useState } from "react";
 import {
   Dialog,

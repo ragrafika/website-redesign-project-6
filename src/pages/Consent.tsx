@@ -1,4 +1,4 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from "@/lib/router-compat";
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import Footer from '@/components/Footer';
 
@@ -134,7 +134,7 @@ const Consent = () => {
           </section>
 
           <section>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500" suppressHydrationWarning>
               Дата последнего обновления: {new Date().toLocaleDateString('ru-RU')}
             </p>
           </section>

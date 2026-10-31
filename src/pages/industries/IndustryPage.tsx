@@ -1,11 +1,11 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-noop";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "@/lib/router-compat";
 import { getIndustryBySlug } from "@/data/industries";
 import type { IndustryTip } from "@/data/industries";
 import { useState } from "react";

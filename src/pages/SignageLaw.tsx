@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@/lib/router-compat";
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { DOCS } from "./signage-law/signageLawData";

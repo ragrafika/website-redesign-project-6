@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import { PROJECTS } from "./national-projects/nationalProjectsData";
 import NationalProjectsHero from "./national-projects/NationalProjectsHero";

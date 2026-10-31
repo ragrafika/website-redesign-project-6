@@ -11,7 +11,7 @@ import SignageExamplesSection from "./SignageExamplesSection";
 import TestimonialPhotos from "./TestimonialPhotos";
 import { PortfolioGallery, portfolioItems } from "@/components/PortfolioGallery";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 
 const services = [
   {

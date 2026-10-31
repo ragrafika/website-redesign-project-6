@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useState } from "react";
 import ServiceContactForm from "@/components/services/ServiceContactForm";
 import PhotoRequestForm from "@/components/services/PhotoRequestForm";
